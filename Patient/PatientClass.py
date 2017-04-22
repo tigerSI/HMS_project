@@ -1,5 +1,4 @@
-import AppointmentClass
-
+from Patient import PreReport
 
 class Patient:
     def __init__(self, AN):
@@ -10,7 +9,10 @@ class Patient:
         self.age = 0
         self.phoneNumber = ""
         self.pic = object
-        self.preInfo = PreInformationPatient
+        self.preReportDoctor = Patient.PreReportByDoctor
+        self.preReportNurse = Patient.PreReportByNurse
+        self.postReport = ""
+
 
     def setName(self, f, l):
         self.firstName = f
@@ -28,20 +30,6 @@ class Patient:
 
     def getPhoneNumber(self):
         return self.phoneNumber
-
-
-class PreInformationPatient:
-    def __init__(self, type):
-        self.opd = 0
-        self.type = type
-        self.appointment = AppointmentClass
-        self.preDiagonsis = ""
-
-    def setPreDiagonsis(self, text):
-        self.preDiagonsis = text
-
-    def getPreDiagonsis(self):
-        return self.preDiagonsis
 
 
 
