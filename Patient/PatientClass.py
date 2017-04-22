@@ -1,5 +1,6 @@
 from Patient import PreReportPatient, IntraReportPatient, PostReportPatient
 
+
 class Patient:
     def __init__(self, AN):
         """Pre-Pre Anesthesia"""
@@ -12,19 +13,16 @@ class Patient:
         self.preReportDoctor = Patient.PreReportByDoctor
         self.preReportNurse = Patient.PreReportByNurse
         self.intraReport = Patient.InraReportPatient
-        self.postReport = Patient.PostReportPatient
-
+        self.postReport = []
 
     def setName(self, f, l):
-        self.firstName = f
-        self.lastName = l
+        self.firstName, self.lastName = f, l
 
     def getName(self):
         return self.firstName, self.lastName
 
     def setAgePhone(self, a, num):
-        self.age = a
-        self.phoneNumber = num
+        self.age, self.phoneNumber = a, num
 
     def getAge(self):
         return self.age
@@ -32,5 +30,14 @@ class Patient:
     def getPhoneNumber(self):
         return self.phoneNumber
 
+    def editPreReportDoctor(self, preDoc):
+        self.preReportDoctor = preDoc
 
+    def editPreReportNurse(self, preNurse):
+        self.preReportNurse = preNurse
 
+    def editIntraReport(self, intra):
+        self.intraReport = intra
+
+    def addPostReport(self, post):
+        self.postReport.append(post)
