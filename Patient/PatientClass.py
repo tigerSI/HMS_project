@@ -1,4 +1,4 @@
-from Patient import PreReport
+from Patient import PreReportPatient, IntraReportPatient, PostReportPatient
 
 class Patient:
     def __init__(self, AN):
@@ -11,7 +11,8 @@ class Patient:
         self.pic = object
         self.preReportDoctor = Patient.PreReportByDoctor
         self.preReportNurse = Patient.PreReportByNurse
-        self.postReport = ""
+        self.intraReport = Patient.InraReportPatient
+        self.postReport = Patient.PostReportPatient
 
 
     def setName(self, f, l):
