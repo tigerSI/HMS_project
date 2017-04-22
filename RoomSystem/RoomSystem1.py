@@ -1,9 +1,10 @@
 from RoomSystem import RoomClass
 from RoomSystem import setting
 
+
 class RoomSystem:
     def __init__(self):
-        self.numberOfRoom = setting.NUMBER_OF_ROOM
+        self.numberOfRoom = 13
         self.allRoom = []
         self.initRoom()
 

@@ -1,6 +1,7 @@
 import sys
+from RoomSystem import RoomSystem1
+from RoomSystem import RoomClass
 from RoomSystem import setting
-from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
@@ -12,15 +13,21 @@ class RoomWindow(QMainWindow):
         self.ui = loader.load('RoomManagerUI.ui', self)
         self.setCentralWidget(self.ui)
         self.allRoomButton = []
+        self.initRoomButton()
+        self.system = RoomSystem1.RoomSystem()
 
     def initRoomButton(self):
-        for i in range(setting.NUMBER_OF_ROOM):
+        self.allRoomButton.append(self.ui.findChild(QPushButton, "buffer"))
+        for i in range(1, setting.NUMBER_OF_ROOM):
             name_room = "room_" + str(i)
-            self.allRoomButton[i] = self.ui.findChild(QPushButton, name_room)
+            self.allRoomButton.append(self.ui.findChild(QPushButton, name_room))
             self.allRoomButton[i].clicked.connect(self.getDataOfRoom)
 
     def getDataOfRoom(self):
-        print("boss")
+        for room in self.system.allRoom:
+            if room.number == int(self.sender().text()):
+                print("yeah")
+
 
 global w
 def main():
