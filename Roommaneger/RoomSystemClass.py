@@ -1,5 +1,5 @@
-from RoomSystem import RoomClass
-from RoomSystem import setting
+from Roommaneger import RoomClass
+from Roommaneger import setting
 
 
 class RoomSystem:

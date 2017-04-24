@@ -1,4 +1,4 @@
-from RoomSystem import setting
+from Roommaneger import setting
 
 
 class Room:

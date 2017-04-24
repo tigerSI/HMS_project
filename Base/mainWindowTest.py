@@ -38,7 +38,7 @@ class Window(QtGui.QMainWindow):
         del self.ui
         loader = QUiLoader()
         self.ui = loader.load('RoomManagerUI.ui', self)
-        self.tab.addTab(self.ui,"Dash")
+        self.tab.addTab(self.ui, "Dash")
         self.tab.setCurrentWidget(self.ui)
         print("boss")
 

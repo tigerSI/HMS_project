@@ -1,22 +1,27 @@
 import sys
-from RoomSystem import RoomSystem1
-from RoomSystem import RoomClass
-from RoomSystem import setting
+from Roommaneger import RoomSystemClass
+from Roommaneger import RoomClass
+from Roommaneger import setting
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 
 
-class RoomWindow(QMainWindow):
+class RoomWindow(QWidget):
     def __init__(self):
-        QMainWindow.__init__(self, None)
+        QWidget.__init__(self, None)
         loader = QUiLoader()
         self.ui = loader.load('RoomManagerUI.ui', self)
-        self.setCentralWidget(self.ui)
+        self.layout = QGridLayout()
+        self.layout.addWidget(self.ui)
         self.allRoomButton = []
         self.initRoomButton()
-        self.system = RoomSystem1.RoomSystem()
+        self.system = RoomSystemClass.RoomSystem()
+
+    def getUi(self):
+        return self.ui
 
     def initRoomButton(self):
+        print("init ")
         self.allRoomButton.append(self.ui.findChild(QPushButton, "buffer"))
         for i in range(1, setting.NUMBER_OF_ROOM):
             name_room = "room_" + str(i)
@@ -24,6 +29,7 @@ class RoomWindow(QMainWindow):
             self.allRoomButton[i].clicked.connect(self.getDataOfRoom)
 
     def getDataOfRoom(self):
+        print("in")
         for room in self.system.allRoom:
             if room.number == int(self.sender().text()):
                 print("yeah")
