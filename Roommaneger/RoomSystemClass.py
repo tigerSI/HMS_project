@@ -1,5 +1,6 @@
+from PySide.QtGui import QMessageBox
+
 from Roommaneger import RoomClass
-from Roommaneger import setting
 
 
 class RoomSystem:
@@ -17,3 +18,20 @@ class RoomSystem:
         for name in self.allRoom[num].allPatient:
             data.append(name)
         return data
+
+    def getDataOfRoom(self, num):
+        print(num)
+        text = "All Patient" + "\n"
+        text += "\tAtichat L." + "\n" +"\tSirapop S." + "\n" + "\tNuttera N."
+        self.getMsgBox(text)
+
+
+    def getMsgBox(self, allPatientName):
+        msgBox = QMessageBox()
+        msgBox.setText(allPatientName)
+        msgBox.addButton(QMessageBox.Ok)
+        msgBox.show()
+        msgBox.exec_()
+
+
+
