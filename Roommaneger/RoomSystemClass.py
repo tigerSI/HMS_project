@@ -19,16 +19,15 @@ class RoomSystem:
             data.append(name)
         return data
 
-    def getDataOfRoom(self, num):
-        print(num)
+    def getDataOfRoom(self, nRoom):
         text = "All Patient" + "\n"
         text += "\tAtichat L." + "\n" +"\tSirapop S." + "\n" + "\tNuttera N."
-        self.getMsgBox(text)
+        self.getMsgBox(text, nRoom)
 
-
-    def getMsgBox(self, allPatientName):
+    def getMsgBox(self, text, nRoom):
         msgBox = QMessageBox()
-        msgBox.setText(allPatientName)
+        msgBox.setWindowTitle("Room: " + str(nRoom))
+        msgBox.setText(text)
         msgBox.addButton(QMessageBox.Ok)
         msgBox.show()
         msgBox.exec_()
