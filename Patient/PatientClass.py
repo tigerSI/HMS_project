@@ -1,6 +1,5 @@
 from Patient import PreReportPatient, IntraReportPatient, PostReportPatient
 
-
 class Patient:
     def __init__(self, AN):
         """Pre-Pre Anesthesia"""
