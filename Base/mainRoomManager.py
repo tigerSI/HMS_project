@@ -10,7 +10,7 @@ class RoomWindow(QWidget):
     def __init__(self):
         QWidget.__init__(self, None)
         loader = QUiLoader()
-        self.ui = loader.load('RoomManagerUI.ui', self)
+        self.ui = loader.load('tab1_all_room.ui', self)
         self.layout = QGridLayout()
         self.layout.addWidget(self.ui)
         self.allRoomButton = []

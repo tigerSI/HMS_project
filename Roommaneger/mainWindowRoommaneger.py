@@ -28,8 +28,8 @@ class MainWindow(QMainWindow):
 
     def setTab(self):
         self.tabWidget.setStyleSheet("QTabBar::tab { height: 35px; width: 100px; }")
-        self.tab1 = self.loader.load('./view/RoomManagerUI.ui', self)
-        self.tab2 = self.loader.load('./view/ManageRoomForPatientUI.ui', self)
+        self.tab1 = self.loader.load('./view/tab1_all_room.ui', self)
+        self.tab2 = self.loader.load('./view/tab2_manage_patient.ui', self)
         self.tabWidget.addTab(self.tab1, "All Room")
         self.tabWidget.addTab(self.tab2, "Patient")
 
