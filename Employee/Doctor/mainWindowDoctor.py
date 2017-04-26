@@ -60,20 +60,61 @@ class TestDialog(QDialog):
         self.initButtons()
 
     def initButtons(self):
-        save = QPushButton("Save")
         buttons = QDialogButtonBox()
-        buttons.addButton(save, QDialogButtonBox.AcceptRole)
-        buttons.addButton(QDialogButtonBox.Cancel)
+        buttons.addButton(QDialogButtonBox.Save)
+        buttons.addButton(QDialogButtonBox.Discard)
         buttons.accepted.connect(self.accept)
         buttons.rejected.connect(self.reject)
         self.layout.addWidget(buttons)
 
-
-
-    def accept(self):
+    def accept(self, *args, **kwargs):
         print("accept")
-    def reject(self):
-        print("reject")
+
+    def reject(self, *args, **kwargs):
+        print("in reject")
+        # reply = QMessageBox.question("Yes", "No", QMessageBox.Yes, QMessageBox.No)
+        # reply.show()
+        # if reply == QMessageBox.Yes:
+        #     QApplication.quit()
+        #     print("Yes")
+        # else:
+        #     print("No")
+
+
+class ConfirmMsgBox(QWidget):
+    def __init__(self):
+        reply = QMessageBox.question("Yes", "No", QMessageBox.Yes, QMessageBox.No)
+        if reply == QMessageBox.Yes:
+            QApplication.quit()
+            print("Yes")
+        else:
+            print("No")
+        layout = QLayout()
+        layout.addWidget(reply)
+
+# QMessageBox msgBox;
+# msgBox.setText("The document has been modified.");
+# msgBox.setInformativeText("Do you want to save your changes?");
+# msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
+# msgBox.setDefaultButton(QMessageBox::Save);
+# int ret = msgBox.exec();
+#
+# switch (ret) {
+#   case QMessageBox::Save:
+#       // Save was clicked
+#       break;
+#   case QMessageBox::Discard:
+#       // Don't Save was clicked
+#       break;
+#   case QMessageBox::Cancel:
+#       // Cancel was clicked
+#       break;
+#   default:
+#       // should never be reached
+#       break;
+# }
+
+
 
 
 def main():
