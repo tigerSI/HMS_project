@@ -6,6 +6,7 @@ from PySide.QtUiTools import QUiLoader
 
 from Base.Dialog_MsgBox import ConfirmMsgClass
 from Patient import PatientClass
+"""dsahfjdskfsjfsdkfdslfk"""
 
 class AllLineEdit(QDialog):
     def __init__(self, parent = None):

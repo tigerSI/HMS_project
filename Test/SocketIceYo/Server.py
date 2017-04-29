@@ -1,6 +1,6 @@
 import socket
 
-from Handler import *
+from Test.SocketIceYo.Handler import *
 
 
 class Server:
