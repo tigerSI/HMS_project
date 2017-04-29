@@ -1,4 +1,4 @@
-from Employee.Roommaneger import setting
+from Employee.Roommanager import setting
 
 
 class Room:
