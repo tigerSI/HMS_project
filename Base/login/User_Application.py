@@ -1,10 +1,9 @@
 import psycopg2
-
+from Employee import EmployeeClass
 from Employee.Admin import AdminClass
 from Employee.Doctor import DoctorClass
 from Employee.Nurse import NurseClass
-from Employee.Roommaneger import RoommanagerClass
-
+from Employee.Roommanager import RoommanagerClass
 
 class User_Application():
     def __init__(self, username, password):

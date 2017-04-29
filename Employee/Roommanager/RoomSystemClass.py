@@ -1,6 +1,6 @@
 from PySide.QtGui import QMessageBox
 
-from Employee.Roommaneger import RoomClass
+from Employee.Roommanager import RoomClass
 
 
 class RoomSystem:
