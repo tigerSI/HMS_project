@@ -36,9 +36,9 @@ class TabManageEmployee(QWidget):
         self.b_edit.clicked.connect(self.editButtonPress)
 
     def editButtonPress(self):
-        index = self.proxyView.selectedIndexes()[1]
+        index = self.proxyView.selectedIndexes()[0]
         id = self.proxyModel.itemData(index)
-        print(id)
+        print(id[0])
 
 
     def setProxyView(self):
