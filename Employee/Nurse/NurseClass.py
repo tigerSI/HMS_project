@@ -1,4 +1,4 @@
-from Employee.Roommaneger import EmployeeClass
+from Employee import EmployeeClass
 
 
 class Nurse(EmployeeClass.Employee):
