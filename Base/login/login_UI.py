@@ -2,6 +2,7 @@ import sys
 from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
+from Base.login import User_Application
 
 class Login_UI(QWidget):
     def __init__(self, parent):
@@ -17,15 +18,13 @@ class Login_UI(QWidget):
         self.login_button = form.findChild(QPushButton, "button_login")
         self.login_button.clicked.connect(self.logIn)
 
-        self.signin_button = form.findChild(QPushButton, "button_signup")
-        self.signin_button.clicked.connect(self.signUp)
 
 
 
     def logIn(self):
-        self.parent.changePageLoginSection("login")
+        users = User_Application.User_Application(self.user_id.text(), self.password.text()).user
+        print(type(users))
+        self.parent.changePageLoginSection("login", users)
 
-    def signUp(self):
-        self.parent.changePageLoginSection("register")
 
 

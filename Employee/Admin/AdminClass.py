@@ -1,7 +1,6 @@
-from Employee.Roommaneger import EmployeeClass
+from Employee import EmployeeClass
 
 
-class Nurse(EmployeeClass.Employee):
+class Admin(EmployeeClass.Employee):
     def __init__(self, id, firstname, lastname, phone_number):
         EmployeeClass.Employee.__init__(self, id, firstname, lastname, phone_number)
-
