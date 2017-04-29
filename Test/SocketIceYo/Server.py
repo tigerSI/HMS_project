@@ -1,6 +1,6 @@
 import socket
-from Handler import *
-from Roommaneger import RoomSystemClass
+
+from Test.SocketIceYo.Handler import *
 
 
 class Server:

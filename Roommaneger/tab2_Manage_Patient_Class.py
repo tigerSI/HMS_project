@@ -86,7 +86,7 @@ def createMailModel(parent):
 if __name__ == '__main__':
     import sys
     app = QApplication(sys.argv)
-    window = Window()
+    window = Tab2ManagePatient()
     window.setSourceModel(createMailModel(window))
     window.show()
     sys.exit(app.exec_())
