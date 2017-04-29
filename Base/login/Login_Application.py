@@ -1,10 +1,7 @@
 import sys
-"""dsahfjdskfsjfsdkfdslfk"""
 from PySide.QtGui import *
 
-from login import signup_UI
-from login import login_UI
-from Roommaneger import mainWindowRoommaneger
+from Base.login import login_UI
 
 class Login_Application(QMainWindow):
     def __init__(self):
@@ -25,34 +22,21 @@ class Login_Application(QMainWindow):
 
         # Add widget
         self.login_widget = login_UI.Login_UI(self)
-        self.register_widget = signup_UI.Signup_UI(self)
-        self.roommaneger_widget = mainWindowRoommaneger.MainWindow()
         self.central_widget.addWidget(self.login_widget)
-        self.central_widget.addWidget(self.register_widget)
-        ##self.central_widget.addWidget(self.roommaneger_widget)
+
 
 
     # Change page signal (send from log in UI page)
-    def changePageLoginSection(self, signal = None):
-        if signal == "login":
+    def changePageLoginSection(self, signal = None, user = None):
+        if (signal == "login" and user != None):
             print('login pressed')
+            print(type(user))
             self.state = "Login"
-            ##self.centralWidget().setCurrentWidget(self.roommaneger_widget)
 
+        else:
+            ### create pop-up
+            print('Wrong login')
 
-        elif signal == "register":
-            self.centralWidget().setCurrentWidget(self.register_widget)
-
-
-    # Change Page signal (send from register UI page)
-    def changePageRegisterSection(self, signal = None):
-        if signal == "submit":
-            self.centralWidget().setCurrentWidget(self.register_widget)
-            self.state = 'Register Already'
-            print('submit')
-
-        elif signal == "back":
-            self.centralWidget().setCurrentWidget(self.login_widget)
 
 def main():
     app = QApplication(sys.argv)
