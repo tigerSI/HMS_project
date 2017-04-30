@@ -8,25 +8,16 @@ from Base.Dialog_MsgBox import ConfirmMsgClass
 from Patient import PatientClass
 
 class newDoctorDialog(QDialog):
-    def __init__(self, parent = None):
+    def __init__(self, parent=None):
         super(newDoctorDialog, self).__init__(parent)
-        self.setGeometry(300,200,400,400)
+        self.setGeometry(300, 200, 400, 400)
         self.loader = QUiLoader()
         self.ui = self.loader.load('./view/Dialog_newDoctorUI.ui', self)
         self.layout = QVBoxLayout(self)
         self.layout.addWidget(self.ui)
         self.initUI()
-
-
-
-        #Line Edit with QDoubleValidator must be int
-        # self.l = QLineEdit()
-        # validator = QDoubleValidator()
-        # self.l.setValidator(validator)
-        # self.l.textChanged.connect(self.check_state)
-        # self.l.textChanged.emit(self.l.text())
-        # self.layout.addWidget(self.l)
-        # self.show()
+        self.ans = []
+        self.show()
 
 
     def initUI(self):
@@ -40,26 +31,38 @@ class newDoctorDialog(QDialog):
         self.b_save = self.ui.findChild(QPushButton, "b_save")
         self.b_cancel = self.ui.findChild(QPushButton, "b_cancel")
         self.b_save.clicked.connect(self.save)
-        self.b_discard.clicked.connect(self.discard)
+        self.b_cancel.clicked.connect(self.cancel)
+        self.setValidation()
+        self.setLineEdit()
 
     def setLineEdit(self):
-        self.setInput[6].textchanged.connect(self.check_state)
+        self.setInput[5].textChanged.connect(self.check_state)
+        self.setInput[5].textChanged.emit(self.setInput[5].text())
 
     def setValidation(self):
-        checkInt = QIntValidator()
-        self.setInput[6].setValidator(checkInt)
+        checkInt = QDoubleValidator()
+        self.setInput[5].setValidator(checkInt)
 
     def check_state(self, *args, **kwargs):
-        sender = self.sender()
-        validator = sender.validator()
-        state = validator.validate(sender.text(), 0)[0]
-        if state == QValidator.Acceptable:
-            color = '#c4df9b'  # green
-        elif state == QValidator.Intermediate:
-            color = '#fff79a'  # yellow
+        if self.setInput[3].text() == self.setInput[4].text():
+            color = '#c4df9b'
+            self.setInput[4].setStyleSheet('QLineEdit { background-color: %s }' % color)
+            sender = self.sender()
+            validator = sender.validator()
+            state = validator.validate(sender.text(), 0)[0]
+            if state == QValidator.Acceptable:
+                color = '#c4df9b'  # green
+            elif state == QValidator.Intermediate:
+                color = '#fff79a'  # yellow
+            else:
+                color = '#f6989d'  # red
+            sender.setStyleSheet('QLineEdit { background-color: %s }' % color)
         else:
-            color = '#f6989d'  # red
-        sender.setStyleSheet('QLineEdit { background-color: %s }' % color)
+            color = '#f6989d'
+            self.setInput[4].setStyleSheet('QLineEdit { background-color: %s }' % color)
+
+    def check_password(self, *args, **kwargs):
+        pass
 
     def onTextChange(self, text):
         regExp = QRegExp()
@@ -75,11 +78,11 @@ class newDoctorDialog(QDialog):
             QToolTip.showText(point, "Cannot enter number..")
 
     def save(self):
-        self.ans = []
-        for i in range(len(self.setInput1)):
-            self.ans.append(self.setInput1[i].text())
-        print(self.ans)
-        return True
+        text = []
+        for lineEdit in self.setInput:
+            text.append(lineEdit.text())
+        #save to database
+        self.close()
 
     def cancel(self):
         dialog = ConfirmMsgClass.ConfirmYesNo()
@@ -91,8 +94,9 @@ class newDoctorDialog(QDialog):
 
 def main():
     app = QApplication(sys.argv)
-    win = ExampleDialog()
-    exit(app.exec_())
+    win = newDoctorDialog()
+    print(win.ans)
+    win.exec_()
 
 if __name__ == "__main__":
     main()
