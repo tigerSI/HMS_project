@@ -3,23 +3,28 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 from Base import comboBoxClass
+from Employee.Admin import Dialog_newDoctorClass
 
 class TabManageEmployee(QWidget):
-    def __init__(self):
+    def __init__(self, Employee):
         QWidget.__init__(self)
+        self.Employee = Employee
         self.filterColumnComboBox = comboBoxClass.ComboBoxWithTypingSearch()
         self.filterPatternLineEdit = QLineEdit()
         self.setUI()
         self.setConnect()
 
+
     def setUI(self):
         loader = QUiLoader()
         form = loader.load('./view/Tab_ManageEmployee.ui', self)
         self.proxyView = form.findChild(QTreeView, 'treeView')
-        self.b_edit = form.findChild(QPushButton, 'b_edit')
         self.layoutSearch = form.findChild(QHBoxLayout, 'layout_search')
+        self.b_edit = form.findChild(QPushButton, 'b_edit')
+        self.b_newEmployee = QPushButton("new " + self.Employee)
         self.layoutSearch.addWidget(self.filterColumnComboBox)
         self.layoutSearch.addWidget(self.filterPatternLineEdit)
+        self.layoutSearch.addWidget(self.b_newEmployee)
         self.setProxyView()
 
     def setComboBox(self, lstHead):
@@ -33,13 +38,18 @@ class TabManageEmployee(QWidget):
     def setConnect(self):
         self.filterPatternLineEdit.textChanged.connect(self.filterRegExpChanged)
         self.filterColumnComboBox.currentIndexChanged.connect(self.filterColumnChanged)
-        self.b_edit.clicked.connect(self.editButtonPress)
+        self.b_edit.clicked.connect(self.editEmployee)
+        self.b_newEmployee.clicked.connect(self.newEmployee)
 
-    def editButtonPress(self):
+    def editEmployee(self):
         index = self.proxyView.selectedIndexes()[0]
         id = self.proxyModel.itemData(index)
         print(id[0])
 
+    def newEmployee(self):
+        dialog = Dialog_newDoctorClass.newDoctorDialog()
+        ans = dialog.exec_()
+        print(ans)
 
     def setProxyView(self):
         self.proxyView.setRootIsDecorated(False)
@@ -83,7 +93,7 @@ class TabManageEmployee(QWidget):
 if __name__ == '__main__':
     import sys
     app = QApplication(sys.argv)
-    tab1_widget = TabManageEmployee()
+    tab1_widget = TabManageEmployee("Doctor")
     lstHead = ["NAME","ID", "Position", "Phone"]
     allRow = [("Atichat","001", "Brain", "0971249197"), ("Tiger","002","Chest", "0971249194")]
     tab1_widget.setSourceModel(lstHead, allRow)

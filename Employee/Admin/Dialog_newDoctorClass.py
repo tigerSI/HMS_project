@@ -8,14 +8,17 @@ from Base.Dialog_MsgBox import ConfirmMsgClass
 from Patient import PatientClass
 
 class newDoctorDialog(QDialog):
-    def __init__(self, parent = None):
+    def __init__(self, parent=None):
         super(newDoctorDialog, self).__init__(parent)
-        self.setGeometry(300,200,400,400)
+        self.setGeometry(300, 200, 400, 400)
         self.loader = QUiLoader()
         self.ui = self.loader.load('./view/Dialog_newDoctorUI.ui', self)
         self.layout = QVBoxLayout(self)
         self.layout.addWidget(self.ui)
         self.initUI()
+        self.ans = []
+        self.show()
+
 
     def initUI(self):
         self.setInput = []
@@ -75,11 +78,11 @@ class newDoctorDialog(QDialog):
             QToolTip.showText(point, "Cannot enter number..")
 
     def save(self):
-        self.ans = []
-        for i in range(len(self.setInput1)):
-            self.ans.append(self.setInput1[i].text())
-        print(self.ans)
-        return True
+        text = []
+        for lineEdit in self.setInput:
+            text.append(lineEdit.text())
+        #save to database
+        self.close()
 
     def cancel(self):
         dialog = ConfirmMsgClass.ConfirmYesNo()
@@ -92,8 +95,8 @@ class newDoctorDialog(QDialog):
 def main():
     app = QApplication(sys.argv)
     win = newDoctorDialog()
-    win.show()
-    exit(app.exec_())
+    print(win.ans)
+    win.exec_()
 
 if __name__ == "__main__":
     main()

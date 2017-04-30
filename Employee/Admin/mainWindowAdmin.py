@@ -22,12 +22,15 @@ class MainWindow(QMainWindow):
         self.show()
 
     def setTab(self):
-        lstHeadDoctor = ["Username","Password", "ID", "Firstname", "Lastname", "Phone", "Position"]
-        lstHeadNurse = ["Username","Password", "ID", "Firstname", "Lastname", "Phone"]
-        lstHeadRoom = ["Username","Password", "ID", "Firstname", "Lastname", "Phone"]
-        allRowDatabaseDoctor = getDoctorDB()
-        allRowDatabaseNurse = getNurseDB()
-        allRowDatabaseRoom = getRoomDB()
+        lstHeadDoctor = ["Username", "Password", "ID", "Firstname", "Lastname", "Phone", "Position"]
+        lstHeadNurse = ["Username", "Password", "ID", "Firstname", "Lastname", "Phone"]
+        lstHeadRoom = ["Username", "Password", "ID", "Firstname", "Lastname", "Phone"]
+        # allRowDatabaseDoctor = getDoctorDB()
+        # allRowDatabaseNurse = getNurseDB()
+        # allRowDatabaseRoom = getRoomDB()
+        allRowDatabaseDoctor = []
+        allRowDatabaseNurse = []
+        allRowDatabaseRoom = []
         self.tabWidget.setStyleSheet("QTabBar::tab { height: 35px; width: 100px; }")
         self.tab1 = Tab_ManageEmployeeClass.TabManageEmployee()
         self.tab1.setSourceModel(lstHeadDoctor, allRowDatabaseDoctor)
@@ -38,7 +41,6 @@ class MainWindow(QMainWindow):
         self.tabWidget.addTab(self.tab1, "Doctor")
         self.tabWidget.addTab(self.tab2, "Nurse")
         self.tabWidget.addTab(self.tab3, "RoomManager")
-
 
 
 def getDoctorDB():
@@ -174,6 +176,7 @@ def main():
     app = QApplication(sys.argv)
     win = MainWindow()
     exit(app.exec_())
+
 
 if __name__ == "__main__":
     main()
