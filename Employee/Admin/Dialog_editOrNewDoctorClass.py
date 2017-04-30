@@ -7,9 +7,11 @@ from PySide.QtUiTools import QUiLoader
 from Base.Dialog_MsgBox import ConfirmMsgClass
 from Patient import PatientClass
 
-class newDoctorDialog(QDialog):
-    def __init__(self, parent=None):
-        super(newDoctorDialog, self).__init__(parent)
+class EditOrNewDoctorDialog(QDialog):
+    def __init__(self, editOrNew, id=0, parent=None):
+        super(EditOrNewDoctorDialog, self).__init__(parent)
+        self.editOrNew = editOrNew
+        self.idEmployee = id
         self.setGeometry(300, 200, 400, 400)
         self.loader = QUiLoader()
         self.ui = self.loader.load('./view/Dialog_newDoctorUI.ui', self)
@@ -36,6 +38,12 @@ class newDoctorDialog(QDialog):
         self.setLineEdit()
 
     def setLineEdit(self):
+        if self.idEmployee != 0:
+            text = []
+            #getText from database
+            for i in range(len(self.setInput)):
+                self.setInput[i].setText(text[i])
+
         self.setInput[5].textChanged.connect(self.check_state)
         self.setInput[5].textChanged.emit(self.setInput[5].text())
 
@@ -94,7 +102,7 @@ class newDoctorDialog(QDialog):
 
 def main():
     app = QApplication(sys.argv)
-    win = newDoctorDialog()
+    win = EditOrNewDoctorDialog()
     print(win.ans)
     win.exec_()
 

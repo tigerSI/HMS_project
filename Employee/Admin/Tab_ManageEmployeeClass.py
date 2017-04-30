@@ -3,7 +3,7 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 from Base import comboBoxClass
-from Employee.Admin import Dialog_newDoctorClass
+from Employee.Admin import Dialog_editOrNewDoctorClass
 
 class TabManageEmployee(QWidget):
     def __init__(self, Employee):
@@ -47,7 +47,7 @@ class TabManageEmployee(QWidget):
         print(id[0])
 
     def newEmployee(self):
-        dialog = Dialog_newDoctorClass.newDoctorDialog()
+        dialog = Dialog_editOrNewDoctorClass.newDoctorDialog()
         ans = dialog.exec_()
         print(ans)
 
