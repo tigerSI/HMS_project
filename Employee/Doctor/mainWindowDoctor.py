@@ -39,14 +39,8 @@ class MainWindow(QMainWindow):
         b_newPatient.clicked.connect(self.addNewPatient)
 
     def addNewPatient(self):
-        q = QDialog()
-        # allTab = self.loader.load('./view/dialog_newPatient.ui', self)
-        # allTab.setModal(True)
-        # allTab.setGeometry(600,600,600,1000)
-        # allTab.show()
-        dialog = TestDialog()
-        dialog.show()
-        dialog.exec_()
+        pass
+
 
 
 
