@@ -1,23 +1,49 @@
-from PySide.QtCore import *
+import setting
 from PySide.QtGui import *
-from PySide.QtUiTools import *
-
+from Base.ManagePerson import Widget_ManagePersonClass
+from Employee.Doctor.GuiClass import Dialog_3ReportPatientClass, Dialog_NewPatient
 
 class Tab2Patient(QWidget):
     def __init__(self):
         QWidget.__init__(self)
-        self.setUI()
-        self.setConnect()
+        self.initUI()
+        self.initLayout()
+        self.initButton()
+        self.initConnect()
 
-    def setUI(self):
-        loader = QUiLoader()
-        form = loader.load('./view/Tab2_Patient.ui', self)
+    def initUI(self):
+        self.tab2 = Widget_ManagePersonClass.WidgetManagePerson("Patient")
+        allRow = [("Atichat", "001", "Brain", "0971249197"), ("Tiger", "002", "Chest", "0971249194")]
+        self.tab2.setSourceModel(setting.HEAD_BAR_PATIENT, allRow)
+
+    def initLayout(self):
+        layout = QGridLayout()
+        layout.addWidget(self.tab2)
+        self.setLayout(layout)
+
+    def initButton(self):
+        self.b_view = self.tab2.b_edit
+        self.b_newPatient = self.tab2.b_newPerson
+
+    def initConnect(self):
+        self.b_view.clicked.connect(self.viewPatient)
+        self.b_newPatient.clicked.connect(self.newPatient)
+
+    def viewPatient(self):
+        dialog = Dialog_3ReportPatientClass.ReportPatient()
+        dialog.show()
+        dialog.exec_()
+
+    def newPatient(self):
+        dialog = Dialog_NewPatient.NewPatientDialog()
+        dialog.show()
+        dialog.exec_()
+
 
 
 if __name__ == '__main__':
     import sys
-
+    from PySide.QtGui import QApplication
     app = QApplication(sys.argv)
-    tab1_widget = Tab2Patient()
-    tab1_widget.show()
+    tab2_widget = Tab2Patient()
     sys.exit(app.exec_())

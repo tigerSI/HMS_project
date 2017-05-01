@@ -9,7 +9,6 @@ class Time:
     def __init__(self):
         pass
 
-
 class Appointment:
     def __init__(self):
         self.date = Date(0, 0, 0)

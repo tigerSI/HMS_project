@@ -14,7 +14,7 @@ class EditOrNewEmployeeDialog(QDialog):
         self.idEmployee = id
         self.setGeometry(300, 200, 400, 400)
         self.loader = QUiLoader()
-        self.ui = self.loader.load('./view/Dialog_EditOrNewEmployeeUI.ui', self)
+        self.ui = self.loader.load('./View/Dialog_EditOrNewEmployeeUI.ui', self)
         self.layout = QVBoxLayout(self)
         self.layout.addWidget(self.ui)
         self.initUI()

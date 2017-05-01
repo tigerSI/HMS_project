@@ -1,21 +1,18 @@
 import sys
 
-from PySide.QtCore import QRegExp, QPoint, QEvent
+from PySide.QtCore import QEvent
 from PySide.QtGui import *
 from PySide.QtUiTools import QUiLoader
 
 from Base.Dialog_MsgBox import ConfirmMsgClass
-from Base import widget_dateEditWithCalendarClass
-from Patient import PatientClass
-import AppointmentClass
 
 
-class newPatientDialog(QDialog):
+class NewPatientDialog(QDialog):
     def __init__(self, parent=None):
-        super(newPatientDialog, self).__init__(parent)
+        super(NewPatientDialog, self).__init__(parent)
         self.setGeometry(300, 200, 400, 400)
         self.loader = QUiLoader()
-        self.ui = self.loader.load('./view/Widget_AppointmentUI.ui', self)
+        self.ui = self.loader.load('../View/Widget_AppointmentUI.ui', self)
         self.layout = QVBoxLayout(self)
         self.layout.addWidget(self.ui)
         self.initUI()
@@ -68,7 +65,7 @@ class newPatientDialog(QDialog):
 
 def main():
     app = QApplication(sys.argv)
-    win = newPatientDialog()
+    win = NewPatientDialog()
     win.exec_()
 
 

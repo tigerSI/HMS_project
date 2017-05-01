@@ -12,7 +12,7 @@ class ReportPatient(QDialog):
         super(ReportPatient, self).__init__(parent)
         self.setGeometry(100, 100, 400, 400)
         self.loader = QUiLoader()
-        ui = self.loader.load('./view/Widget_3ReportPatientUI.ui', self)
+        ui = self.loader.load('./View/Widget_3ReportPatientUI.ui', self)
         self.layout = QVBoxLayout(self)
         self.layout.addWidget(ui)
         self.initPostButtons(ui)

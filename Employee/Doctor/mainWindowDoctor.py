@@ -1,12 +1,7 @@
-import sys
-
-from PySide.QtCore import QDateTime, Qt
-
-import ControllerClass
 from PySide.QtGui import *
 from PySide.QtUiTools import QUiLoader
-from Employee.Doctor import Widget_3ReportPatientClass
-from Patient.view import *
+from Employee.Doctor import Tab1_CalendarClass, Tab2_PatientClass
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -15,7 +10,6 @@ class MainWindow(QMainWindow):
         self.tabWidget = QTabWidget()
         self.centralWidget = QWidget()
         self.initUI()
-        self.initButtonTab2()
 
     def initUI(self):
         self.setGeometry(50, 50, 800, 600)
@@ -29,34 +23,13 @@ class MainWindow(QMainWindow):
 
     def setTab(self):
         self.tabWidget.setStyleSheet("QTabBar::tab { height: 35px; width: 100px; }")
-        self.tab1 = self.loader.load('./view/Tab1_CalendarUI.ui', self)
-        self.tab2 = self.loader.load('./view/Tab2_PatientUI.ui', self)
+        self.tab1 = Tab1_CalendarClass.Tab1Calendar()
+        self.tab2 = Tab2_PatientClass.Tab2Patient()
         self.tabWidget.addTab(self.tab1, "Dashboard")
         self.tabWidget.addTab(self.tab2, "Patient")
 
-    def initButtonTab2(self):
-        b_newPatient = self.tab2.findChild(QPushButton, "b_newPatient")
-        b_newPatient.clicked.connect(self.addNewPatient)
-
-    def addNewPatient(self):
-        print("in")
-        dialog = Widget_3ReportPatientClass.ReportPatient()
-        dialog.show()
-        dialog.exec_()
-        print("out")
-
-
-
-
-
-
-
-
-
-def main():
+if __name__ == "__main__":
+    import sys
     app = QApplication(sys.argv)
     win = MainWindow()
     exit(app.exec_())
-
-if __name__ == "__main__":
-    main()
