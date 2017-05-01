@@ -15,7 +15,7 @@ class newPatientDialog(QDialog):
         super(newPatientDialog, self).__init__(parent)
         self.setGeometry(300, 200, 400, 400)
         self.loader = QUiLoader()
-        self.ui = self.loader.load('./view/widget_appointment.ui', self)
+        self.ui = self.loader.load('./view/Widget_AppointmentUI.ui', self)
         self.layout = QVBoxLayout(self)
         self.layout.addWidget(self.ui)
         self.initUI()

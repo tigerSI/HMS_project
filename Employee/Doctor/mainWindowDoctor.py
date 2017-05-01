@@ -14,7 +14,6 @@ class MainWindow(QMainWindow):
         self.tabWidget = QTabWidget()
         self.centralWidget = QWidget()
         self.initUI()
-        #self.initButtonTab1()
         self.initButtonTab2()
 
     def initUI(self):
@@ -29,8 +28,8 @@ class MainWindow(QMainWindow):
 
     def setTab(self):
         self.tabWidget.setStyleSheet("QTabBar::tab { height: 35px; width: 100px; }")
-        self.tab1 = self.loader.load('./view/tab1_Calendar.ui', self)
-        self.tab2 = self.loader.load('./view/tab2_Patient.ui', self)
+        self.tab1 = self.loader.load('./view/Tab1_CalendarUI.ui', self)
+        self.tab2 = self.loader.load('./view/Tab2_PatientUI.ui', self)
         self.tabWidget.addTab(self.tab1, "Dashboard")
         self.tabWidget.addTab(self.tab2, "Patient")
 
