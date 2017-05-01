@@ -1,5 +1,5 @@
 import sys
-
+import psycopg2
 from PySide.QtCore import QRegExp, QPoint
 from PySide.QtGui import *
 from PySide.QtUiTools import QUiLoader
@@ -8,13 +8,13 @@ from Base.Dialog_MsgBox import ConfirmMsgClass
 from Patient import PatientClass
 
 class EditOrNewEmployeeDialog(QDialog):
-    def __init__(self, editOrNew="", id=0, parent=None):
+    def __init__(self, editOrNew, id=0, parent=None):
         super(EditOrNewEmployeeDialog, self).__init__(parent)
         self.editOrNew = editOrNew
         self.idEmployee = id
         self.setGeometry(300, 200, 400, 400)
         self.loader = QUiLoader()
-        self.ui = self.loader.load('./view/Dialog_newEmployeeUI.ui', self)
+        self.ui = self.loader.load('./view/Dialog_EditOrNewEmployeeUI.ui', self)
         self.layout = QVBoxLayout(self)
         self.layout.addWidget(self.ui)
         self.initUI()
@@ -41,7 +41,7 @@ class EditOrNewEmployeeDialog(QDialog):
     def setLineEdit(self):
         if self.idEmployee != 0:
             text = []
-            #getText from database
+            #getText from database search
             for i in range(len(self.setInput)):
                 self.setInput[i].setText(text[i])
 
@@ -90,7 +90,22 @@ class EditOrNewEmployeeDialog(QDialog):
         text = []
         for lineEdit in self.setInput:
             text.append(lineEdit.text())
-        #save to database
+        try:
+            sql_insert = """INSERT INTO users VALUES(%s, %s, %s)"""
+            sql_insert1 ="""INSERT INTO doctor VALUES(%s, %s, %s, %s, %s)"""
+            conn_string = "host='localhost' dbname='postgres' user='postgres' password='4141'"
+            conn = psycopg2.connect(conn_string)
+            cursor = conn.cursor()
+            cursor.execute(sql_insert,(text[0], text[1], text[2],))
+            cursor.close()
+
+            cursor = conn.cursor()
+            cursor.execute(sql_insert1, (text[3], text[4], text[5], text[6], text[7],))
+            cursor.close()
+        except(Exception, psycopg2.DatabaseError) as error:
+            print(error)
+        finally:
+            conn.close()
         self.close()
 
     def cancel(self):
@@ -103,7 +118,7 @@ class EditOrNewEmployeeDialog(QDialog):
 
 def main():
     app = QApplication(sys.argv)
-    win = EditOrNewEmployeeDialog("New")
+    win = EditOrNewEmployeeDialog('new')
     print(win.ans)
     win.exec_()
 

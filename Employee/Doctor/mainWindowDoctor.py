@@ -5,6 +5,7 @@ from PySide.QtCore import QDateTime, Qt
 import ControllerClass
 from PySide.QtGui import *
 from PySide.QtUiTools import QUiLoader
+from Employee.Doctor import Widget_3ReportPatientClass
 from Patient.view import *
 
 class MainWindow(QMainWindow):
@@ -38,7 +39,14 @@ class MainWindow(QMainWindow):
         b_newPatient.clicked.connect(self.addNewPatient)
 
     def addNewPatient(self):
-        pass
+        print("in")
+        dialog = Widget_3ReportPatientClass.ReportPatient()
+        dialog.show()
+        dialog.exec_()
+        print("out")
+
+
+
 
 
 

@@ -2,9 +2,7 @@ import sys
 
 from PySide.QtGui import *
 from PySide.QtUiTools import QUiLoader
-from Roommaneger import RoomSystemClass
-
-from Employee.Roommanager import setting
+from Employee.Roommanager import setting, RoomSystemClass, RoomClass
 
 
 class MainWindow(QMainWindow):

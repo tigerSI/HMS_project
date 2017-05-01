@@ -14,6 +14,12 @@ class Tab1Calendar(QWidget):
         form = loader.load('./view/Tab1_CalendarUI.ui', self)
         self.calendar = form.findChild(QCalendarWidget, 'calendarWidget')
         self.labelDate = form.findChild(QLabel, 'label_date')
+        self.calendar.selectionChanged.connect(self.selectedDateChanged)
+
+    def selectedDateChanged(self):
+        date = self.calendar.selectedDate().toString()
+        self.labelDate.setText(date)
+
 
     def setConnect(self):
         c = QCalendarWidget()
@@ -23,7 +29,6 @@ class Tab1Calendar(QWidget):
 
 if __name__ == '__main__':
     import sys
-
     app = QApplication(sys.argv)
     tab1_widget = Tab1Calendar()
     tab1_widget.show()

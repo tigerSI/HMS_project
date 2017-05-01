@@ -32,11 +32,11 @@ class MainWindow(QMainWindow):
         allRowDatabaseNurse = []
         allRowDatabaseRoom = []
         self.tabWidget.setStyleSheet("QTabBar::tab { height: 35px; width: 100px; }")
-        self.tab1 = Tab_ManageEmployeeClass.TabManageEmployee()
+        self.tab1 = Tab_ManageEmployeeClass.TabManageEmployee("Doctor")
         self.tab1.setSourceModel(lstHeadDoctor, allRowDatabaseDoctor)
-        self.tab2 = Tab_ManageEmployeeClass.TabManageEmployee()
+        self.tab2 = Tab_ManageEmployeeClass.TabManageEmployee("Nurse")
         self.tab2.setSourceModel(lstHeadNurse, allRowDatabaseNurse)
-        self.tab3 = Tab_ManageEmployeeClass.TabManageEmployee()
+        self.tab3 = Tab_ManageEmployeeClass.TabManageEmployee("Room manager")
         self.tab3.setSourceModel(lstHeadNurse, allRowDatabaseRoom)
         self.tabWidget.addTab(self.tab1, "Doctor")
         self.tabWidget.addTab(self.tab2, "Nurse")

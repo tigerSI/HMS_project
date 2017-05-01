@@ -3,7 +3,7 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
 from Base import comboBoxClass
-from Employee.Admin import Dialog_editOrNewDoctorClass
+from Employee.Admin import Dialog_editOrNewEmployeeClass
 
 class TabManageEmployee(QWidget):
     def __init__(self, Employee):
@@ -42,12 +42,15 @@ class TabManageEmployee(QWidget):
         self.b_newEmployee.clicked.connect(self.newEmployee)
 
     def editEmployee(self):
-        index = self.proxyView.selectedIndexes()[0]
-        id = self.proxyModel.itemData(index)
-        print(id[0])
+        # index = self.proxyView.selectedIndexes()[0]
+        # id = self.proxyModel.itemData(index)
+        # print(id[0])
+        dialog = Dialog_editOrNewEmployeeClass.EditOrNewDoctorDialog("Edit")
+        ans = dialog.exec_()
+        print(ans)
 
     def newEmployee(self):
-        dialog = Dialog_editOrNewDoctorClass.newDoctorDialog()
+        dialog = Dialog_editOrNewEmployeeClass.EditOrNewDoctorDialog("New")
         ans = dialog.exec_()
         print(ans)
 
