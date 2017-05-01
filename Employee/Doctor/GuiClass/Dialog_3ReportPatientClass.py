@@ -6,11 +6,13 @@ import ControllerClass
 from PySide.QtGui import *
 from PySide.QtUiTools import QUiLoader
 from Patient.view import *
+import setting
 
 class ReportPatient(QDialog):
     def __init__(self, parent = None):
         super(ReportPatient, self).__init__(parent)
-        self.setGeometry(100, 100, 400, 400)
+        posX, posY, sizeW, sizeH = setting.GEOMETRY_DIALOG_3REPORT
+        self.setGeometry(posX, posY, sizeW, sizeH)
         self.loader = QUiLoader()
         ui = self.loader.load('./View/Widget_3ReportPatientUI.ui', self)
         self.layout = QVBoxLayout(self)

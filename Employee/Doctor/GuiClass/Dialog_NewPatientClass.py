@@ -1,53 +1,51 @@
-import sys
-
-from PySide.QtCore import QEvent
+from PySide.QtCore import QEvent, Qt
 from PySide.QtGui import *
 from PySide.QtUiTools import QUiLoader
 
 from Base.Dialog_MsgBox import ConfirmMsgClass
+import setting
 
 
 class NewPatientDialog(QDialog):
     def __init__(self, parent=None):
         super(NewPatientDialog, self).__init__(parent)
-        self.setGeometry(300, 200, 400, 400)
-        self.loader = QUiLoader()
-        self.ui = self.loader.load('../View/Widget_AppointmentUI.ui', self)
-        self.layout = QVBoxLayout(self)
-        self.layout.addWidget(self.ui)
+        posX, posY, sizeW, sizeH = setting.GEOMETRY_DIALOG_NEW_PATIENT
+        self.setGeometry(posX, posY, sizeW, sizeH)
         self.initUI()
+        self.initLayout()
+        self.initButton()
+        self.initConnect()
+        self.setDateEdit()
 
     def initUI(self):
-        self.comboBoxType = self.ui.findChild(QComboBox, "comboBox_type")
+        self.ui = QUiLoader().load('./View/Widget_NewPatientUI.ui', self)
+        #self.comboBoxType = self.ui.findChild(QComboBox, "comboBox_type")
         self.dateEdit = self.ui.findChild(QDateEdit, "dateEdit")
-        self.setDateEdit()
-        self.comboBoxTime = self.ui.findChild(QComboBox, "comboBox_time")
-        self.b_save = self.ui.findChild(QPushButton, "b_save")
-        # self.b_cancel = self.ui.findChild(QPushButton, "b_cancel")
-        self.b_save.clicked.connect(self.save)
-        # self.b_cancel.clicked.connect(self.cancel)
+        #self.comboBoxTime = self.ui.findChild(QComboBox, "comboBox_time")
+
+    def initLayout(self):
+        layout = QGridLayout()
+        layout.addWidget(self.ui)
+        self.setLayout(layout)
+
+    def initButton(self):
+        pass
+
+    def initConnect(self):
+        pass
 
     def setDateEdit(self):
         self.dateEdit.setCalendarPopup(True)
         self.dateEdit.calendarWidget().installEventFilter(self)
+        self.dateEdit.calendarWidget().setFirstDayOfWeek(Qt.Monday)
 
     def eventFilter(self, obj, event):
         if obj == self.dateEdit.calendarWidget() and event.type() == QEvent.Show:
             pos = self.dateEdit.mapToGlobal(self.dateEdit.geometry().bottomRight())
-            width = self.dateEdit.calendarWidget().window().width()
-            self.dateEdit.calendarWidget().window().move(pos.x() - width, pos.y())
+            self.dateEdit.calendarWidget().window().move(pos.x(), pos.y())
         return False
 
-    def setLineEdit(self):
-        pass
-
     def save(self):
-        # text = []
-        # for lineEdit in self.setInput:
-        #     text.append(lineEdit.text())
-        # save to database
-        d = QDateEdit()
-        # d.dateTimeFromText()
         type = self.comboBoxType.currentText()
         date = self.dateEdit.text()
         time = self.comboBoxTime.currentText()
@@ -63,11 +61,8 @@ class NewPatientDialog(QDialog):
             print("Cancel")
 
 
-def main():
+if __name__ == "__main__":
     app = QApplication(sys.argv)
     win = NewPatientDialog()
+    win.show()
     win.exec_()
-
-
-if __name__ == "__main__":
-    main()

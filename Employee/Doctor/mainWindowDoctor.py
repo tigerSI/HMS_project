@@ -1,18 +1,20 @@
 from PySide.QtGui import *
 from PySide.QtUiTools import QUiLoader
 from Employee.Doctor import Tab1_CalendarClass, Tab2_PatientClass
+import setting
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
+        posX,posY,sizeW,sizeH = setting.GEOMETRY_MAINWIDOW
+        self.setGeometry(posX, posY, sizeW, sizeH)
         self.loader = QUiLoader()
         self.tabWidget = QTabWidget()
         self.centralWidget = QWidget()
         self.initUI()
 
     def initUI(self):
-        self.setGeometry(50, 50, 800, 600)
         self.setWindowTitle("Doctor window")
         self.setTab()
         grid = QGridLayout()
