@@ -1,43 +1,45 @@
-import sys
 import psycopg2
 from PySide.QtGui import *
 from Employee.Admin import Tab_ManageEmployeeClass
+from Base.ManagePerson import Widget_ManagePersonClass
+import setting
 
 
-class MainWindow(QMainWindow):
+class MainWindowAdmin(QMainWindow):
     def __init__(self):
-        super(MainWindow, self).__init__()
-        self.tabWidget = QTabWidget()
-        self.centralWidget = QWidget()
+        super(MainWindowAdmin, self).__init__()
         self.initUI()
+        self.initLayout()
 
     def initUI(self):
-        self.setGeometry(50, 50, 800, 600)
-        self.setWindowTitle("ADMIN main window")
+        posX, posY, sizeW, sizeH = setting.GEOMETRY_MAINWIDOW
+        self.setGeometry(posX, posY, sizeW, sizeH)
+        self.setWindowTitle("Admin Main Window")
         self.setTab()
-        grid = QGridLayout()
-        grid.addWidget(self.tabWidget)
-        self.centralWidget.setLayout(grid)
-        self.setCentralWidget(self.centralWidget)
         self.show()
 
+    def initLayout(self):
+        layout = QGridLayout()
+        layout.addWidget(self.tabWidget)
+        centralWidget = QWidget()
+        centralWidget.setLayout(layout)
+        self.setCentralWidget(centralWidget)
+
     def setTab(self):
-        lstHeadDoctor = ["Username", "Password", "ID", "Firstname", "Lastname", "Phone", "Position"]
-        lstHeadNurse = ["Username", "Password", "ID", "Firstname", "Lastname", "Phone"]
-        lstHeadRoom = ["Username", "Password", "ID", "Firstname", "Lastname", "Phone"]
         # allRowDatabaseDoctor = getDoctorDB()
         # allRowDatabaseNurse = getNurseDB()
         # allRowDatabaseRoom = getRoomDB()
         allRowDatabaseDoctor = []
         allRowDatabaseNurse = []
         allRowDatabaseRoom = []
-        self.tabWidget.setStyleSheet("QTabBar::tab { height: 35px; width: 100px; }")
-        self.tab1 = Tab_ManageEmployeeClass.TabManageEmployee("Doctor")
-        self.tab1.setSourceModel(lstHeadDoctor, allRowDatabaseDoctor)
-        self.tab2 = Tab_ManageEmployeeClass.TabManageEmployee("Nurse")
-        self.tab2.setSourceModel(lstHeadNurse, allRowDatabaseNurse)
-        self.tab3 = Tab_ManageEmployeeClass.TabManageEmployee("Room manager")
-        self.tab3.setSourceModel(lstHeadNurse, allRowDatabaseRoom)
+        self.tabWidget = QTabWidget()
+        self.tabWidget.setStyleSheet(setting.SS_TabWidget)
+        self.tab1 = Widget_ManagePersonClass.WidgetManagePerson("Doctor")
+        self.tab1.setSourceModel(setting.HEAD_BAR_DOCTOR, allRowDatabaseDoctor)
+        self.tab2 = Widget_ManagePersonClass.WidgetManagePerson("Nurse")
+        self.tab2.setSourceModel(setting.HEAD_BAR_NURSE, allRowDatabaseNurse)
+        self.tab3 = Widget_ManagePersonClass.WidgetManagePerson("Room manager")
+        self.tab3.setSourceModel(setting.HEAD_BAR_ROOMMANAGER, allRowDatabaseRoom)
         self.tabWidget.addTab(self.tab1, "Doctor")
         self.tabWidget.addTab(self.tab2, "Nurse")
         self.tabWidget.addTab(self.tab3, "RoomManager")
@@ -173,8 +175,9 @@ def getRoomDB():
 
 
 def main():
+    import sys
     app = QApplication(sys.argv)
-    win = MainWindow()
+    win = MainWindowAdmin()
     exit(app.exec_())
 
 
