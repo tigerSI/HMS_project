@@ -1,7 +1,7 @@
 import psycopg2
 from PySide.QtGui import *
 from Base.ManagePerson import Widget_ManagePersonClass
-import setting
+import Setting
 
 
 class MainWindowAdmin(QMainWindow):
@@ -11,7 +11,7 @@ class MainWindowAdmin(QMainWindow):
         self.initLayout()
 
     def initUI(self):
-        posX, posY, sizeW, sizeH = setting.GEOMETRY_MAINWIDOW
+        posX, posY, sizeW, sizeH = Setting.GEOMETRY_MAINWIDOW
         self.setGeometry(posX, posY, sizeW, sizeH)
         self.setWindowTitle("Admin Main Window")
         self.setTab()
@@ -32,13 +32,13 @@ class MainWindowAdmin(QMainWindow):
         allRowDatabaseNurse = []
         allRowDatabaseRoom = []
         self.tabWidget = QTabWidget()
-        self.tabWidget.setStyleSheet(setting.SS_TabWidget)
+        self.tabWidget.setStyleSheet(Setting.SS_TabWidget)
         self.tab1 = Widget_ManagePersonClass.WidgetManagePerson("Doctor")
-        self.tab1.setSourceModel(setting.HEAD_BAR_DOCTOR, allRowDatabaseDoctor)
+        self.tab1.setSourceModel(Setting.HEAD_BAR_DOCTOR, allRowDatabaseDoctor)
         self.tab2 = Widget_ManagePersonClass.WidgetManagePerson("Nurse")
-        self.tab2.setSourceModel(setting.HEAD_BAR_NURSE, allRowDatabaseNurse)
+        self.tab2.setSourceModel(Setting.HEAD_BAR_NURSE, allRowDatabaseNurse)
         self.tab3 = Widget_ManagePersonClass.WidgetManagePerson("Room manager")
-        self.tab3.setSourceModel(setting.HEAD_BAR_ROOMMANAGER, allRowDatabaseRoom)
+        self.tab3.setSourceModel(Setting.HEAD_BAR_ROOMMANAGER, allRowDatabaseRoom)
         self.tabWidget.addTab(self.tab1, "Doctor")
         self.tabWidget.addTab(self.tab2, "Nurse")
         self.tabWidget.addTab(self.tab3, "RoomManager")

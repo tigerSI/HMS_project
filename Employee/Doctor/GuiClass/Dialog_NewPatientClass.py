@@ -3,13 +3,13 @@ from PySide.QtGui import *
 from PySide.QtUiTools import QUiLoader
 
 from Base.Dialog_MsgBox import ConfirmMsgClass
-import setting
+import Setting
 
 
 class NewPatientDialog(QDialog):
     def __init__(self, parent=None):
         super(NewPatientDialog, self).__init__(parent)
-        posX, posY, sizeW, sizeH = setting.GEOMETRY_DIALOG_NEW_PATIENT
+        posX, posY, sizeW, sizeH = Setting.GEOMETRY_DIALOG_NEW_PATIENT
         self.setGeometry(posX, posY, sizeW, sizeH)
         self.initUI()
         self.initLayout()

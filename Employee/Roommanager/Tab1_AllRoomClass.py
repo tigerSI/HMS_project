@@ -1,7 +1,7 @@
 from PySide.QtGui import *
 from PySide.QtUiTools import QUiLoader
 from Employee.Roommanager import RoomSystemClass
-import setting
+import Setting
 
 class Tab1AllRoom(QWidget):
     def __init__(self):
@@ -25,7 +25,7 @@ class Tab1AllRoom(QWidget):
                + "Patient: " + ""
         self.allRoomButton = []
         self.allRoomButton.append(self.tab1.findChild(QPushButton, "buffer"))
-        for i in range(1, setting.NUMBER_OF_ROOM + 1):
+        for i in range(1, Setting.NUMBER_OF_ROOM + 1):
             name_room = "room_" + str(i)
             button = self.tab1.findChild(QPushButton, name_room)
             button.setText(text)

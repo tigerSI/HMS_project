@@ -1,6 +1,6 @@
 from PySide.QtGui import QMainWindow, QGridLayout, QWidget, QTabWidget
 from Employee.Roommanager import Tab1_AllRoomClass, Tab2_ManagePatientClass
-import setting
+import Setting
 
 
 class MainWindowRoomManager(QMainWindow):
@@ -10,7 +10,7 @@ class MainWindowRoomManager(QMainWindow):
         self.initLayout()
 
     def initUI(self):
-        posX, posY, sizeW, sizeH = setting.GEOMETRY_MAINWIDOW
+        posX, posY, sizeW, sizeH = Setting.GEOMETRY_MAINWIDOW
         self.setGeometry(posX, posY, sizeW, sizeH)
         self.setWindowTitle("RoomManager Main Window")
         self.setTab()

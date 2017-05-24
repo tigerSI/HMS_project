@@ -1,19 +1,17 @@
 from PySide.QtGui import QMainWindow, QGridLayout, QWidget, QPalette, QBrush, QPixmap, QLineEdit, QPushButton
 from PySide.QtUiTools import QUiLoader
 from Base.Dialog_MsgBox import ConfirmMsgClass
-import LoginSystem
-import setting as s
+import Setting as s
+import Login_System
 
 
-class mainWindowLogin(QMainWindow):
-    def __init__(self, position):
-        super(mainWindowLogin, self).__init__()
-        self.system = LoginSystem.LoginSystem()
+class LoginWindow(QMainWindow):
+    def __init__(self):
+        super(LoginWindow, self).__init__()
+        self.system = Login_System.LoginSystem()
         self.initUI()
-        self.initLayout()
+        self.initButton()
         self.show()
-        self.position = position
-        self.position.setChoice(3)
 
     def initUI(self):
         posX, posY, sizeW, sizeH = s.GEOMETRY_MAINWIDOW
@@ -46,21 +44,11 @@ class mainWindowLogin(QMainWindow):
         #     dialog.show()
         #     dialog.exec_()
         #     self.clear()
-        position = 3
-        self.position.setChoice(position)
+        self.parent.loginSucess()
         self.close()
 
     def clear(self):
         self.user_id.clear()
         self.password.clear()
 
-    def main(self):
-        pass
 
-
-if __name__ == "__main__":
-    import sys
-    from PySide.QtGui import QApplication
-    app = QApplication(sys.argv)
-    win = mainWindowLogin()
-    exit(app.exec_())

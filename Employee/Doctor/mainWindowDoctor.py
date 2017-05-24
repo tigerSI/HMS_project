@@ -1,6 +1,6 @@
 from PySide.QtGui import QMainWindow, QGridLayout, QWidget, QTabWidget
 from Employee.Doctor import Tab1_CalendarClass, Tab2_PatientClass
-import setting
+import Setting
 
 
 class MainWindowDoctor(QMainWindow):
@@ -10,7 +10,7 @@ class MainWindowDoctor(QMainWindow):
         self.initLayout()
 
     def initUI(self):
-        posX, posY, sizeW, sizeH = setting.GEOMETRY_MAINWIDOW
+        posX, posY, sizeW, sizeH = Setting.GEOMETRY_MAINWIDOW
         self.setGeometry(posX, posY, sizeW, sizeH)
         self.setWindowTitle("Doctor window")
         self.setTab()
@@ -25,7 +25,7 @@ class MainWindowDoctor(QMainWindow):
 
     def setTab(self):
         self.tabWidget = QTabWidget()
-        self.tabWidget.setStyleSheet(setting.SS_TabWidget)
+        self.tabWidget.setStyleSheet(Setting.SS_TabWidget)
         self.tab1 = Tab1_CalendarClass.Tab1Calendar()
         self.tab2 = Tab2_PatientClass.Tab2Patient()
         self.tabWidget.addTab(self.tab1, "Dashboard")

@@ -2,16 +2,15 @@ import sys
 
 from PySide.QtCore import QDateTime, Qt
 
-import ControllerClass
 from PySide.QtGui import *
 from PySide.QtUiTools import QUiLoader
 from Patient.view import *
-import setting
+import Setting
 
 class ReportPatient(QDialog):
     def __init__(self, parent = None):
         super(ReportPatient, self).__init__(parent)
-        posX, posY, sizeW, sizeH = setting.GEOMETRY_DIALOG_3REPORT
+        posX, posY, sizeW, sizeH = Setting.GEOMETRY_DIALOG_3REPORT
         self.setGeometry(posX, posY, sizeW, sizeH)
         self.loader = QUiLoader()
         ui = self.loader.load('./View/Widget_3ReportPatientUI.ui', self)

@@ -1,6 +1,6 @@
 from Database import ControllerDatabase
 from Base.Dialog_MsgBox import ConfirmMsgClass
-import setting as s
+import Setting as s
 
 
 class LoginSystem(object):
@@ -26,7 +26,6 @@ class LoginSystem(object):
 if __name__ == "__main__":
     import sys
     from PySide.QtGui import QApplication
-
     app = QApplication(sys.argv)
     win = LoginSystem()
     win.checkRegisteredUser(1, 1)
