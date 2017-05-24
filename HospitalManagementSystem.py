@@ -1,7 +1,7 @@
 from PySide.QtGui import *
 import Login
 import Setting as s
-from Employee.Admin import Admin as Admin
+from Employee.Admin import AdminUI as Admin
 from Employee.Doctor import Doctor as Doctor
 from Employee.Nurse import Nurse as Nurse
 from Employee.Roommanager import RoomManager as RoomManager

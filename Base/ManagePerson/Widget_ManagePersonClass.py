@@ -52,11 +52,11 @@ class WidgetManagePerson(QWidget):
         self.filterColumnComboBox.setModel(model)
         self.filterColumnComboBox.setModelColumn(0)
 
-    def setSourceModel(self, lstHead, Allrow):
+    def setSourceModel(self, lstHead, lst_person):
         self.sizeOFHead = len(lstHead)
         self.setComboBox(lstHead)
         self.createBarSort(lstHead)
-        self.addAllRow(Allrow)
+        self.addAllPerson(lst_person)
         self.proxyModel.setSourceModel(self.model)
 
     def createBarSort(self, lstHead):
@@ -64,12 +64,15 @@ class WidgetManagePerson(QWidget):
         for i in range(self.sizeOFHead):
             self.model.setHeaderData(i, Qt.Horizontal, lstHead[i])
 
-    def addAllRow(self, allRow):
+    def addAllPerson(self, lst_person):
         count = 0
-        for row in allRow:
+        print("This: ", end =" ")
+        print(lst_person)
+        for person in lst_person:
+            text = person.getData()
             self.model.insertRow(count)
             for i in range(self.sizeOFHead):
-                self.model.setData(self.model.index(count, i), row[i])
+                self.model.setData(self.model.index(count, i), text[i])
             count += 1
 
     def filterRegExpChanged(self):

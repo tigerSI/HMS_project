@@ -17,9 +17,10 @@ GEOMETRY_MSG = []
 STATUS = ["Green", "Orange", "Red", "White"]
 NUMBER_OF_ROOM = 13
 
-HEAD_BAR_DOCTOR = ["Username", "Password", "ID", "Firstname", "Lastname", "Phone", "Position"]
-HEAD_BAR_ROOMMANAGER = ["Username", "Password", "ID", "Firstname", "Lastname", "Phone"]
-HEAD_BAR_NURSE = ["Username", "Password", "ID", "Firstname", "Lastname", "Phone"]
+
+HEAD_BAR_DOCTOR = [ "ID", "Username", "Password", "Firstname", "Lastname", "Phone", "Position"]
+HEAD_BAR_ROOMMANAGER = [ "ID", "Username", "Password", "Firstname", "Lastname", "Phone"]
+HEAD_BAR_NURSE = ["ID", "Username", "Password", "Firstname", "Lastname", "Phone"]
 HEAD_BAR_PATIENT = ["NAME", "ID", "Position", "Phone"]
 
 
@@ -30,7 +31,7 @@ SS_TabWidget = "QTabBar::tab { height: 35px; width: 100px; }"
 
 
 #path RSC images
-PATH_IMG_BG_LOGIN = "RSC/img/bg_login.png"
+PATH_IMG_BG_LOGIN = ".RSC/img/bg_login.png"
 
 #Database
 #User Table
@@ -38,7 +39,7 @@ PATH_IMG_BG_LOGIN = "RSC/img/bg_login.png"
 #     username = 0
 #     psw = 1
 #     position = 2
-DB_USER = "Database/userObject.pkl"
+DB_USER = "./Database/userObject.pkl"
 
 
 #Position
