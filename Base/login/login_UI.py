@@ -14,7 +14,7 @@ class Login_UI(QMainWindow):
 
     def initUI(self):
         loader = QUiLoader()
-        form = loader.load('./login_widget.ui', self)
+        form = loader.load('./Widget_LoginUI.ui', self)
         self.user_id = form.findChild(QLineEdit, "lineEdit_username")
         self.password = form.findChild(QLineEdit, "lineEdit_password")
         self.login_button = form.findChild(QPushButton, "button_login")

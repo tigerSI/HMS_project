@@ -1,4 +1,3 @@
-import sys
 from PySide.QtGui import *
 
 from Base.login import login_UI
@@ -36,6 +35,7 @@ class Login_Application(QMainWindow):
 
 
 def main():
+    import sys
     app = QApplication(sys.argv)
     ui = Login_Application()
     ui.show()

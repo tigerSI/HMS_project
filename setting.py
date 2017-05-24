@@ -1,3 +1,4 @@
+from enum import Enum
 #ROOM CLASS
 """
 STATUS[0] = Free
@@ -26,3 +27,26 @@ HEAD_BAR_PATIENT = ["NAME", "ID", "Position", "Phone"]
 #Style Sheet
 SS_Button_EMCASE = "background-color: rgb(255, 0, 0); color: rgb(255, 255, 255)"
 SS_TabWidget = "QTabBar::tab { height: 35px; width: 100px; }"
+
+
+#path RSC images
+PATH_IMG_BG_LOGIN = "RSC/img/bg_login.png"
+
+#Database
+#User Table
+# class TableUser(Enum):
+#     username = 0
+#     psw = 1
+#     position = 2
+DB_USER = "userObject.pkl"
+
+#Position
+class Position(Enum):
+    admin = 0
+    doctor = 1
+    nurse = 2
+    roomManager = 3
+
+
+
+
