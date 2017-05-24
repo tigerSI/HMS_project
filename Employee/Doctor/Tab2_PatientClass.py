@@ -14,7 +14,7 @@ class Tab2Patient(QWidget):
     def initUI(self):
         self.tab2 = Widget_ManagePersonClass.WidgetManagePerson("Patient")
         allRow = [("Atichat", "001", "Brain", "0971249197"), ("Tiger", "002", "Chest", "0971249194")]
-        self.tab2.setSourceModel(Setting.HEAD_BAR_PATIENT, allRow)
+        #self.tab2.setSourceModel(Setting.HEAD_BAR_PATIENT, allRow)
 
     def initLayout(self):
         layout = QGridLayout()

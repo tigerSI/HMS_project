@@ -10,7 +10,7 @@ class Tab1Calendar(QWidget):
         self.initConnect()
 
     def initUI(self):
-        self.tab1 = QUiLoader().load('./View/Tab1_CalendarUI.ui', self)
+        self.tab1 = QUiLoader().load('./Employee/Doctor/View/Tab1_CalendarUI.ui', self)
         self.calendar = self.tab1.findChild(QCalendarWidget, 'calendarWidget')
         self.labelDate = self.tab1.findChild(QLabel, 'label_date')
         self.taskView = self.tab1.findChild(QListView, 'listView')
