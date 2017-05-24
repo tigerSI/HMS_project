@@ -37,10 +37,10 @@ pkl_file.close()
 '''
 import pickle
 
-
-class ContorllerDatabase(object):
+class ControllerDatabase(object):
     def __init__(self, filename):
         self.file_name = filename
+        self.path = []
 
     def loadObj(self):
         object_list = []
@@ -59,4 +59,5 @@ class ContorllerDatabase(object):
         for i in range(len(lst)):
             pickle.dump(lst[i], pkl_file)
         pkl_file.close()
+
 

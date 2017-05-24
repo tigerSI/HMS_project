@@ -15,6 +15,9 @@ class HMS(QMainWindow):
         self.initCentalWidget()
 
     def initCentalWidget(self):
+        posX, posY, sizeW, sizeH = s.GEOMETRY_MAINWIDOW
+        self.setGeometry(posX, posY, sizeW, sizeH)
+        print(self.size())
         self.login_widget = Login.LoginWindow(self)
         self.central_widget.addWidget(self.login_widget)
         self.centralWidget().setCurrentWidget(self.login_widget)
@@ -30,9 +33,9 @@ class HMS(QMainWindow):
             mainWindow = RoomManager.MainWindowRoomManager()
         else:
             print("Error")
-        self.appendCental_widget(mainWindow)
+        self.appendCentral_widget(mainWindow)
 
-    def appendCental_widget(self, widget):
+    def appendCentral_widget(self, widget):
         self.mainWindow = widget
         self.central_widget.addWidget(self.mainWindow)
         self.centralWidget().setCurrentWidget(self.mainWindow)

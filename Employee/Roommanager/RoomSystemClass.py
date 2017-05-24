@@ -32,5 +32,3 @@ class RoomSystem:
         msgBox.show()
         msgBox.exec_()
 
-
-

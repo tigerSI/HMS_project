@@ -40,6 +40,7 @@ PATH_IMG_BG_LOGIN = "RSC/img/bg_login.png"
 #     position = 2
 DB_USER = "userObject.pkl"
 
+
 #Position
 class Position(Enum):
     admin = 0

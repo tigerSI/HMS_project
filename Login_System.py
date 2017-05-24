@@ -5,7 +5,7 @@ import Setting as s
 
 class LoginSystem(object):
     def __init__(self):
-        self.ctrlDatabase = ControllerDatabase.ContorllerDatabase(s.DB_USER)
+        self.ctrlDatabase = ControllerDatabase.ControllerDatabase(s.DB_USER)
 
     def getUserFromDatabase(self):
         obj_users = self.ctrlDatabase.loadObj()
