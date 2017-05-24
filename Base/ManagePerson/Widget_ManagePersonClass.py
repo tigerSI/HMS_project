@@ -15,7 +15,7 @@ class WidgetManagePerson(QWidget):
         self.setProxyModel()
 
     def initUI(self):
-        form = QUiLoader().load('./View/Widget_ManagePersonUI.ui', self)
+        form = QUiLoader().load('Base/ManagePerson/View/Widget_ManagePersonUI.ui', self)
         self.proxyView = form.findChild(QTreeView, 'treeView')
         self.layoutSearch = form.findChild(QHBoxLayout, 'layout_search')
         self.b_edit = form.findChild(QPushButton, 'b_edit')

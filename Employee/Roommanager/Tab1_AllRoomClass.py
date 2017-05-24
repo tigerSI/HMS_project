@@ -12,7 +12,7 @@ class Tab1AllRoom(QWidget):
         self.initConnect()
 
     def initUI(self):
-        self.tab1 = QUiLoader().load('./View/Tab1_AllRoomUI.ui', self)
+        self.tab1 = QUiLoader().load('Employee/Roommanager/View/Tab1_AllRoomUI.ui', self)
 
     def initLayout(self):
         layout = QGridLayout()

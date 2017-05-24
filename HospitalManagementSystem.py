@@ -1,6 +1,6 @@
 from PySide.QtGui import *
 import Login
-import Setting
+import Setting as s
 from Employee.Admin import Admin as Admin
 from Employee.Doctor import Doctor as Doctor
 from Employee.Nurse import Nurse as Nurse
@@ -20,17 +20,20 @@ class HMS(QMainWindow):
         self.centralWidget().setCurrentWidget(self.login_widget)
 
     def loginSucess(self, position):
-        self.mainWindow = QMainWindow()
-        if position == Setting.Position.admin.value:
-            self.mainWindow = Admin.MainWindowAdmin()
-        elif position == Setting.Position.doctor.value:
-            self.mainWindow = Doctor.MainWindowDoctor()
-        elif position == Setting.Position.nurse.value:
-            self.mainWindow = Nurse.MainWindowNurse()
-        elif position == Setting.Position.roomManager.value:
-            self.mainWindow = RoomManager.MainWindowRoomManager()
+        if position == s.Position.admin.value:
+            mainWindow = Admin.MainWindowAdmin()
+        elif position == s.Position.doctor.value:
+            mainWindow = Doctor.MainWindowDoctor()
+        elif position == s.Position.nurse.value:
+            mainWindow = Nurse.MainWindowNurse()
+        elif position == s.Position.roomManager.value:
+            mainWindow = RoomManager.MainWindowRoomManager()
         else:
             print("Error")
+        self.appendCental_widget(mainWindow)
+
+    def appendCental_widget(self, widget):
+        self.mainWindow = widget
         self.central_widget.addWidget(self.mainWindow)
         self.centralWidget().setCurrentWidget(self.mainWindow)
 
