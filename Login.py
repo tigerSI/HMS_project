@@ -6,8 +6,9 @@ import Login_System
 
 
 class LoginWindow(QMainWindow):
-    def __init__(self):
-        super(LoginWindow, self).__init__()
+    def __init__(self, parent = None):
+        QMainWindow.__init__(self, None)
+        self.parent = parent
         self.system = Login_System.LoginSystem()
         self.initUI()
         self.initButton()
@@ -44,7 +45,7 @@ class LoginWindow(QMainWindow):
         #     dialog.show()
         #     dialog.exec_()
         #     self.clear()
-        self.parent.loginSucess()
+        self.parent.loginSucess(3)
         self.close()
 
     def clear(self):
