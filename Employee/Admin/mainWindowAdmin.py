@@ -1,6 +1,5 @@
 import psycopg2
 from PySide.QtGui import *
-from Employee.Admin import Tab_ManageEmployeeClass
 from Base.ManagePerson import Widget_ManagePersonClass
 import setting
 

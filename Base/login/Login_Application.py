@@ -11,11 +11,8 @@ class Login_Application(QMainWindow):
         self.setWindowTitle("HMS version 1.0.1")
 
         # Init main Widget
-
         self.central_widget = QStackedWidget()
         self.setCentralWidget(self.central_widget)
-        login_widget = login_UI.Login_UI(self)
-        self.central_widget.addWidget(login_widget)
 
         # Init state attributes
         self.state = 'Not Login'
