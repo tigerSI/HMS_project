@@ -13,6 +13,7 @@ class HMS(QMainWindow):
         self.central_widget = QStackedWidget()
         self.setCentralWidget(self.central_widget)
         self.initCentalWidget()
+        self.mainWindow = QMainWindow()
 
     def initCentalWidget(self):
         posX, posY, sizeW, sizeH = s.GEOMETRY_MAINWIDOW
@@ -22,21 +23,21 @@ class HMS(QMainWindow):
         self.central_widget.addWidget(self.login_widget)
         self.centralWidget().setCurrentWidget(self.login_widget)
 
-    def loginSucess(self, position):
-        if position == s.Position.admin.value:
-            mainWindow = Admin.MainWindowAdmin()
-        elif position == s.Position.doctor.value:
-            mainWindow = Doctor.MainWindowDoctor()
-        elif position == s.Position.nurse.value:
-            mainWindow = Nurse.MainWindowNurse()
-        elif position == s.Position.roomManager.value:
-            mainWindow = RoomManager.MainWindowRoomManager()
+    def loginSucess(self, user, position):
+        print(s.Position.admin)
+        if position == s.Position.admin:
+            self.mainWindow = Admin.MainWindowAdmin(user)
+        elif position == s.Position.doctor:
+            self.mainWindow = Doctor.MainWindowDoctor(user)
+        elif position == s.Position.nurse:
+            self.mainWindow = Nurse.MainWindowNurse(user)
+        elif position == s.Position.roommanager:
+            self.mainWindow = RoomManager.MainWindowRoomManager(user)
         else:
             print("Error")
-        self.appendCentral_widget(mainWindow)
+        self.appendCentral_widget(self.mainWindow)
 
     def appendCentral_widget(self, widget):
-        self.mainWindow = widget
         self.central_widget.addWidget(self.mainWindow)
         self.centralWidget().setCurrentWidget(self.mainWindow)
 

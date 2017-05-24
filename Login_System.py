@@ -1,5 +1,4 @@
 from Database import ControllerDatabase
-from Base.Dialog_MsgBox import ConfirmMsgClass
 import Setting as s
 
 
@@ -14,13 +13,10 @@ class LoginSystem(object):
     def checkRegisteredUser(self, userName, password):
         users = self.getUserFromDatabase()
         for user in users:
-            if (userName == user.getUserName() and
-                        password == user.getPsw()):
-                return 1, user
-        dialog = ConfirmMsgClass.ConfirmYesNo()
-        dialog.show()
-        dialog.exec_()
-        return 0, None
+            if (userName == user.getUsername() and
+                        password == user.getPassword()):
+                return 1, user, user.getType()
+        return 0, None, None
 
 
 if __name__ == "__main__":

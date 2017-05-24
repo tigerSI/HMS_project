@@ -5,10 +5,11 @@ import Setting
 
 
 class MainWindowAdmin(QMainWindow):
-    def __init__(self):
+    def __init__(self, user):
         super(MainWindowAdmin, self).__init__()
         self.initUI()
         self.initLayout()
+        self.user = user
 
     def initUI(self):
         posX, posY, sizeW, sizeH = Setting.GEOMETRY_MAINWIDOW

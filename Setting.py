@@ -38,7 +38,7 @@ PATH_IMG_BG_LOGIN = "RSC/img/bg_login.png"
 #     username = 0
 #     psw = 1
 #     position = 2
-DB_USER = "userObject.pkl"
+DB_USER = "Database/userObject.pkl"
 
 
 #Position
@@ -46,7 +46,7 @@ class Position(Enum):
     admin = 0
     doctor = 1
     nurse = 2
-    roomManager = 3
+    roommanager = 3
 
 
 

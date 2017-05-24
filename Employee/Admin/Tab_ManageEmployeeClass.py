@@ -16,7 +16,7 @@ class TabManagePerson(QWidget):
 
     def setUI(self):
         loader = QUiLoader()
-        form = loader.load('./View/Tab_ManagePerson.ui', self)
+        form = loader.load('Employee/Admin/View/Tab_ManagePerson.ui', self)
         self.proxyView = form.findChild(QTreeView, 'treeView')
         self.layoutSearch = form.findChild(QHBoxLayout, 'layout_search')
         self.b_edit = form.findChild(QPushButton, 'b_edit')

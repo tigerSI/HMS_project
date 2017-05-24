@@ -36,7 +36,7 @@ pprint.pprint(data2)
 pkl_file.close()
 '''
 import pickle
-
+from Employee.Admin.AdminClass import *
 class ControllerDatabase(object):
     def __init__(self, filename):
         self.file_name = filename
@@ -59,5 +59,14 @@ class ControllerDatabase(object):
         for i in range(len(lst)):
             pickle.dump(lst[i], pkl_file)
         pkl_file.close()
+
+#
+# def main():
+#     db = ControllerDatabase('userObject.pkl')
+#     s1 = Admin('A001', 'tiger', '4141', 'tiger', 'TG', '123456798')
+#     s2 = Admin('A002', 'boss', '1234', 'boss', 'AL', '123456798')
+#     s3 = Admin('A003', 'gift', '1234', 'gift', 'NU', '123456798')
+#     s = [s1, s2, s3]
+#     db.updateObject(s)
 
 

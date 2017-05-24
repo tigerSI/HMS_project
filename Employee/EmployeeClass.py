@@ -1,11 +1,29 @@
 
 class Employee(object):
-    def __init__(self, id, firstname, lastname, phone_number):
+    def __init__(self, id, username, password, type, firstname, lastname, phone_number):
         self.id = id
+        self.username = username
+        self.password = password
+        self.type = type
         self.firstname = firstname
         self.lastname = lastname
         self.phone_number = phone_number
 
+    def setUsername(self, u):
+        self.username = u
+
+    def getUsername(self):
+        return self.username
+
+    def setPassword(self, pw):
+        self.password = pw
+
+    def getPassword(self):
+        return self.password
+
+    def getType(self):
+        return self.type
+    
     def setId(self, new_id):
         self.id = new_id
 

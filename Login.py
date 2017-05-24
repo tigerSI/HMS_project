@@ -38,14 +38,14 @@ class LoginWindow(QMainWindow):
         self.setCentralWidget(centralWidget)
 
     def logIn(self):
-        # user_name, psw = self.user_id.text(), self.password.text()
-        # found, user, position = self.system.checkRegisteredUser(user_name, psw)
-        # if not found:
-        #     dialog = ConfirmMsgClass.ConfirmYesNo()
-        #     dialog.show()
-        #     dialog.exec_()
-        #     self.clear()
-        self.parent.loginSucess(3)
+        user_name, psw = self.user_id.text(), self.password.text()
+        found, user, position = self.system.checkRegisteredUser(user_name, psw)
+        if not found:
+            dialog = ConfirmMsgClass.ConfirmYesNo()
+            dialog.show()
+            dialog.exec_()
+            self.clear()
+        self.parent.loginSucess(user, position)
         self.close()
 
     def clear(self):
