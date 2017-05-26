@@ -9,12 +9,13 @@ import Setting as s
 
 
 class NewPatientDialog(QDialog):
-    def __init__(self, user, parent=None):
+    def __init__(self, user, case_id, parent=None):
         QDialog.__init__(self, None)
         posX, posY, sizeW, sizeH = s.GEOMETRY_DIALOG_NEW_PATIENT
         self.setGeometry(posX, posY, sizeW, sizeH)
         self.user = user
         self.parent = parent
+        self.case_id = case_id
         self.initUI()
         self.initLayout()
         self.initButton()
@@ -73,6 +74,7 @@ class NewPatientDialog(QDialog):
         self.part_basic_info.append(ui.Name.text())
         self.part_basic_info.append(ui.Age.text())
         self.part_basic_info.append(ui.Phone.text())
+        self.part_basic_info.append(self.case_id)
         #"Type", "Date", "Time"
         self.part_appointment.append(ui.Type.currentText())
         self.part_appointment.append(ui.Date.text())

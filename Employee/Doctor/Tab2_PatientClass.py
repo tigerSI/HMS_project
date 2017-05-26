@@ -41,7 +41,8 @@ class Tab2Patient(QWidget):
         dialog.exec_()
 
     def newPatient(self):
-        dialog = Dialog_NewPatientClass.NewPatientDialog(self.user, self.parent)
+        case_id = self.parent.getCurrentCaseID()
+        dialog = Dialog_NewPatientClass.NewPatientDialog(self.user, case_id, self.parent)
         dialog.show()
         dialog.exec_()
         self.updateTable()

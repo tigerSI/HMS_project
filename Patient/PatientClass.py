@@ -8,6 +8,7 @@ class Patient:
         self.Name = ""
         self.Age = 0
         self.Phone = ""
+        self.case_id = ""
         self.ExtraNote = []
         self.setBasicInfo(prepre_report[0])
         self.setExtraInfo(prepre_report[1])
@@ -32,6 +33,7 @@ class Patient:
         self.Name = part_basic_info[3]
         self.Age = part_basic_info[4]
         self.Phone = part_basic_info[5]
+        self.case_id = part_basic_info[6]
 
     def setExtraInfo(self, part_extra_info):
         self.ExtraNote = part_extra_info
