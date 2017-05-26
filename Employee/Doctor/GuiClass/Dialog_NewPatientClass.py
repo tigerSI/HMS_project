@@ -12,7 +12,7 @@ class NewPatientDialog(QDialog):
     def __init__(self, user, parent=None):
         QDialog.__init__(self, None)
         posX, posY, sizeW, sizeH = s.GEOMETRY_DIALOG_NEW_PATIENT
-        self.setGeometry(posX + 400, posY, sizeW, sizeH + 600)
+        self.setGeometry(posX, posY, sizeW, sizeH)
         self.user = user
         self.parent = parent
         self.initUI()
@@ -23,12 +23,9 @@ class NewPatientDialog(QDialog):
         self.part_appointment = []
         self.part_extra_info = []
         self.forDev()
-        self.save()
 
     def initUI(self):
-        path = s.PATH_DOCTOR_DIALOG_NEWPATIENT
-        #path = '../View/Widget_NewPatientUI.ui'
-        self.ui = QUiLoader().load(path, self)
+        self.ui = QUiLoader().load(s.PATH_DOCTOR_DIALOG_NEWPATIENT, self)
         self.dateEdit = self.ui.findChild(QDateEdit, "Date")
 
     def initLayout(self):
@@ -91,7 +88,7 @@ class NewPatientDialog(QDialog):
         self.getData()
         pre_pre_report = [self.part_basic_info, self.part_extra_info]
         newPatient = PatientClass.Patient(pre_pre_report)
-        newAppointment = AppointmentClass.Appointment(self.part_appointment, self.user, newPatient)
+        newAppointment = AppointmentClass.Appointment(0000,self.part_appointment, self.user, newPatient)
         self.parent.addNewPatient(newPatient)
         self.close()
 
