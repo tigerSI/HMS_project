@@ -2,9 +2,10 @@ from PySide.QtGui import *
 from PySide.QtUiTools import QUiLoader
 
 class Tab1Calendar(QWidget):
-    def __init__(self, user):
-        QWidget.__init__(self)
+    def __init__(self, user, parent=None):
+        QWidget.__init__(self, None)
         self.user = user
+        self.parent = parent
         self.initUI()
         self.initLayout()
         self.initButton()

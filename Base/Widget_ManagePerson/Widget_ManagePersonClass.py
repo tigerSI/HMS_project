@@ -67,8 +67,6 @@ class WidgetManagePerson(QWidget):
 
     def addAllPerson(self, lst_person):
         count = 0
-        print("This: ", end =" ")
-        print(lst_person)
         for person in lst_person:
             text = person.getData()
             self.model.insertRow(count)

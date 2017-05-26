@@ -4,8 +4,9 @@ import Setting
 
 
 class MainWindowDoctor(QMainWindow):
-    def __init__(self, user):
-        super(MainWindowDoctor, self).__init__()
+    def __init__(self, user, parent=None):
+        QMainWindow.__init__(self, None)
+        self.parent = parent
         self.user = user
         self.crtlDatabase = Doctor.DoctorApplication()
         self.initUI()
@@ -28,10 +29,13 @@ class MainWindowDoctor(QMainWindow):
     def setTab(self):
         self.tabWidget = QTabWidget()
         self.tabWidget.setStyleSheet(Setting.SS_TabWidget)
-        self.tab1 = Tab1_CalendarClass.Tab1Calendar(self.user)
-        self.tab2 = Tab2_PatientClass.Tab2Patient(self.user)
+        self.tab1 = Tab1_CalendarClass.Tab1Calendar(self.user, self)
+        self.tab2 = Tab2_PatientClass.Tab2Patient(self.user, self)
         self.tabWidget.addTab(self.tab1, "Dashboard")
         self.tabWidget.addTab(self.tab2, "Patient")
+
+    def addNewPatient(self, newPatient):
+        self.crtlDatabase.addNewPatient(newPatient)
 
 if __name__ == "__main__":
     import sys

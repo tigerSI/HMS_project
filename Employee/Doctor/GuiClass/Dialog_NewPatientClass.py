@@ -10,28 +10,26 @@ import Setting as s
 
 class NewPatientDialog(QDialog):
     def __init__(self, user, parent=None):
-        super(NewPatientDialog, self).__init__(parent)
+        QDialog.__init__(self, None)
         posX, posY, sizeW, sizeH = s.GEOMETRY_DIALOG_NEW_PATIENT
-        self.setGeometry(posX + 400, posY, sizeW, sizeH + 400)
+        self.setGeometry(posX + 400, posY, sizeW, sizeH + 600)
         self.user = user
+        self.parent = parent
         self.initUI()
         self.initLayout()
         self.initButton()
-        self.initConnect()
         self.setDateEdit()
         self.part_basic_info = []
         self.part_appointment = []
         self.part_extra_info = []
         self.forDev()
+        self.save()
 
     def initUI(self):
         path = s.PATH_DOCTOR_DIALOG_NEWPATIENT
         #path = '../View/Widget_NewPatientUI.ui'
         self.ui = QUiLoader().load(path, self)
         self.dateEdit = self.ui.findChild(QDateEdit, "Date")
-        self.b_save = self.ui.findChild(QPushButton, "button_save")
-        self.b_cancel = self.ui.findChild(QPushButton, "button_cancel")
-
 
     def initLayout(self):
         layout = QGridLayout()
@@ -39,11 +37,10 @@ class NewPatientDialog(QDialog):
         self.setLayout(layout)
 
     def initButton(self):
+        self.b_save = self.ui.findChild(QPushButton, "button_save")
+        self.b_cancel = self.ui.findChild(QPushButton, "button_cancel")
         self.b_save.clicked.connect(self.save)
         self.b_cancel.clicked.connect(self.cancel)
-
-    def initConnect(self):
-        pass
 
     def setDateEdit(self):
         self.dateEdit.setCalendarPopup(True)
@@ -57,7 +54,7 @@ class NewPatientDialog(QDialog):
         return False
 
     def forDev(self):
-        count = "1"
+        count = "3"
         ui = self.ui
         ui.AN.setText("000 " + count)
         ui.PIC.setText("PIC " + count)
@@ -95,8 +92,7 @@ class NewPatientDialog(QDialog):
         pre_pre_report = [self.part_basic_info, self.part_extra_info]
         newPatient = PatientClass.Patient(pre_pre_report)
         newAppointment = AppointmentClass.Appointment(self.part_appointment, self.user, newPatient)
-        print(newPatient)
-        print(newAppointment)
+        self.parent.addNewPatient(newPatient)
         self.close()
 
     def cancel(self):
@@ -106,6 +102,7 @@ class NewPatientDialog(QDialog):
             self.close()
         else:
             print("Cancel")
+
 
 
 if __name__ == "__main__":

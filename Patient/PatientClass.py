@@ -16,6 +16,14 @@ class Patient:
         self.intraReport = object
         self.postReport = []
 
+    def getData(self):
+        text = []
+        text.append(self.AN)
+        text.append(self.Name)
+        text.append(self.Age)
+        text.append(self.Phone)
+        return text
+
     def setBasicInfo(self, part_basic_info):
         # ["OPD", "AN", "Pic", "Name", "Age", "Phone"]
         self.OPD = part_basic_info[0]

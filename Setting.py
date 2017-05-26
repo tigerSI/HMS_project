@@ -43,8 +43,8 @@ PATH_DOCTOR_DIALOG_NEWPATIENT = 'Employee/Doctor/View/Widget_NewPatientUI.ui'
 #     psw = 1
 #     position = 2
 DB_USER = "./Database/userObject.pkl"
-DB_PATIENT = ".Database/patientObject.pkl"
-DB_APPOINTMENT = ".Database/appointmentObject.pkl"
+DB_PATIENT = "./Database/patientObject.pkl"
+DB_APPOINTMENT = "./Database/appointmentObject.pkl"
 
 
 #Position

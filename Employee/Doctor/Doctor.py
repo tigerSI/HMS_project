@@ -30,9 +30,6 @@ class DoctorApplication(object):
         self.ctrlDatabase_patient.updateObject(patients)
 
 
-
-
-
 if __name__ == "__main__":
     import sys
     from PySide.QtGui import QApplication

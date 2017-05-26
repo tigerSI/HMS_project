@@ -13,7 +13,7 @@ class ReportPatient(QDialog):
         posX, posY, sizeW, sizeH = Setting.GEOMETRY_DIALOG_3REPORT
         self.setGeometry(posX, posY, sizeW, sizeH)
         self.loader = QUiLoader()
-        ui = self.loader.load('./View/Widget_3ReportPatientUI.ui', self)
+        ui = self.loader.load('Employee/Doctor/View/Widget_3ReportPatientUI.ui', self)
         self.layout = QVBoxLayout(self)
         self.layout.addWidget(ui)
         self.initPostButtons(ui)

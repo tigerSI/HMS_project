@@ -59,6 +59,11 @@ class ControllerDatabase(object):
             pickle.dump(lst[i], pkl_file)
         pkl_file.close()
 
+    def newObject(self, ob):
+        pkl_file = open(self.file_name, 'wb')
+        pickle.dump(ob, pkl_file)
+        pkl_file.close()
+
 
 def demo():
     db = ControllerDatabase('userObject.pkl')

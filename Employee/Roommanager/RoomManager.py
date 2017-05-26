@@ -36,5 +36,5 @@ if __name__ == "__main__":
     import sys
     from PySide.QtGui import QApplication
     app = QApplication(sys.argv)
-    win = MainWindowRoomManager()
+    win = MainWindowRoomManager(object)
     exit(app.exec_())
