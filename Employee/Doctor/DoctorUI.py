@@ -1,5 +1,5 @@
 from PySide.QtGui import QMainWindow, QGridLayout, QWidget, QTabWidget
-from Employee.Doctor import Tab1_CalendarClass, Tab2_PatientClass
+from Employee.Doctor import Doctor, Tab1_CalendarClass, Tab2_PatientClass
 import Setting
 
 
@@ -7,6 +7,7 @@ class MainWindowDoctor(QMainWindow):
     def __init__(self, user):
         super(MainWindowDoctor, self).__init__()
         self.user = user
+        self.crtlDatabase = Doctor.DoctorApplication()
         self.initUI()
         self.initLayout()
 

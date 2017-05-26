@@ -1,4 +1,3 @@
-import Setting
 from PySide.QtGui import *
 from Base.Widget_ManagePerson import Widget_ManagePersonClass
 from Employee.Doctor.GuiClass import Dialog_3ReportPatientClass, Dialog_NewPatientClass
