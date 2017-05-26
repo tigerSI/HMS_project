@@ -1,5 +1,5 @@
 from PySide.QtGui import *
-from Base.ManagePerson import Widget_ManagePersonClass
+from Base.Widget_ManagePerson import Widget_ManagePersonClass
 from Employee.Admin import Admin
 import Setting as s
 

@@ -33,6 +33,9 @@ SS_TabWidget = "QTabBar::tab { height: 35px; width: 100px; }"
 #path RSC images
 PATH_IMG_BG_LOGIN = ".RSC/img/bg_login.png"
 
+#path Doctor
+PATH_DOCTOR_DIALOG_NEWPATIENT = 'Employee/Doctor/View/Widget_NewPatientUI.ui'
+
 #Database
 #User Table
 # class TableUser(Enum):
@@ -40,6 +43,8 @@ PATH_IMG_BG_LOGIN = ".RSC/img/bg_login.png"
 #     psw = 1
 #     position = 2
 DB_USER = "./Database/userObject.pkl"
+DB_PATIENT = ".Database/patientObject.pkl"
+DB_APPOINTMENT = ".Database/appointmentObject.pkl"
 
 
 #Position
@@ -48,6 +53,7 @@ class Position(Enum):
     doctor = 1
     nurse = 2
     roommanager = 3
+
 
 
 

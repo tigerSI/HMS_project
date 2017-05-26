@@ -1,11 +1,12 @@
 import Setting
 from PySide.QtGui import *
-from Base.ManagePerson import Widget_ManagePersonClass
+from Base.Widget_ManagePerson import Widget_ManagePersonClass
 from Employee.Doctor.GuiClass import Dialog_3ReportPatientClass, Dialog_NewPatientClass
 
 class Tab2Patient(QWidget):
-    def __init__(self):
+    def __init__(self, user):
         QWidget.__init__(self)
+        self.user = user
         self.initUI()
         self.initLayout()
         self.initButton()
@@ -35,7 +36,7 @@ class Tab2Patient(QWidget):
         dialog.exec_()
 
     def newPatient(self):
-        dialog = Dialog_NewPatientClass.NewPatientDialog()
+        dialog = Dialog_NewPatientClass.NewPatientDialog(self.user)
         dialog.show()
         dialog.exec_()
 

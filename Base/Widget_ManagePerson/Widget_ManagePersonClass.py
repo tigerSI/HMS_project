@@ -1,8 +1,9 @@
 from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtUiTools import *
-from Base import comboBoxClass
-from Employee.Admin import Dialog_editOrNewEmployeeClass
+
+from Base.Widget_ComboBox import comboBoxClass
+
 
 class WidgetManagePerson(QWidget):
     def __init__(self, Person):
@@ -15,7 +16,7 @@ class WidgetManagePerson(QWidget):
         self.setProxyModel()
 
     def initUI(self):
-        form = QUiLoader().load('Base/ManagePerson/View/Widget_ManagePersonUI.ui', self)
+        form = QUiLoader().load('Base/Widget_ManagePerson/View/Widget_ManagePersonUI.ui', self)
         self.proxyView = form.findChild(QTreeView, 'treeView')
         self.layoutSearch = form.findChild(QHBoxLayout, 'layout_search')
         self.b_edit = form.findChild(QPushButton, 'b_edit')

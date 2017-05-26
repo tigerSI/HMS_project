@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>552</width>
-    <height>578</height>
+    <width>572</width>
+    <height>1034</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -47,7 +47,7 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QComboBox" name="comboBox">
+         <widget class="QComboBox" name="OPD">
           <item>
            <property name="text">
             <string>OPD</string>
@@ -75,14 +75,14 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit"/>
+         <widget class="QLineEdit" name="AN"/>
         </item>
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <layout class="QHBoxLayout" name="box_2">
         <item>
-         <widget class="QLabel" name="label_2">
+         <widget class="QLabel" name="PIC">
           <property name="text">
            <string>     Picture Profile       </string>
           </property>
@@ -91,7 +91,7 @@
         <item>
          <layout class="QGridLayout" name="gridLayout">
           <item row="1" column="3">
-           <widget class="QLineEdit" name="lineEdit_4"/>
+           <widget class="QLineEdit" name="Phone"/>
           </item>
           <item row="1" column="2">
            <widget class="QLabel" name="label_5">
@@ -108,7 +108,7 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QLineEdit" name="lineEdit_3"/>
+           <widget class="QLineEdit" name="Age"/>
           </item>
           <item row="0" column="0">
            <widget class="QLabel" name="label_3">
@@ -118,14 +118,14 @@
            </widget>
           </item>
           <item row="0" column="1" colspan="3">
-           <widget class="QLineEdit" name="lineEdit_2"/>
+           <widget class="QLineEdit" name="Name"/>
           </item>
          </layout>
         </item>
        </layout>
       </item>
       <item>
-       <layout class="QGridLayout" name="gridLayout_3">
+       <layout class="QGridLayout" name="box_3">
         <item row="0" column="2">
          <widget class="QLabel" name="label_12">
           <property name="text">
@@ -155,7 +155,7 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QComboBox" name="comboBox_2">
+         <widget class="QComboBox" name="Type">
           <item>
            <property name="text">
             <string>Elective case</string>
@@ -174,7 +174,7 @@
          </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QComboBox" name="comboBox_3">
+         <widget class="QComboBox" name="Time">
           <item>
            <property name="text">
             <string>Morning</string>
@@ -193,7 +193,7 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QDateEdit" name="dateEdit"/>
+         <widget class="QDateEdit" name="Date"/>
         </item>
        </layout>
       </item>
@@ -210,7 +210,7 @@
              <x>0</x>
              <y>0</y>
              <width>525</width>
-             <height>762</height>
+             <height>791</height>
             </rect>
            </property>
            <widget class="QLabel" name="label_25">
@@ -226,7 +226,7 @@
              <string>Operation Plan</string>
             </property>
            </widget>
-           <widget class="QPlainTextEdit" name="plainTextEdit_14">
+           <widget class="QPlainTextEdit" name="Note">
             <property name="geometry">
              <rect>
               <x>20</x>
@@ -275,7 +275,7 @@
              <string>Special treatment</string>
             </property>
            </widget>
-           <widget class="QPlainTextEdit" name="plainTextEdit_13">
+           <widget class="QPlainTextEdit" name="Pre_OD">
             <property name="geometry">
              <rect>
               <x>20</x>
@@ -285,7 +285,7 @@
              </rect>
             </property>
            </widget>
-           <widget class="QPlainTextEdit" name="plainTextEdit_11">
+           <widget class="QPlainTextEdit" name="Plan">
             <property name="geometry">
              <rect>
               <x>20</x>
@@ -295,7 +295,7 @@
              </rect>
             </property>
            </widget>
-           <widget class="QPlainTextEdit" name="plainTextEdit_12">
+           <widget class="QPlainTextEdit" name="Treatment">
             <property name="geometry">
              <rect>
               <x>20</x>
@@ -318,7 +318,7 @@
              <string>Underlying</string>
             </property>
            </widget>
-           <widget class="QPlainTextEdit" name="plainTextEdit_15">
+           <widget class="QPlainTextEdit" name="Underlying">
             <property name="geometry">
              <rect>
               <x>20</x>
@@ -328,17 +328,36 @@
              </rect>
             </property>
            </widget>
+           <widget class="QPushButton" name="button_save">
+            <property name="geometry">
+             <rect>
+              <x>360</x>
+              <y>750</y>
+              <width>75</width>
+              <height>23</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Save</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="button_cancel">
+            <property name="geometry">
+             <rect>
+              <x>440</x>
+              <y>750</y>
+              <width>75</width>
+              <height>23</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Cancel</string>
+            </property>
+           </widget>
           </widget>
          </widget>
         </item>
        </layout>
-      </item>
-      <item>
-       <widget class="QDialogButtonBox" name="buttonBox">
-        <property name="standardButtons">
-         <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
-        </property>
-       </widget>
       </item>
      </layout>
     </widget>

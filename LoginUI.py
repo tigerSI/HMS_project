@@ -21,7 +21,7 @@ class LoginWindow(QMainWindow):
         palette.setBrush(QPalette.Background, QBrush(QPixmap(s.PATH_IMG_BG_LOGIN)))
         self.setPalette(palette)
         self.initButton()
-
+        self.forDev()
 
     def initButton(self):
         loader = QUiLoader()
@@ -33,6 +33,13 @@ class LoginWindow(QMainWindow):
         palette = QPalette()
         palette.setBrush(QPalette.Background, QBrush(QPixmap(s.PATH_IMG_BG_LOGIN)))
         self.setPalette(palette)
+
+    def forDev(self):
+        id = "doc1"
+        psw = "1234"
+        self.user_id.setText(id)
+        self.password.setText(psw)
+
     def initLayout(self):
         layout = QGridLayout()
         centralWidget = QWidget()

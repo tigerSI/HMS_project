@@ -40,7 +40,6 @@ import pickle
 class ControllerDatabase(object):
     def __init__(self, filename):
         self.file_name = filename
-        self.path = []
 
     def loadObj(self):
         object_list = []

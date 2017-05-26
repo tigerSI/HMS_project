@@ -1,32 +1,33 @@
 class Date:
-    def __init__(self, day, month, year):
-        self.day = day
-        self.month = month
-        self.year = year
-
-
-class Time:
     def __init__(self):
-        pass
+        self.day = 0
+        self.month = 0
+        self.year = 0
+
+    def setDate(self, date):
+        self.day = date[0]
+        self.month = date[1]
+        self.year = date[2]
+
 
 class Appointment:
-    def __init__(self):
-        self.date = Date(0, 0, 0)
-        self.time = Time
-        self.Nroom = 0
-        self.Dname = ""
-        self.Pname = ""
+    # "Type", "Date", "Time"
+    #self.part_appointment, self.user, newPatient
+    def __init__(self, appointment, doctor, patient):
+        self.type = ""
+        self.date = Date()
+        self.time = ""
+        self.doctor = doctor
+        self.patient = patient
+        self.number_room = 0
+        self.setInfo(appointment[0], appointment[1], appointment[2])
 
-    def setDate(self, day, month, year):
-        self.date = Date(day, month, year)
-
-    def getDate(self):
-        return self.date
-
-    def setTime(self, time):
+    def setInfo(self, type, date, time):
+        self.type = type
+        self.date.setDate(date.split('/'))
         self.time = time
 
-    def getTime(self):
-        return self.time
+    def setRoom(self, number):
+        self.number_room = number
 
 
