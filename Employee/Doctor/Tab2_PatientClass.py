@@ -14,7 +14,7 @@ class Tab2Patient(QWidget):
         self.initConnect()
 
     def initUI(self):
-        self.tab2 = Widget_ManagePersonClass.WidgetManagePerson("Patient")
+        self.tab2 = Widget_ManagePersonClass.WidgetManagePerson("Patient", self)
         appointments = self.parent.crtlDatabase.getAppointmentFromDatabase()
         self.tab2.setSourceModel(s.HEAD_BAR_PATIENT, appointments)
 
@@ -32,11 +32,17 @@ class Tab2Patient(QWidget):
         self.b_newPatient = self.tab2.b_newPerson
 
     def initConnect(self):
-        self.b_view.clicked.connect(self.viewPatient)
+        #self.b_view.clicked.connect(self.viewPatient)
         self.b_newPatient.clicked.connect(self.newPatient)
 
-    def viewPatient(self):
-        #case_id = self.tab2
+    def editButtonPressed(self, case_id):
+        if case_id is not None:
+            self.viewPatient(case_id)
+        else:
+            print("is None")
+
+    def viewPatient(self, case_id):
+        print(case_id)
         dialog = Dialog_3ReportPatientClass.ReportPatient()
         dialog.show()
         dialog.exec_()

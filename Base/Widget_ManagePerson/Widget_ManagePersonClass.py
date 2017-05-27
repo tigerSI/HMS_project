@@ -6,9 +6,10 @@ from Base.Widget_ComboBox import comboBoxClass
 
 
 class WidgetManagePerson(QWidget):
-    def __init__(self, Person):
-        QWidget.__init__(self)
+    def __init__(self, Person, parent=None):
+        QWidget.__init__(self, None)
         self.Person = Person
+        self.parent = parent
         self.initUI()
         self.initLayout()
         self.initConnect()
@@ -16,8 +17,9 @@ class WidgetManagePerson(QWidget):
         self.setProxyModel()
 
     def initUI(self):
-        #path = 'Base/Widget_ManagePerson/View/Widget_ManagePersonUI.ui'
-        form = QUiLoader().load('./View/Widget_ManagePersonUI.ui', self)
+        path = 'Base/Widget_ManagePerson/View/Widget_ManagePersonUI.ui'
+        pathtet = './View/Widget_ManagePersonUI.ui'
+        form = QUiLoader().load(path, self)
         self.proxyView = form.findChild(QTreeView, 'treeView')
         self.layoutSearch = form.findChild(QHBoxLayout, 'layout_search')
         self.b_edit = form.findChild(QPushButton, 'b_edit')
@@ -34,18 +36,14 @@ class WidgetManagePerson(QWidget):
         self.filterPatternLineEdit.textChanged.connect(self.filterRegExpChanged)
         self.filterColumnComboBox.currentIndexChanged.connect(self.filterColumnChanged)
         self.b_edit.clicked.connect(self.editPerson)
-        # self.b_newPerson.clicked.connect(self.newPerson)
 
     def editPerson(self):
-        print("row: ", end="")
-        # print(self.proxyView.selectionModel().selectedRows())
-        # print(self.proxyView.currentIndex())
-        # print(self.proxyModel.data(self.proxyView.currentIndex()))
-        p = QTreeView()
-        # q = QStandardItemModel()
-        # q.itemData()
+        selection = self.proxyView.selectionModel().selectedRows()
+        if selection is not None:
+            case_id = selection[0].data()
+            self.parent.editButtonPressed(case_id)
 
-
+    "init Table"
     def setProxyView(self):
         self.proxyView.setRootIsDecorated(False)
         self.proxyView.setAlternatingRowColors(True)
@@ -79,10 +77,10 @@ class WidgetManagePerson(QWidget):
     def addAllPerson(self, lst_person):
         count = 0
         for person in lst_person:
-            #text = person.getData()
+            text = person.getData()
             self.model.insertRow(count)
             for i in range(self.sizeOFHead):
-                self.model.setData(self.model.index(count, i), person[i])
+                self.model.setData(self.model.index(count, i), text[i])
             count += 1
 
     def filterRegExpChanged(self):
@@ -92,12 +90,13 @@ class WidgetManagePerson(QWidget):
     def filterColumnChanged(self):
         self.proxyModel.setFilterKeyColumn(self.filterColumnComboBox.currentIndex())
 
+
 if __name__ == '__main__':
     import sys
     app = QApplication(sys.argv)
     tab1_widget = WidgetManagePerson("Doctor")
-    lstHead = ["NAME","ID", "Position", "Phone"]
-    allRow = [("Atichat","001", "Brain", "0971249197"), ("Tiger","002","Chest", "0971249194")]
+    lstHead = ["NAME", "ID", "Position", "Phone"]
+    allRow = [("Atichat", "001", "Brain", "0971249197"), ("Tiger", "002", "Chest", "0971249194")]
     tab1_widget.setSourceModel(lstHead, allRow)
     tab1_widget.show()
     sys.exit(app.exec_())

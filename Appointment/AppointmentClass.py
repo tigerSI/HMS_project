@@ -31,6 +31,7 @@ class Appointment:
         text = []
         #BAR MANAGE PERSON DOCTOR
         #Date Time Room PName Pre Plan
+        text.append(self.case_id)
         text.append(self.date.getDate())
         text.append(self.time)
         text.append(self.number_room)
