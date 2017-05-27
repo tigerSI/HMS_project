@@ -14,6 +14,7 @@ class Date:
 
 
 class Appointment:
+    #newAppointment = [0000, ["Type", "Date", "Time"], self.user, newPatient]
     #self.part_appointment, self.user, newPatient
     def __init__(self, case_id, appointment, doctor, patient):
         self.case_id = case_id
@@ -28,6 +29,8 @@ class Appointment:
 
     def getData(self):
         text = []
+        #BAR MANAGE PERSON DOCTOR
+        #Date Time Room PName Pre Plan
         text.append(self.date.getDate())
         text.append(self.time)
         text.append(self.number_room)

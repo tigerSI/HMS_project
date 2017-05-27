@@ -9,6 +9,9 @@ class DoctorApplication(object):
         self.ctrlDatabase_appointment = ControllerDatabase.ControllerDatabase(s.DB_APPOINTMENT)
 
     def getCurrentCaseID(self):
+        patients = self.getPatientFromDatabase()
+        last_patients_id = patients[-1].case_id
+        self.current_case_id = last_patients_id
         return self.current_case_id
 
     """-------------------------Patient Database---------------------------------------------"""
@@ -57,4 +60,6 @@ if __name__ == "__main__":
     from PySide.QtGui import QApplication
     app = QApplication(sys.argv)
     win = DoctorApplication()
+    print(win.getCurrentCaseID())
+    print()
     exit(app.exec_())

@@ -37,6 +37,12 @@ class MainWindowDoctor(QMainWindow):
     def addNewPatient(self, newPatient):
         self.crtlDatabase.addNewPatient(newPatient)
 
+    def addNewAppointment(self, newAppointment):
+        self.crtlDatabase.addNewAppointment(newAppointment)
+
+    def getCurrentCaseID(self):
+        return self.crtlDatabase.getCurrentCaseID()
+
 if __name__ == "__main__":
     import sys
     from PySide.QtGui import QApplication

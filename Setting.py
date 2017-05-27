@@ -15,7 +15,7 @@ HEAD_BAR_ROOMMANAGER = ["ID", "Username", "Password", "Firstname", "Lastname", "
 HEAD_BAR_NURSE = ["ID", "Username", "Password", "Firstname", "Lastname", "Phone"]
 
 #Manage Person For Doctor
-HEAD_BAR_PATIENT = ["Date", "Time", "Room", "Pre_Diagnosis", "Plan"]
+HEAD_BAR_PATIENT = ["Date", "Time", "Room", "Name", "Pre_Diagnosis", "Plan"]
 
 #path RSC images
 PATH_IMG_BG_LOGIN = ".RSC/img/bg_login.png"

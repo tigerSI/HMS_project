@@ -15,12 +15,12 @@ class Tab2Patient(QWidget):
 
     def initUI(self):
         self.tab2 = Widget_ManagePersonClass.WidgetManagePerson("Patient")
-        patients = self.parent.crtlDatabase.getPatientFromDatabase()
-        self.tab2.setSourceModel(s.HEAD_BAR_PATIENT, patients)
+        appointments = self.parent.crtlDatabase.getAppointmentFromDatabase()
+        self.tab2.setSourceModel(s.HEAD_BAR_PATIENT, appointments)
 
     def updateTable(self):
-        patients = self.parent.crtlDatabase.getPatientFromDatabase()
-        self.tab2.setSourceModel(s.HEAD_BAR_PATIENT, patients)
+        appointments = self.parent.crtlDatabase.getAppointmentFromDatabase()
+        self.tab2.setSourceModel(s.HEAD_BAR_PATIENT, appointments)
 
     def initLayout(self):
         layout = QGridLayout()
