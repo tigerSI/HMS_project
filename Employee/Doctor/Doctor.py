@@ -40,6 +40,14 @@ class DoctorApplication(object):
         obj_appointments = self.ctrlDatabase_appointment.loadObj()
         return obj_appointments
 
+    def getAppointmentByDoctor(self, doctor_id):
+        all_appointments = self.getAppointmentFromDatabase()
+        appointments = []
+        for appointment in all_appointments:
+            if appointment.doctor.id == doctor_id:
+                appointments.append(appointment)
+        return appointments
+
     def addNewAppointment(self, newAppointment):
         appointments = self.getAppointmentFromDatabase()
         appointments.append(newAppointment)

@@ -8,7 +8,6 @@ class Tab1Calendar(QWidget):
         self.parent = parent
         self.initUI()
         self.initLayout()
-        self.initButton()
         self.initConnect()
 
     def initUI(self):
@@ -17,14 +16,10 @@ class Tab1Calendar(QWidget):
         self.labelDate = self.tab1.findChild(QLabel, 'label_date')
         self.taskView = self.tab1.findChild(QListView, 'listView')
 
-
     def initLayout(self):
         layout = QGridLayout()
         layout.addWidget(self.tab1)
         self.setLayout(layout)
-
-    def initButton(self):
-        pass
 
     def initConnect(self):
         self.calendar.selectionChanged.connect(self.selectedDate)
