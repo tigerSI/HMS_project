@@ -46,6 +46,8 @@ class DoctorApplication(object):
         for appointment in all_appointments:
             if appointment.doctor.id == doctor_id:
                 appointments.append(appointment)
+        print("called getAppByDoctor")
+        print(len(appointments))
         return appointments
 
     def addNewAppointment(self, newAppointment):

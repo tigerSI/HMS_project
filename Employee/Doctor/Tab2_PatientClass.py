@@ -15,7 +15,7 @@ class Tab2Patient(QWidget):
 
     def initUI(self):
         self.tab2 = Widget_ManagePersonClass.WidgetManagePerson("Patient", self)
-        appointments = self.parent.crtlDatabase.getAppointmentFromDatabase()
+        appointments = self.parent.crtlDatabase.getAppointmentByDoctor(self.user.id)
         self.tab2.setSourceModel(s.HEAD_BAR_PATIENT, appointments)
 
     def updateTable(self):

@@ -41,6 +41,14 @@ class Appointment:
         text.append(self.patient.ExtraNote[1]) #Plan
         return text
 
+    def getDataForCalendarDcotor(self):
+        text = []
+        text.append(self.time)
+        text.append(str(self.number_room))
+        text.append(self.patient.ExtraNote[1])
+        text.append(self.patient.Name)
+        return text
+
     def setInfo(self, type, date, time):
         self.type = type
         self.date.setDate(date.split('/'))
