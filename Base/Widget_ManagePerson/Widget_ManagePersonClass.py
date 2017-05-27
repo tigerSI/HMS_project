@@ -16,7 +16,8 @@ class WidgetManagePerson(QWidget):
         self.setProxyModel()
 
     def initUI(self):
-        form = QUiLoader().load('Base/Widget_ManagePerson/View/Widget_ManagePersonUI.ui', self)
+        #path = 'Base/Widget_ManagePerson/View/Widget_ManagePersonUI.ui'
+        form = QUiLoader().load('./View/Widget_ManagePersonUI.ui', self)
         self.proxyView = form.findChild(QTreeView, 'treeView')
         self.layoutSearch = form.findChild(QHBoxLayout, 'layout_search')
         self.b_edit = form.findChild(QPushButton, 'b_edit')
@@ -32,8 +33,18 @@ class WidgetManagePerson(QWidget):
     def initConnect(self):
         self.filterPatternLineEdit.textChanged.connect(self.filterRegExpChanged)
         self.filterColumnComboBox.currentIndexChanged.connect(self.filterColumnChanged)
-        # self.b_edit.clicked.connect(self.editPerson)
+        self.b_edit.clicked.connect(self.editPerson)
         # self.b_newPerson.clicked.connect(self.newPerson)
+
+    def editPerson(self):
+        print("row: ", end="")
+        # print(self.proxyView.selectionModel().selectedRows())
+        # print(self.proxyView.currentIndex())
+        # print(self.proxyModel.data(self.proxyView.currentIndex()))
+        p = QTreeView()
+        # q = QStandardItemModel()
+        # q.itemData()
+
 
     def setProxyView(self):
         self.proxyView.setRootIsDecorated(False)
@@ -68,10 +79,10 @@ class WidgetManagePerson(QWidget):
     def addAllPerson(self, lst_person):
         count = 0
         for person in lst_person:
-            text = person.getData()
+            #text = person.getData()
             self.model.insertRow(count)
             for i in range(self.sizeOFHead):
-                self.model.setData(self.model.index(count, i), text[i])
+                self.model.setData(self.model.index(count, i), person[i])
             count += 1
 
     def filterRegExpChanged(self):

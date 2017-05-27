@@ -36,6 +36,7 @@ class Tab2Patient(QWidget):
         self.b_newPatient.clicked.connect(self.newPatient)
 
     def viewPatient(self):
+        #case_id = self.tab2
         dialog = Dialog_3ReportPatientClass.ReportPatient()
         dialog.show()
         dialog.exec_()
