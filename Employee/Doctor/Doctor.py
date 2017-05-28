@@ -72,6 +72,8 @@ class DoctorApplication(object):
         return False
 
 
+
+
 if __name__ == "__main__":
     import sys
     from PySide.QtGui import QApplication

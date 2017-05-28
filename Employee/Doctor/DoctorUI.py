@@ -1,5 +1,5 @@
 from PySide.QtGui import QMainWindow, QGridLayout, QWidget, QTabWidget
-from Employee.Doctor import Doctor, Tab1_CalendarClass, Tab2_PatientClass
+from Employee.Doctor import Doctor, Tab1_CalendarClass, Tab2_PatientClass, Tab3_AppointmentClass
 import Setting
 
 
@@ -31,8 +31,10 @@ class MainWindowDoctor(QMainWindow):
         self.tabWidget.setStyleSheet(Setting.SS_TabWidget)
         self.tab1 = Tab1_CalendarClass.Tab1Calendar(self.user, self)
         self.tab2 = Tab2_PatientClass.Tab2Patient(self.user, self)
+        self.tab3 = Tab3_AppointmentClass.Tab3Appointment(self.user, self)
         self.tabWidget.addTab(self.tab1, "Dashboard")
         self.tabWidget.addTab(self.tab2, "Patient")
+        self.tabWidget.addTab(self.tab3, "Appointment")
 
     def addNewPatient(self, newPatient):
         self.crtlDatabase.addNewPatient(newPatient)

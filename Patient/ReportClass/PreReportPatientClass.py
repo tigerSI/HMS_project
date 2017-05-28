@@ -35,8 +35,8 @@ class PreReportByNurse(object):
         self.fullBed = fullBed  ## boolean
         self.service = service  ## string ('in', 'out')
         self.ASA = ASA  ## string
-        self.BW = BW  ## int
-        self.HT = HT  ## int
+        self.BW = int(BW)  ## int
+        self.HT = int(HT)  ## int
         self.BMI = self.BW / (self.HT ** 2)
         self.BP = BP  ## int
         self.P = P  ## int
