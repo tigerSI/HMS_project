@@ -17,6 +17,7 @@ HEAD_BAR_NURSE = ["ID", "Username", "Password", "Firstname", "Lastname", "Phone"
 
 # Manage Person For Doctor
 HEAD_BAR_PATIENT = ["Case_id", "Date", "Time", "Room", "Name", "Pre_Diagnosis", "Plan"]
+HB_DOCTOR_PATIENT = ["AN", "Name", "Age", "Phone"]
 
 #Manage Person For RoomManager
 HEAD_BAR_APPOINTMENT = ["Case_id", "Data", "Time", "Doctor", "Patient", "Status"]

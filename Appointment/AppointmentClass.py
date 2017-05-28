@@ -60,7 +60,6 @@ class Appointment:
         text.append(self.patient.Name)
         return text
 
-
     def setInfo(self, type, date, time):
         self.type = type
         self.date.setDate(date.split('/'))

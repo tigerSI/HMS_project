@@ -52,7 +52,6 @@ class PreReportByNurse(object):
                 if i[0] != "":
                     self.allergy_list.append(i)
 
-
     def setpremed(self, new_premed):
         self.premed = new_premed
 

@@ -18,14 +18,13 @@ class ReportPatient(QDialog):
         self.ui = self.loader.load(s.PATH_DOCTOR_DIALOG_3REPORT, self)
         self.layout = QVBoxLayout(self)
         self.layout.addWidget(self.ui)
+        self.initContainer()
         self.initPostButtons(self.ui)
         self.initIntraButtons(self.ui)
         self.initPreButtons(self.ui)
-        self.forDevPre()
-        self.forDevIntra()
-        self.forDevPost()
+        self.forDev()
 
-
+    def initContainer(self):
         self.pre_info_line = []
         self.pre_info_box = []
         self.intra_info_line = []
@@ -38,6 +37,7 @@ class ReportPatient(QDialog):
         self.post6_info = []
         self.post7_info = []
 
+    """PRE REPORT"""
     def initPreButtons(self,ui):
         #Line edits
         self.lineEditPrelist = []
@@ -45,7 +45,6 @@ class ReportPatient(QDialog):
             name = "PreLineEdit_" + str(i)
             line = ui.findChild(QLineEdit, name)
             self.lineEditPrelist.append(line)
-
 
         #Combo box
         self.comboBoxPrelist = []
@@ -75,6 +74,7 @@ class ReportPatient(QDialog):
 
         self.close()
 
+    """INTRA REPORT"""
     def initIntraButtons(self, ui):
         #Line edit
         self.lineEditIntralist = []
@@ -107,9 +107,9 @@ class ReportPatient(QDialog):
         intraReport = IntraReportPatientClass.IntraReportPatient(self.intra_info_line[0], self.intra_info_line[1], self.intra_info_line[2], self.intra_info_line[3], self.intra_info_box[0], self.intra_info_box[1], self.intra_info_box[2], self.intra_info_line[4], [self.intra_info_line[5], self.intra_info_line[6]], self.intra_info_line[7], self.intra_info_box[3], self.intra_info_box[4],
                                         self.intra_info_line[8], self.intra_info_line[9], self.intra_info_box[5], self.intra_info_box[6], self.intra_info_box[7], self.intra_info_line[10], self.intra_info_line[11], self.intra_info_line[12], self.intra_info_box[8], self.intra_info_box[9], self.intra_info_box[10],
                                         self.intra_info_line[13], self.intra_info_line[14], self.intra_info_line[15], self.intra_info_box[11], [self.intra_info_line[16], self.intra_info_line[17], self.intra_info_line[18], self.intra_info_line[19],self.intra_info_line[20]])
-        print("in")
         self.close()
 
+    """POST REPORT"""
     def initPostButtons(self, ui):
         #post1
         self.post1List = []
@@ -329,7 +329,6 @@ class ReportPatient(QDialog):
         post_report.setAnesthetic_complications_procedure(self.post5_info)
         post_report.setAnesthetic_complications_admitroom_48hrs(self.post6_info)
         post_report.setAnesthetic_complications_admitroom_7day(self.post7_info)
-        print("in post")
         self.close()
 
     def cancel(self):
@@ -339,6 +338,12 @@ class ReportPatient(QDialog):
             self.close()
         else:
             print("Cancel")
+
+    """ FOR DEVELOP"""
+    def forDev(self):
+        self.forDevPre()
+        self.forDevIntra()
+        self.forDevPost()
 
     def forDevPre(self):
         pre = ['atenolol 5 mg tab O at 6.00', '-', '-', '-', '-', '001', '2', '5', '20.11', '130/80', '86', '20',
@@ -357,12 +362,10 @@ class ReportPatient(QDialog):
                  '8:30', '9:00', '30', 'Janet van Dyne', 'Wanda Maximoff', 'Natasha Alianovna Romanoff',
                  'Carol Danvers', 'Jennifer Walters']
         count = 0
-        print(len(self.lineEditIntralist), len(intra))
         for i in self.lineEditIntralist:
             s = intra[count]
             i.setText(s)
             count+=1
-        print("done FORDEV")
 
     def forDevPost(self):
         post = ['Note', 'Monica Rambeau']

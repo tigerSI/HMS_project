@@ -53,6 +53,9 @@ class MainWindowDoctor(QMainWindow):
     def appointmentValid(self, date, time, doctor):
         return self.crtlDatabase.appointmentValid(date, time, doctor)
 
+    def patientValid(self, AN):
+        return self.crtlDatabase.patientValid(AN)
+
 
 if __name__ == "__main__":
     import sys

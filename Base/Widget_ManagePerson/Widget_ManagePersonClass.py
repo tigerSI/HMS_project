@@ -39,10 +39,9 @@ class WidgetManagePerson(QWidget):
 
     def editPerson(self):
         selection = self.proxyView.selectionModel().selectedRows()
-
         if selection is not None:
-            case_id = selection[0].data()
-            self.parent.editButtonPressed(case_id)
+            first_key = selection[0].data()
+            self.parent.editButtonPressed(first_key)
 
     "init Table"
     def setProxyView(self):

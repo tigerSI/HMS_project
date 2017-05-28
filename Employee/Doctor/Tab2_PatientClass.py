@@ -15,12 +15,12 @@ class Tab2Patient(QWidget):
 
     def initUI(self):
         self.tab2 = Widget_ManagePersonClass.WidgetManagePerson("Patient", self)
-        appointments = self.parent.crtlDatabase.getAppointmentByDoctor(self.user.id)
-        self.tab2.setSourceModel(s.HEAD_BAR_PATIENT, appointments)
+        patients = self.parent.crtlDatabase.getPatientFromDatabase()
+        self.tab2.setSourceModel(s.HB_DOCTOR_PATIENT, patients)
 
     def updateTable(self):
-        appointments = self.parent.crtlDatabase.getAppointmentFromDatabase()
-        self.tab2.setSourceModel(s.HEAD_BAR_PATIENT, appointments)
+        patients = self.parent.crtlDatabase.getPatientFromDatabase()
+        self.tab2.setSourceModel(s.HB_DOCTOR_PATIENT, patients)
 
     def initLayout(self):
         layout = QGridLayout()
@@ -35,14 +35,14 @@ class Tab2Patient(QWidget):
         #self.b_view.clicked.connect(self.viewPatient)
         self.b_newPatient.clicked.connect(self.newPatient)
 
-    def editButtonPressed(self, case_id):
-        if case_id is not None:
-            self.viewPatient(case_id)
+    """This func called By Widget_ManagePersonClass"""
+    def editButtonPressed(self, AN):
+        if AN is not None:
+            self.viewPatient(AN)
         else:
             print("is None")
 
-    def viewPatient(self, case_id):
-        print(case_id)
+    def viewPatient(self, AN):
         dialog = Dialog_3ReportPatientClass.ReportPatient()
         dialog.show()
         dialog.exec_()
@@ -52,7 +52,8 @@ class Tab2Patient(QWidget):
         dialog = Dialog_NewPatientClass.NewPatientDialog(self.user, case_id, self.parent)
         dialog.show()
         dialog.exec_()
-        self.updateTable()
+        if dialog.returnVal:
+            self.updateTable()
 
 
 if __name__ == '__main__':

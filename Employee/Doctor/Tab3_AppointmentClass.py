@@ -36,6 +36,7 @@ class Tab3Appointment(QWidget):
 
     def editButtonPressed(self, case_id):
         if case_id is not None:
+            print(case_id)
             self.viewPatient(case_id)
         else:
             print("is None")
