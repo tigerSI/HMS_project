@@ -8,6 +8,8 @@ class PostReportPatient(object):
         self.Anesthetic_complications_admitroom_2hrs = []
         self.Anesthetic_complications_admitroom_24hrs = []
         self.Anesthetic_complications_procedure = []
+        self.Anesthetic_complications_admitroom_48hrs = []
+        self.Anesthetic_complications_admitroom_7day = []
 
     def setresult(self, new_result):
         self.result = new_result
@@ -50,4 +52,16 @@ class PostReportPatient(object):
 
     def getAnesthetic_complications_procedure(self):
         return self.Anesthetic_complications_procedure
+
+    def setAnesthetic_complications_admitroom_48hrs(self, new_Anesthetic_complications_admitroom_48hrs):
+        self.Anesthetic_complications_admitroom_48hrs = new_Anesthetic_complications_admitroom_48hrs
+
+    def getAnesthetic_complications_admitroom_48hrs(self):
+        return self.Anesthetic_complications_admitroom_48hrs
+
+    def setAnesthetic_complications_admitroom_7day(self, new_Anesthetic_complications_admitroom_7day):
+        self.Anesthetic_complications_admitroom_7day = new_Anesthetic_complications_admitroom_7day
+
+    def getAnesthetic_complications_admitroom_7day(self):
+        return self.Anesthetic_complications_admitroom_7day
 

@@ -87,6 +87,7 @@ class NewPatientDialog(QDialog):
         self.part_appointment.append(ui.Type.currentText())
         self.part_appointment.append(ui.Date.text())
         self.part_appointment.append(ui.Time.currentText())
+
         #"Pre_OD", "Plan", "Underlying", "Treatment", "Note"
         self.part_extra_info.append(ui.Pre_OD.toPlainText())
         self.part_extra_info.append(ui.Plan.toPlainText())
@@ -97,21 +98,27 @@ class NewPatientDialog(QDialog):
 
     def save(self):
         self.getData()
-        pre_pre_report = [self.part_basic_info, self.part_extra_info]
-        newPatient = PatientClass.Patient(pre_pre_report)
-        newAppointment = AppointmentClass.Appointment(self.case_id, self.part_appointment, self.user, newPatient)
-        self.parent.addNewPatient(newPatient)
-        self.parent.addNewAppointment(newAppointment)
-        self.close()
+        if self.parent.appointmentValid(self.part_appointment[1], self.part_basic_info[2], self.user):
+            pre_pre_report = [self.part_basic_info, self.part_extra_info]
+            newPatient = PatientClass.Patient(pre_pre_report)
+            newAppointment = AppointmentClass.Appointment(self.case_id, self.part_appointment, self.user, newPatient)
+            self.parent.addNewPatient(newPatient)
+            self.parent.addNewAppointment(newAppointment)
+            self.close()
+
+        else:  #not valid appointment
+            error = QErrorMessage()
+            error.showMessage("")
+            error.exec_()
 
     def cancel(self):
-        dialog = ConfirmMsgClass.ConfirmYesNo()
+        title = "New Patient is canceling"
+        textInfo = "Your entered information has not been saved."
+        dialog = ConfirmMsgClass.ConfirmYesNo(title, textInfo)
         if dialog.ans == True:
-            print("Discard")
             self.close()
         else:
-            print("Cancel")
-
+            pass
 
 if __name__ == "__main__":
     import sys

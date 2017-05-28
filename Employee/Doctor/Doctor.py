@@ -64,6 +64,13 @@ class DoctorApplication(object):
                 break
         self.ctrlDatabase_patient.updateObject(appointments)
 
+    def appointmentValid(self, date, time, doctor):
+        appointments = self.getAppointmentByDoctor(doctor.id)
+        for am in appointments:
+            if am.date == date and am.time == time and am.doctor.firstName == doctor.firstName:
+                return True
+        return False
+
 
 if __name__ == "__main__":
     import sys
