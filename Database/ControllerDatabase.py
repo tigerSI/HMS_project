@@ -7,6 +7,7 @@ from Employee.Roommanager.RoommanagerClass import *
 from Patient.ReportClass import PreReportPatientClass
 from Patient.ReportClass import IntraReportPatientClass
 from Patient.ReportClass import PostReportPatientClass
+from Appointment import AppointmentClass
 '''
 import pickle, pprint
 
@@ -151,4 +152,3 @@ def demo():
     win.exec_()
     sys.exit(app.exec_())
 
-demo()

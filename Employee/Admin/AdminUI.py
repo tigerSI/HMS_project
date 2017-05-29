@@ -1,7 +1,7 @@
 from PySide.QtGui import *
 from Base.Widget_ManagePerson import Widget_ManagePersonClass
 from Employee.Admin import Admin
-import Employee.Admin.Dialog_editOrNewEmployeeClass as d
+import Employee.Admin.Dialog_NewEmployeeClass as d
 import Setting as s
 
 from enum import Enum
@@ -57,6 +57,21 @@ class MainWindowAdmin(QMainWindow):
         self.all_user.append(self.ctrlDatabase.getListNurse())
         self.all_user.append(self.ctrlDatabase.getListAdmin())
 
+    def updateTable(self, type):
+        position = self.getListUserByType(type)
+        self.updateDatabase()
+        if position == UserPosition.doctor.value:
+            self.all_user[UserPosition.doctor.value] = self.ctrlDatabase.getListDoctor()
+            self.tab1.setSourceModel(s.HEAD_BAR_ADMIN, self.all_user[UserPosition.doctor.value])
+        elif position == UserPosition.nurse.value:
+            self.all_user[UserPosition.nurse.value] = self.ctrlDatabase.getListNurse()
+            self.tab2.setSourceModel(s.HEAD_BAR_ADMIN, self.all_user[UserPosition.nurse.value])
+        elif position == UserPosition.admin.value:
+            self.all_user[UserPosition.admin.value] = self.ctrlDatabase.getListAdmin()
+            self.tab3.setSourceModel(s.HEAD_BAR_ADMIN, self.all_user[UserPosition.admin.value])
+        else:
+            raise TypeError
+
     def getListUserByType(self, type):
         if type == "D":
             return UserPosition.doctor.value
@@ -76,12 +91,21 @@ class MainWindowAdmin(QMainWindow):
                 # print("FIND")
                 # print(id, end='')
                 # print(self.all_user[position][i].id)
-                dialog = d.EditOrNewEmployeeDialog(id, self)
+                dialog = d.EditOrNewEmployeeDialog("edit", id, self)
                 dialog.show()
                 dialog.exec_()
                 if dialog.returnVal:
                     pass
 
+    def editEmployee(self, id, data):
+        print(id)
+        if self.ctrlDatabase.editEmployee(id, data):
+            self.updateTable(id[:1])
+            return True
+        return False
+
+    def newEmployee(self, data):
+        return self.ctrlDatabase.newEmployee(data)
 
 
 

@@ -74,7 +74,6 @@ class Position(Enum):
     nurse = 2
     roommanager = 3
 
-
 #Calendar
 class Month(Enum):
     Jan = 1
@@ -89,6 +88,15 @@ class Month(Enum):
     Oct = 10
     Nov = 11
     Dec = 12
+
+class NewObjectReturnVal(Enum):
+    exist = 0
+    created = 1
+    wrong_input = 2
+
+class EditObjectReturnVal(Enum):
+    not_found = 0
+    edited = 1
 
 
 
