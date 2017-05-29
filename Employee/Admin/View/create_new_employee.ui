@@ -18,17 +18,17 @@
     <widget class="QComboBox" name="type">
      <item>
       <property name="text">
-       <string>Admin</string>
+       <string>admin</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Nurse</string>
+       <string>nurse</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Doctor</string>
+       <string>doctor</string>
       </property>
      </item>
     </widget>

@@ -18,6 +18,7 @@ class MainWindowAdmin(QMainWindow):
         self.all_user = []
         self.initUI()
         self.initLayout()
+        self.initButton()
         # self.allRowDatabaseDoctor = []
         # self.allRowDatabaseNurse = []
         # self.allRowDatabaseAdmin = []
@@ -50,6 +51,15 @@ class MainWindowAdmin(QMainWindow):
         self.tabWidget.addTab(self.tab2, "Nurse")
         self.tabWidget.addTab(self.tab3, "Admin")
 
+
+    def initButton(self):
+        self.b_newDoctor = self.tab1.b_newPerson
+        self.b_newDoctor.clicked.connect(lambda: self.newEmployee(UserPosition.doctor.value))
+        self.b_newNurse = self.tab2.b_newPerson
+        self.b_newNurse.clicked.connect(lambda: self.newEmployee(UserPosition.nurse.value))
+        self.b_newAdmin = self.tab3.b_newPerson
+        self.b_newAdmin.clicked.connect(lambda: self.newEmployee(UserPosition.admin.value))
+
     def updateDatabase(self):
         self.ctrlDatabase.getListByPosition()
         self.all_user = []
@@ -58,15 +68,17 @@ class MainWindowAdmin(QMainWindow):
         self.all_user.append(self.ctrlDatabase.getListAdmin())
 
     def updateTable(self, type):
-        position = self.getListUserByType(type)
         self.updateDatabase()
-        if position == UserPosition.doctor.value:
+        if type == UserPosition.doctor.name:
+            print("Update Table: " + str(type))
             self.all_user[UserPosition.doctor.value] = self.ctrlDatabase.getListDoctor()
             self.tab1.setSourceModel(s.HEAD_BAR_ADMIN, self.all_user[UserPosition.doctor.value])
-        elif position == UserPosition.nurse.value:
+        elif type == UserPosition.nurse.name:
+            print("Update Table: " + str(type))
             self.all_user[UserPosition.nurse.value] = self.ctrlDatabase.getListNurse()
             self.tab2.setSourceModel(s.HEAD_BAR_ADMIN, self.all_user[UserPosition.nurse.value])
-        elif position == UserPosition.admin.value:
+        elif type == UserPosition.admin.name:
+            print("Update Table: " + str(type))
             self.all_user[UserPosition.admin.value] = self.ctrlDatabase.getListAdmin()
             self.tab3.setSourceModel(s.HEAD_BAR_ADMIN, self.all_user[UserPosition.admin.value])
         else:
@@ -84,29 +96,31 @@ class MainWindowAdmin(QMainWindow):
 
     def editButtonPressed(self, id):
         position = self.getListUserByType(id[:1])
-        print(len(self.all_user[position]))
         for i in range(len(self.all_user[position])):
             if id == self.all_user[position][i].id:
-                """FOR DEV"""
-                # print("FIND")
-                # print(id, end='')
-                # print(self.all_user[position][i].id)
                 dialog = d.EditOrNewEmployeeDialog("edit", id, self)
                 dialog.show()
                 dialog.exec_()
-                if dialog.returnVal:
-                    pass
 
-    def editEmployee(self, id, data):
-        print(id)
-        if self.ctrlDatabase.editEmployee(id, data):
-            self.updateTable(id[:1])
+    def editEmployee(self, id, data, type):
+        if self.ctrlDatabase.editEmployee(id, data, type):
+            self.updateTable(type)
             return True
         return False
 
-    def newEmployee(self, data):
-        return self.ctrlDatabase.newEmployee(data)
-
+    def newEmployee(self, position):
+        print("in Employee")
+        dialog = d.EditOrNewEmployeeDialog("new")
+        dialog.show()
+        dialog.exec_()
+        if position == UserPosition.doctor.value:
+            pass
+        elif position == UserPosition.nurse.value:
+            pass
+        elif position == UserPosition.admin.value:
+            pass
+        else:
+            raise TypeError
 
 
 

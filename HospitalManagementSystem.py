@@ -23,12 +23,7 @@ class HMS(QMainWindow):
         self.centralWidget().setCurrentWidget(self.login_widget)
 
     def loginSucess(self, user, position):
-        print(user.id)
-        print(user.firstname)
-        print(user.getType())
-        print(position)
         if position == s.Position.admin:
-            print("in")
             self.mainWindow = Admin.MainWindowAdmin(user)
         elif position == s.Position.doctor:
             self.mainWindow = Doctor.MainWindowDoctor(user)
@@ -37,7 +32,7 @@ class HMS(QMainWindow):
         elif position == s.Position.roommanager:
             self.mainWindow = RoomManager.MainWindowRoomManager(user)
         else:
-            print("Error !!!")
+            raise TypeError
         self.appendCentral_widget(self.mainWindow)
 
     def appendCentral_widget(self, widget):

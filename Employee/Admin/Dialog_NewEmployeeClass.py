@@ -1,4 +1,4 @@
-from PySide.QtGui import QDialog, QPushButton, QGridLayout
+from PySide.QtGui import QDialog, QPushButton, QGridLayout, QErrorMessage
 from PySide.QtUiTools import QUiLoader
 import Setting as s
 
@@ -8,6 +8,7 @@ class EditOrNewEmployeeDialog(QDialog):
         self.editOrNew = editOrNew
         self.parent = parent
         self.idEmployee = id
+        self.returnVal = False
         self.initUI()
         self.initLayout()
         self.forDev()
@@ -33,11 +34,11 @@ class EditOrNewEmployeeDialog(QDialog):
     def setDefaultType(self, type):
         text = ""
         if type == 'D':
-            text = 'Doctor'
+            text = s.Position.doctor.name
         elif type == 'N':
-            text = 'Nurse'
+            text = s.Position.nurse.name
         elif type == 'A':
-            text = 'Admin'
+            text = s.Position.admin.name
         else:
             raise TypeError
         index = self.ui.type.findText(text)
@@ -50,6 +51,7 @@ class EditOrNewEmployeeDialog(QDialog):
         self.setLayout(layout)
 
     def getData(self):
+
         return [self.ui.id.text(),
                 self.ui.username.text(),
                 self.ui.password.text(),
@@ -66,10 +68,25 @@ class EditOrNewEmployeeDialog(QDialog):
 
     def save(self):
         data = self.getData()
+        # self.parent.getListByPosition()
+        # count = len(self.parent.self.lst_doctor)
         if self.editOrNew == 'edit':
-            self.parent.editEmployee(self.idEmployee, data)
+            if not self.parent.editEmployee(self.idEmployee, data, data[3]):
+                error = QErrorMessage()
+                error.showMessage("Invalid username: " + str(data[1]) + " already exist")
+                error.setWindowTitle("Error!!!")
+                error.exec_()
+            else:
+                self.returnVal = True
+
         elif self.editOrNew == 'new':
-            self.parent.newEmployee(data)
+            if not self.parent.addEmployee(data, data[3]):
+                error = QErrorMessage()
+                error.showMessage("ID or/and Username is/are invalid")
+                error.setWindowTitle("Error!!!")
+                error.exec_()
+            else:
+                self.returnVal = True
         else:
             raise TypeError
 
