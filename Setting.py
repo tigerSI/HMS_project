@@ -31,7 +31,7 @@ PATH_IMG_BG_LOGIN = ".RSC/img/bg_login.png"
 
 # path Doctor
 PATH_DOCTOR_DIALOG_NEWPATIENT = 'Employee/Doctor/View/Widget_NewPatientUI.ui'
-"""เปลี่ยนอีกที"""
+
 #Employee/Doctor/View/Widget_3ReportPatientUI.ui
 PATH_DOCTOR_DIALOG_3REPORT = '../Employee/Doctor/View/Widget_3ReportPatientUI.ui'
 

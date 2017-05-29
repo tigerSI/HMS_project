@@ -4,7 +4,7 @@ import Setting as s
 
 class HistoryReport(QDialog):
     def __init__(self, part_pre, part_intra, part_post, parent=None):
-        super(HistoryReport, self).__init__(parent)
+        QDialog.__init__(self, None)
         posX, posY, sizeW, sizeH = s.GEOMETRY_DIALOG_HISTORY_REPORT
         self.setGeometry(posX, posY, sizeW, sizeH)
         self.part_pre = part_pre

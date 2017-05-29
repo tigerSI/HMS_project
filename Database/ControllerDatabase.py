@@ -144,6 +144,7 @@ def demo():
     # win.setDataFromDataBasePre(pre_data, pre_databox)
     # win.setDataFromDataBaseIntra(intra_data, intra_databox)
     # win.setDataFromDataBasePost(post_data)
+    """THIS HERE"""
     from Patient import Dialog_HistoryReport as h
     win = h.HistoryReport(preReport1, intraReport, post_report)
     win.show()
