@@ -43,8 +43,6 @@ class HistoryReport(QDialog):
         # set label
         pass
 
-    def forDev(self):
-        pass
 
     def cancel(self):
         pass
