@@ -16,14 +16,13 @@ class AdminApplication(object):
         return obj_users
 
     def getListByPosition(self):
-        print("in")
+        print("in getListBy Position")
         self.lst_doctor.clear()
         self.lst_roommanager.clear()
         self.lst_nurse.clear()
         self.lst_admin.clear()
         users = self.getUserFromDatabase()
         for user in users:
-            print(user)
             if user.getType() == s.Position.admin:
                 self.lst_admin.append(user)
             elif user.getType() == s.Position.doctor:
@@ -33,7 +32,7 @@ class AdminApplication(object):
             elif user.getType() == s.Position.roommanager:
                 self.lst_roommanager.append(user)
             else:
-                print("Error")
+                print("NOT FOUND THIS TYPE EMPLOYEE")
 
     def getListAdmin(self):
         return self.lst_admin

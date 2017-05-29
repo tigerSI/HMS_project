@@ -12,8 +12,10 @@ class LoginSystem(object):
     def checkRegisteredUser(self, userName, password):
         users = self.getUserFromDatabase()
         for user in users:
+            print('test', user.getType())
             if (userName == user.getUsername() and
                         password == user.getPassword()):
+                print(user.getType())
                 return 1, user, user.getType()
         return 0, None, None
 
