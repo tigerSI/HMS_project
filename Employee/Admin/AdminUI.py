@@ -14,10 +14,10 @@ class MainWindowAdmin(QMainWindow):
     def __init__(self, user):
         super(MainWindowAdmin, self).__init__()
         self.ctrlDatabase = Admin.AdminApplication()
-        self.initUI()
-        self.initLayout()
         self.user = user
         self.all_user = []
+        self.initUI()
+        self.initLayout()
         # self.allRowDatabaseDoctor = []
         # self.allRowDatabaseNurse = []
         # self.allRowDatabaseAdmin = []
@@ -52,6 +52,7 @@ class MainWindowAdmin(QMainWindow):
 
     def updateDatabase(self):
         self.ctrlDatabase.getListByPosition()
+        self.all_user = []
         self.all_user.append(self.ctrlDatabase.getListDoctor())
         self.all_user.append(self.ctrlDatabase.getListNurse())
         self.all_user.append(self.ctrlDatabase.getListAdmin())
@@ -67,11 +68,20 @@ class MainWindowAdmin(QMainWindow):
             raise ValueError
 
     def editButtonPressed(self, id):
-        self.updateDatabase()
         position = self.getListUserByType(id[:1])
-        print(position)
+        print(len(self.all_user[position]))
         for i in range(len(self.all_user[position])):
-            pass
+            if id == self.all_user[position][i].id:
+                """FOR DEV"""
+                # print("FIND")
+                # print(id, end='')
+                # print(self.all_user[position][i].id)
+                dialog = d.EditOrNewEmployeeDialog(id, self)
+                dialog.show()
+                dialog.exec_()
+                if dialog.returnVal:
+                    pass
+
 
 
 

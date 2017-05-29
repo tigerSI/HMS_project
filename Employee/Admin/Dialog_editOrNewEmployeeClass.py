@@ -10,35 +10,28 @@ from Base.Dialog_MsgBox import ConfirmMsgClass
 from Patient import PatientClass
 
 class EditOrNewEmployeeDialog(QDialog):
-    def __init__(self, editOrNew, id=0, parent=None):
+    def __init__(self, id=0, parent=None):
         super(EditOrNewEmployeeDialog, self).__init__(parent)
-        self.editOrNew = editOrNew
         self.idEmployee = id
-        self.setGeometry(300, 200, 400, 400)
+        posX, posY, sizeW, sizeH = s.GEOMETRY_DIALOG_NEW_EMPLOYEE
+        self.setGeometry(posX, posY, sizeW, sizeH)
         self.loader = QUiLoader()
-        self.ui = self.loader.load('./View/create_new_employee.ui', self)
-        self.layout = QVBoxLayout(self)
-        self.layout.addWidget(self.ui)
+        self.ui = self.loader.load('Employee/Admin/View/create_new_employee.ui', self)
         self.initUI()
-        self.ans = []
+        self.initLayout()
         self.show()
 
 
     def initUI(self):
-        self.setInput = []
-        self.label_id = self.ui.findChild(QLabel, "label_id")
-        self.combobox = self.ui.findChild(QComboBox, "comboBox")
-        self.setInput.append(self.ui.findChild(QLineEdit, "lineEdit_1"))
-        self.setInput.append(self.ui.findChild(QLineEdit, "lineEdit_2"))
-        self.setInput.append(self.ui.findChild(QLineEdit, "lineEdit_3"))
-        self.setInput.append(self.ui.findChild(QLineEdit, "lineEdit_4"))
-        self.setInput.append(self.ui.findChild(QLineEdit, "lineEdit_5"))
+        self.ui.id.setText(str(self.idEmployee))
+        #s = i.findText(str(post[count]))
+        #i.setCurrentIndex(s)
         self.b_save = self.ui.findChild(QPushButton, "b_save")
         self.b_cancel = self.ui.findChild(QPushButton, "b_cancel")
         self.b_save.clicked.connect(self.save)
         self.b_cancel.clicked.connect(self.cancel)
-        self.setValidation()
-        self.setLineEdit()
+        #self.setValidation()
+        #self.setLineEdit()
     '''
     def setLineEdit(self):
         if self.idEmployee != 0:
@@ -88,6 +81,31 @@ class EditOrNewEmployeeDialog(QDialog):
             self.l.setText(m_correctText)
             QToolTip.showText(point, "Cannot enter number..")
     '''
+
+    def initLayout(self):
+        layout = QGridLayout()
+        layout.addWidget(self.ui)
+        self.setLayout(layout)
+
+    def getData(self):
+        text = []
+        text.append(self.ui.type.currentText())
+        #id
+        text.append(self.ui.username.text())
+        text.append(self.ui.password.text())
+        text.append(self.ui.firstname.text())
+        text.append(self.ui.lastname.text())
+        text.append(self.ui.phonenumber.text())
+        return text
+
+    def forDev(self):
+        self.ui.type.currentText()
+        self.ui.username.text()
+        self.ui.password.text()
+        self.ui.firstname.text()
+        self.ui.lastname.text()
+        self.ui.phonenumber.text()
+
 
     def save(self):
         pass

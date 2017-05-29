@@ -148,4 +148,3 @@ def demo():
     win.exec_()
     sys.exit(app.exec_())
 
-demo()
