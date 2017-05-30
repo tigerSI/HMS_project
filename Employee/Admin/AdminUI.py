@@ -35,11 +35,11 @@ class MainWindowAdmin(QMainWindow):
         self.tabWidget = QTabWidget()
         self.tabWidget.setStyleSheet(s.SS_TabWidget)
         self.tab1 = Widget_ManagePersonClass.WidgetManagePerson("Doctor", self)
-        self.tab1.setSourceModel(s.HEAD_BAR_ADMIN, self.all_user[s.s.UserPosition.doctor.value])
+        self.tab1.setSourceModel(s.HEAD_BAR_ADMIN, self.all_user[s.UserPosition.doctor.value])
         self.tab2 = Widget_ManagePersonClass.WidgetManagePerson("Nurse", self)
-        self.tab2.setSourceModel(s.HEAD_BAR_ADMIN, self.all_user[s.s.UserPosition.nurse.value])
+        self.tab2.setSourceModel(s.HEAD_BAR_ADMIN, self.all_user[s.UserPosition.nurse.value])
         self.tab3 = Widget_ManagePersonClass.WidgetManagePerson("Admin", self)
-        self.tab3.setSourceModel(s.HEAD_BAR_ADMIN, self.all_user[s.s.UserPosition.admin.value])
+        self.tab3.setSourceModel(s.HEAD_BAR_ADMIN, self.all_user[s.UserPosition.admin.value])
         self.tabWidget.addTab(self.tab1, "Doctor")
         self.tabWidget.addTab(self.tab2, "Nurse")
         self.tabWidget.addTab(self.tab3, "Admin")
@@ -48,11 +48,11 @@ class MainWindowAdmin(QMainWindow):
     def initButton(self):
         #init new Employee
         self.b_newDoctor = self.tab1.b_newPerson
-        self.b_newDoctor.clicked.connect(lambda: self.newEmployee(s.s.UserPosition.doctor.name))
+        self.b_newDoctor.clicked.connect(lambda: self.newEmployee(s.UserPosition.doctor.name))
         self.b_newNurse = self.tab2.b_newPerson
-        self.b_newNurse.clicked.connect(lambda: self.newEmployee(s.s.UserPosition.nurse.name))
+        self.b_newNurse.clicked.connect(lambda: self.newEmployee(s.UserPosition.nurse.name))
         self.b_newAdmin = self.tab3.b_newPerson
-        self.b_newAdmin.clicked.connect(lambda: self.newEmployee(s.s.UserPosition.admin.name))
+        self.b_newAdmin.clicked.connect(lambda: self.newEmployee(s.UserPosition.admin.name))
 
         #init delete Employee
         self.tab1.insertDeleteButton()

@@ -278,15 +278,16 @@ def demo_appointment():
         if j.AN == '0001':
             pat1 = j
 
-    a = AppointmentClass.Appointment('AP00001', ['Elective case', '1/6/2017', 'None'], doc1, pat1)
-    a1 = AppointmentClass.Appointment('AP00002', ['Emergency case', '31/5/2017', 'Morning'], doc1, pat1)
-    a2 = AppointmentClass.Appointment('AP00003', ['Elective case', '31/5/2017', 'Afternoon'], doc1, pat1)
-    a3 = AppointmentClass.Appointment('AP00004', ['Elective case', '20/5/2017', 'None'], doc1, pat1)
-    a4 = AppointmentClass.Appointment('AP00005', ['Elective case', '20/5/2017', 'Afternoon'], doc1, pat1)
+    a = AppointmentClass.Appointment('10001', ['Elective case', '1/6/2017', 'None'], doc1, pat1)
+    a1 = AppointmentClass.Appointment('10002', ['Emergency case', '31/5/2017', 'Morning'], doc1, pat1)
+    a2 = AppointmentClass.Appointment('10003', ['Elective case', '31/5/2017', 'Afternoon'], doc1, pat1)
+    a3 = AppointmentClass.Appointment('10004', ['Elective case', '20/5/2017', 'None'], doc1, pat1)
+    a4 = AppointmentClass.Appointment('10005', ['Elective case', '20/5/2017', 'Afternoon'], doc1, pat1)
 
     appointments = [a, a1, a2, a3, a4]
     con2 = ControllerDatabase('appointmentObject.pkl')
     lst2 = con2.loadObj()
+    lst2 = []
     lst2 += appointments
 
     con2.updateObject(lst2)

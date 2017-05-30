@@ -4,7 +4,7 @@ from enum import Enum
 # posX posY sizeW sizeH
 GEOMETRY_MAINWIDOW = 50, 50, 800, 600
 GEOMETRY_DIALOG_NEW_PATIENT = 550, 60, 580, 600
-GEOMETRY_DIALOG_3REPORT = 350, 60, 850, 600
+GEOMETRY_DIALOG_3REPORT = 350, 60, 300, 300
 GEOMETRY_DIALOG_NEW_EMPLOYEE = 300, 200, 300, 230
 GEOMETRY_DIALOG_HISTORY_REPORT = 400, 100, 800, 600
 GEOMETRY_MSG = []
@@ -32,8 +32,8 @@ PATH_IMG_BG_LOGIN = ".RSC/img/bg_login.png"
 # path Doctor
 PATH_DOCTOR_DIALOG_NEWPATIENT = 'Employee/Doctor/View/Widget_NewPatientUI.ui'
 
-#Employee/Doctor/View/Widget_3ReportPatientUI.ui
-PATH_DOCTOR_DIALOG_3REPORT = '../Employee/Doctor/View/Widget_3ReportPatientUI.ui'
+#../Employee/Doctor/View/Widget_3ReportPatientUI.ui
+PATH_DOCTOR_DIALOG_3REPORT = 'Employee/Doctor/View/Widget_3ReportPatientUI.ui'
 
 # path database
 DB_USER = "./Database/userObject.pkl"

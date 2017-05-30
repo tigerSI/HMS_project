@@ -1,4 +1,5 @@
-from PySide.QtGui import QMainWindow, QGridLayout, QWidget, QPalette, QBrush, QPixmap, QLineEdit, QPushButton
+from PySide.QtGui import QMainWindow, QGridLayout, QWidget, QPalette, QBrush, QPixmap, QLineEdit, QPushButton, \
+    QErrorMessage
 from PySide.QtUiTools import QUiLoader
 from Base.Dialog_MsgBox import ConfirmMsgClass
 import Setting as s
@@ -35,7 +36,7 @@ class LoginWindow(QMainWindow):
         self.setPalette(palette)
 
     def forDev(self):
-        id = "boss"
+        id = "Doc1"
         psw = "1234"
         self.user_id.setText(id)
         self.password.setText(psw)
@@ -50,12 +51,13 @@ class LoginWindow(QMainWindow):
         user_name, psw = self.user_id.text(), self.password.text()
         found, user, position = self.system.checkRegisteredUser(user_name, psw)
         if not found:
-            dialog = ConfirmMsgClass.ConfirmYesNo()
-            dialog.show()
-            dialog.exec_()
-            self.clear()
-        self.parent.loginSucess(user, position)
-        self.close()
+            error = QErrorMessage()
+            error.showMessage("wrong input")
+            error.setWindowTitle("Error!!!")
+            error.exec_()
+        else:
+            self.parent.loginSucess(user, position)
+            self.close()
 
     def clear(self):
         self.user_id.clear()

@@ -57,26 +57,6 @@ class ReportPatient(QDialog):
         self.b_pre_save.clicked.connect(self.save_pre_info)
         self.b_pre_cancel.clicked.connect(self.cancel)
 
-    def getPreData(self,ui):
-        for item in self.lineEditPrelist:
-            s = item.text()
-            self.pre_info_line.append(s)
-
-        for box in self.comboBoxPrelist:
-            s = box.currentText()
-            self.pre_info_box.append(box.currentText(s))
-
-    def save_pre_info(self):
-        self.getPreData(self.ui)
-
-        lt = [(self.pre_info_line[13],self.pre_info_line[14]),(self.pre_info_line[15],self.pre_info_line[16]),(self.pre_info_line[17],self.pre_info_line[18])]
-                                                                # [premed, PRC, FFP, Plt, PC, plannedICU, fullBed, service, ASA, BW, HT, BP, P, RR, T, GCS, smoking, alcoholic, allergy]
-        preReport = PreReportPatientClass.PreReportByNurse(self.pre_info_line[0],self.pre_info_line[1],self.pre_info_line[2],self.pre_info_line[3],self.pre_info_line[4],self.pre_info_box[0],self.pre_info_line[5],
-                                                           self.pre_info_box[1],self.pre_info_box[2],self.pre_info_line[6],self.pre_info_line[7],self.pre_info_line[9],self.pre_info_line[10],
-                                                           self.pre_info_line[11],self.pre_info_line[12],self.pre_info_box[3],self.pre_info_box[4],self.pre_info_box[5],self.pre_info_box[6])
-
-        self.close()
-
     def initIntraButtons(self, ui):
         #Line edit
         self.lineEditIntralist = []
@@ -96,23 +76,6 @@ class ReportPatient(QDialog):
         self.b_intra_cancel = ui.findChild(QPushButton, "cancel_intra_Button")
         self.b_intra_save.clicked.connect(self.save_intra_info)
         self.b_intra_cancel.clicked.connect(self.cancel)
-
-    def getIntraData(self):
-        for item in self.lineEditIntralist:
-            s = item.text()
-            self.intra_info_line.append(s)
-
-        for box in self.comboBoxIntralist:
-            s = box.currentText()
-            self.intra_info_box.append(s)
-
-    def save_intra_info (self):
-        self.getIntraData()
-        intraReport = IntraReportPatientClass.IntraReportPatient(self.intra_info_line[0], self.intra_info_line[1], self.intra_info_line[2], self.intra_info_line[3], self.intra_info_box[0], self.intra_info_box[1], self.intra_info_box[2], self.intra_info_line[4], [self.intra_info_line[5], self.intra_info_line[6]], self.intra_info_line[7], self.intra_info_box[3], self.intra_info_box[4],
-                                        self.intra_info_line[8], self.intra_info_line[9], self.intra_info_box[5], self.intra_info_box[6], self.intra_info_box[7], self.intra_info_line[10], self.intra_info_line[11], self.intra_info_line[12], self.intra_info_box[8], self.intra_info_box[9], self.intra_info_box[10],
-                                        self.intra_info_line[13], self.intra_info_line[14], self.intra_info_line[15], self.intra_info_box[11], [self.intra_info_line[16], self.intra_info_line[17], self.intra_info_line[18], self.intra_info_line[19],self.intra_info_line[20]])
-        print("in")
-        self.close()
 
     def initPostButtons(self, ui):
         #post1
@@ -259,6 +222,24 @@ class ReportPatient(QDialog):
         self.b_post_save.clicked.connect(self.save_post_info)
         self.b_post_cancel.clicked.connect(self.cancel)
 
+    def getPreData(self,ui):
+        for item in self.lineEditPrelist:
+            s = item.text()
+            self.pre_info_line.append(s)
+
+        for box in self.comboBoxPrelist:
+            s = box.currentText()
+            self.pre_info_box.append(box.currentText(s))
+
+    def getIntraData(self):
+        for item in self.lineEditIntralist:
+            s = item.text()
+            self.intra_info_line.append(s)
+
+        for box in self.comboBoxIntralist:
+            s = box.currentText()
+            self.intra_info_box.append(s)
+
     def getPostData(self,ui):
         #post1
         self.post1_info.append(self.post1List[0][0].currentText())
@@ -322,6 +303,25 @@ class ReportPatient(QDialog):
         self.post7_info.append(self.post7List[2].text())
         self.post7_info.append(self.post7List[3].currentText())
         self.post7_info.append(self.post7List[4].currentSection())
+
+    def save_pre_info(self):
+        self.getPreData(self.ui)
+
+        lt = [(self.pre_info_line[13],self.pre_info_line[14]),(self.pre_info_line[15],self.pre_info_line[16]),(self.pre_info_line[17],self.pre_info_line[18])]
+                                                                # [premed, PRC, FFP, Plt, PC, plannedICU, fullBed, service, ASA, BW, HT, BP, P, RR, T, GCS, smoking, alcoholic, allergy]
+        preReport = PreReportPatientClass.PreReportByNurse(self.pre_info_line[0],self.pre_info_line[1],self.pre_info_line[2],self.pre_info_line[3],self.pre_info_line[4],self.pre_info_box[0],self.pre_info_line[5],
+                                                           self.pre_info_box[1],self.pre_info_box[2],self.pre_info_line[6],self.pre_info_line[7],self.pre_info_line[9],self.pre_info_line[10],
+                                                           self.pre_info_line[11],self.pre_info_line[12],self.pre_info_box[3],self.pre_info_box[4],self.pre_info_box[5],self.pre_info_box[6])
+
+        self.close()
+
+    def save_intra_info (self):
+        self.getIntraData()
+        intraReport = IntraReportPatientClass.IntraReportPatient(self.intra_info_line[0], self.intra_info_line[1], self.intra_info_line[2], self.intra_info_line[3], self.intra_info_box[0], self.intra_info_box[1], self.intra_info_box[2], self.intra_info_line[4], [self.intra_info_line[5], self.intra_info_line[6]], self.intra_info_line[7], self.intra_info_box[3], self.intra_info_box[4],
+                                        self.intra_info_line[8], self.intra_info_line[9], self.intra_info_box[5], self.intra_info_box[6], self.intra_info_box[7], self.intra_info_line[10], self.intra_info_line[11], self.intra_info_line[12], self.intra_info_box[8], self.intra_info_box[9], self.intra_info_box[10],
+                                        self.intra_info_line[13], self.intra_info_line[14], self.intra_info_line[15], self.intra_info_box[11], [self.intra_info_line[16], self.intra_info_line[17], self.intra_info_line[18], self.intra_info_line[19],self.intra_info_line[20]])
+        print("in")
+        self.close()
 
     def save_post_info (self):
         self.getPostData(self.ui)
