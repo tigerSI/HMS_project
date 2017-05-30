@@ -54,11 +54,11 @@ class MainWindowAdmin(QMainWindow):
 
     def initButton(self):
         self.b_newDoctor = self.tab1.b_newPerson
-        self.b_newDoctor.clicked.connect(lambda: self.newEmployee(UserPosition.doctor.value))
+        self.b_newDoctor.clicked.connect(lambda: self.newEmployee(UserPosition.doctor.name))
         self.b_newNurse = self.tab2.b_newPerson
-        self.b_newNurse.clicked.connect(lambda: self.newEmployee(UserPosition.nurse.value))
+        self.b_newNurse.clicked.connect(lambda: self.newEmployee(UserPosition.nurse.name))
         self.b_newAdmin = self.tab3.b_newPerson
-        self.b_newAdmin.clicked.connect(lambda: self.newEmployee(UserPosition.admin.value))
+        self.b_newAdmin.clicked.connect(lambda: self.newEmployee(UserPosition.admin.name))
 
     def updateDatabase(self):
         self.ctrlDatabase.getListByPosition()
@@ -102,25 +102,27 @@ class MainWindowAdmin(QMainWindow):
                 dialog.show()
                 dialog.exec_()
 
-    def editEmployee(self, id, data, type):
-        if self.ctrlDatabase.editEmployee(id, data, type):
-            self.updateTable(type)
+    def editEmployee(self, id, data, position):
+        if self.ctrlDatabase.editEmployee(id, data, position):
+            self.updateTable(position)
             return True
         return False
 
     def newEmployee(self, position):
-        print("in Employee")
-        dialog = d.EditOrNewEmployeeDialog("new")
+        print("new Employee Button pressed: " + str(position))
+        dialog = d.EditOrNewEmployeeDialog("new", position, self)
         dialog.show()
         dialog.exec_()
-        if position == UserPosition.doctor.value:
-            pass
-        elif position == UserPosition.nurse.value:
-            pass
-        elif position == UserPosition.admin.value:
-            pass
-        else:
-            raise TypeError
+
+    def addNewEmployee(self, data, position):
+        if self.ctrlDatabase.addNewEmployee(data, position):
+            self.updateTable(position)
+            return True
+        return False
+
+    def getNewIDByUserType(self, position):
+        return self.ctrlDatabase.getNewIDByUserType(position)
+
 
 
 

@@ -165,6 +165,17 @@ def demo_admin():
 
     con.updateObject(lst)
 
+def demo_nurse():
+    con = ControllerDatabase('userObject.pkl')
+    lst = con.loadObj()
+
+    n1 = Nurse('N001', 'Nur1', '1234', 'N.A', 'ASDFG', '0245678123')
+    n2 = Nurse('N002', 'Nur2', '1234', 'N.B', 'Lappanopakorn', '123465789')
+    lst.append(n1)
+    lst.append(n2)
+
+    con.updateObject(lst)
+
 
 def demo_doctor():
     con = ControllerDatabase('userObject.pkl')
@@ -283,6 +294,7 @@ def demo_appointment():
 
 def main():
     demo_admin()
+    demo_nurse()
     demo_doctor()
     demo_patient()
     demo_appointment()

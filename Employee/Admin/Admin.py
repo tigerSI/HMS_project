@@ -48,6 +48,24 @@ class AdminApplication(object):
     def getListRoomManager(self):
         return self.lst_roommanager
 
+    def getNewIDByUserType(self, position):
+        print("get new id by " + str(position))
+        if position == s.Position.admin.name:
+            admins = self.getListAdmin()
+            new_id = str("A00" + str(int(admins[-1].id[-1])+1))
+            return new_id
+        elif position == s.Position.nurse.name:
+            nurses = self.getListNurse()
+            new_id = str("N00" + str(int(nurses[-1].id[-1]) + 1))
+            return new_id
+        elif position == s.Position.doctor.name:
+            doctors = self.getListAdmin()
+            new_id = str("D00" + str(int(doctors[-1].id[-1]) + 1))
+            return new_id
+        else:
+            print("NOT FOUND TYPE EMPLOYEE")
+            raise TypeError
+
     def editEmployee(self, id, data, position):
         users = self.getUserFromDatabase()
         for i in range(len(users)):
@@ -82,12 +100,13 @@ class AdminApplication(object):
         else:
             raise TypeError
 
-    def addEmployee(self, data, position):
+    def addNewEmployee(self, data, position):
         if self.idValid(data[0]) and self.userNameValid(data[1]):
             users = self.getUserFromDatabase()
             newEmployee = self.newEmployee(data, position)
             users.append(newEmployee)
             self.ctrlDatabase.updateObject(users)
+            return True
         else:
             print("ID or/and Username is/are invalid")
             return False

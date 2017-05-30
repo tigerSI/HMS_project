@@ -3,7 +3,7 @@ from PySide.QtUiTools import QUiLoader
 import Setting as s
 
 class EditOrNewEmployeeDialog(QDialog):
-    def __init__(self, editOrNew, id=0, parent=None):
+    def __init__(self, editOrNew, id="", parent=None):
         QDialog.__init__(self, None)
         self.editOrNew = editOrNew
         self.parent = parent
@@ -25,11 +25,25 @@ class EditOrNewEmployeeDialog(QDialog):
         self.b_cancel.clicked.connect(self.cancel)
         if self.editOrNew == "edit":
             self.initUI_EDIT()
+        elif self.editOrNew == "new":
+            self.initUI_NEW()
+        else:
+            raise TypeError
 
     def initUI_EDIT(self):
         self.ui.id.setText(str(self.idEmployee))
         self.setDefaultType(self.idEmployee[:1])
         self.ui.type.setEnabled(False)
+
+    def initUI_NEW(self):
+        position = self.idEmployee
+        index = self.ui.type.findText(position)
+        self.ui.type.setCurrentIndex(index)
+        self.ui.type.setEnabled(False)
+        print("----init UI new Employee:" + str(position) + str("-----"))
+        new_id = self.parent.getNewIDByUserType(position)
+        self.ui.id.setText(new_id)
+        self.setWindowTitle("new Employee " + str(position))
 
     def setDefaultType(self, type):
         text = ""
@@ -51,7 +65,6 @@ class EditOrNewEmployeeDialog(QDialog):
         self.setLayout(layout)
 
     def getData(self):
-
         return [self.ui.id.text(),
                 self.ui.username.text(),
                 self.ui.password.text(),
@@ -68,8 +81,6 @@ class EditOrNewEmployeeDialog(QDialog):
 
     def save(self):
         data = self.getData()
-        # self.parent.getListByPosition()
-        # count = len(self.parent.self.lst_doctor)
         if self.editOrNew == 'edit':
             if not self.parent.editEmployee(self.idEmployee, data, data[3]):
                 error = QErrorMessage()
@@ -80,7 +91,7 @@ class EditOrNewEmployeeDialog(QDialog):
                 self.returnVal = True
 
         elif self.editOrNew == 'new':
-            if not self.parent.addEmployee(data, data[3]):
+            if not self.parent.addNewEmployee(data, data[3]):
                 error = QErrorMessage()
                 error.showMessage("ID or/and Username is/are invalid")
                 error.setWindowTitle("Error!!!")
