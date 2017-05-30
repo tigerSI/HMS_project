@@ -1,13 +1,14 @@
-from PySide.QtGui import QDialog, QPushButton, QGridLayout
+from PySide.QtGui import QDialog, QPushButton, QGridLayout, QErrorMessage
 from PySide.QtUiTools import QUiLoader
 import Setting as s
 
 class EditOrNewEmployeeDialog(QDialog):
-    def __init__(self, editOrNew, id=0, parent=None):
+    def __init__(self, editOrNew, id="", parent=None):
         QDialog.__init__(self, None)
         self.editOrNew = editOrNew
         self.parent = parent
         self.idEmployee = id
+        self.returnVal = False
         self.initUI()
         self.initLayout()
         self.forDev()
@@ -24,20 +25,34 @@ class EditOrNewEmployeeDialog(QDialog):
         self.b_cancel.clicked.connect(self.cancel)
         if self.editOrNew == "edit":
             self.initUI_EDIT()
+        elif self.editOrNew == "new":
+            self.initUI_NEW()
+        else:
+            raise TypeError
 
     def initUI_EDIT(self):
         self.ui.id.setText(str(self.idEmployee))
         self.setDefaultType(self.idEmployee[:1])
         self.ui.type.setEnabled(False)
 
+    def initUI_NEW(self):
+        position = self.idEmployee
+        index = self.ui.type.findText(position)
+        self.ui.type.setCurrentIndex(index)
+        self.ui.type.setEnabled(False)
+        print("----init UI new Employee:" + str(position) + str("-----"))
+        new_id = self.parent.getNewIDByUserType(position)
+        self.ui.id.setText(new_id)
+        self.setWindowTitle("new Employee " + str(position))
+
     def setDefaultType(self, type):
         text = ""
         if type == 'D':
-            text = 'Doctor'
+            text = s.Position.doctor.name
         elif type == 'N':
-            text = 'Nurse'
+            text = s.Position.nurse.name
         elif type == 'A':
-            text = 'Admin'
+            text = s.Position.admin.name
         else:
             raise TypeError
         index = self.ui.type.findText(text)
@@ -67,9 +82,22 @@ class EditOrNewEmployeeDialog(QDialog):
     def save(self):
         data = self.getData()
         if self.editOrNew == 'edit':
-            self.parent.editEmployee(self.idEmployee, data)
+            if not self.parent.editEmployee(self.idEmployee, data, data[3]):
+                error = QErrorMessage()
+                error.showMessage("Invalid username: " + str(data[1]) + " already exist")
+                error.setWindowTitle("Error!!!")
+                error.exec_()
+            else:
+                self.returnVal = True
+
         elif self.editOrNew == 'new':
-            self.parent.newEmployee(data)
+            if not self.parent.addNewEmployee(data, data[3]):
+                error = QErrorMessage()
+                error.showMessage("ID or/and Username is/are invalid")
+                error.setWindowTitle("Error!!!")
+                error.exec_()
+            else:
+                self.returnVal = True
         else:
             raise TypeError
 
