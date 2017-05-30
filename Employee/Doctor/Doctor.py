@@ -22,6 +22,7 @@ class DoctorApplication(object):
 
     def addNewPatient(self, newPatient):
         patients = self.getPatientFromDatabase()
+        newPatient.updateStatus(s.PatientStatus.waitingPreReport)
         patients.append(newPatient)
         self.ctrlDatabase_patient.updateObject(patients)
         #update case_id
@@ -87,6 +88,14 @@ class DoctorApplication(object):
                 print()
                 return False
         return True
+
+    def getPatientByCaseId(self, case_id, doctor_id):
+        appointments = self.getAppointmentByDoctor(doctor_id)
+        for am in appointments:
+            if am.case_id == case_id:
+                return am.patient
+        return None
+
 
 
 if __name__ == "__main__":

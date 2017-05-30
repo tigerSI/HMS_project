@@ -37,7 +37,7 @@
         <x>0</x>
         <y>0</y>
         <width>834</width>
-        <height>812</height>
+        <height>816</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
@@ -61,8 +61,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>782</width>
-                <height>737</height>
+                <width>790</width>
+                <height>752</height>
                </rect>
               </property>
               <layout class="QGridLayout" name="gridLayout_12">
@@ -382,7 +382,7 @@
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="label_36">
+                      <widget class="QLabel" name="pre_label_0">
                        <property name="text">
                         <string>__________</string>
                        </property>
@@ -396,7 +396,7 @@
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="label_38">
+                      <widget class="QLabel" name="pre_label_1">
                        <property name="text">
                         <string>___________</string>
                        </property>
@@ -414,7 +414,7 @@
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="label_90">
+                      <widget class="QLabel" name="pre_label_2">
                        <property name="text">
                         <string>__________</string>
                        </property>
@@ -428,7 +428,7 @@
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="label_51">
+                      <widget class="QLabel" name="pre_label_3">
                        <property name="text">
                         <string>__________</string>
                        </property>
@@ -446,7 +446,7 @@
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="label_50">
+                      <widget class="QLabel" name="pre_label_4">
                        <property name="text">
                         <string>__________</string>
                        </property>
@@ -460,7 +460,7 @@
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="label_42">
+                      <widget class="QLabel" name="pre_label_5">
                        <property name="text">
                         <string>__________</string>
                        </property>
@@ -485,7 +485,7 @@
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="label_44">
+                      <widget class="QLabel" name="pre_label_6">
                        <property name="text">
                         <string>__________</string>
                        </property>
@@ -499,7 +499,7 @@
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="label_46">
+                      <widget class="QLabel" name="pre_label_7">
                        <property name="text">
                         <string>__________</string>
                        </property>
@@ -513,7 +513,79 @@
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="label_48">
+                      <widget class="QLabel" name="pre_label_8">
+                       <property name="text">
+                        <string>__________</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_18">
+                     <item alignment="Qt::AlignRight">
+                      <widget class="QLabel" name="label_93">
+                       <property name="text">
+                        <string>Pre-Operation Diagnose:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="pre_label_9">
+                       <property name="text">
+                        <string>__________</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_25">
+                     <item alignment="Qt::AlignRight">
+                      <widget class="QLabel" name="label_124">
+                       <property name="text">
+                        <string>Operation Plan</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="pre_label_10">
+                       <property name="text">
+                        <string>__________</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_22">
+                     <item alignment="Qt::AlignRight">
+                      <widget class="QLabel" name="label_95">
+                       <property name="text">
+                        <string>Underlying</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="pre_label_11">
+                       <property name="text">
+                        <string>__________</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_24">
+                     <item alignment="Qt::AlignRight">
+                      <widget class="QLabel" name="label_99">
+                       <property name="text">
+                        <string>Speial treatment</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="pre_label_12">
                        <property name="text">
                         <string>__________</string>
                        </property>
@@ -526,12 +598,12 @@
                      <item alignment="Qt::AlignRight">
                       <widget class="QLabel" name="label_52">
                        <property name="text">
-                        <string>Pre-Operation Diagnose:</string>
+                        <string>Note</string>
                        </property>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="label_53">
+                      <widget class="QLabel" name="pre_label_13">
                        <property name="text">
                         <string>__________</string>
                        </property>
@@ -693,8 +765,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>782</width>
-                <height>737</height>
+                <width>790</width>
+                <height>752</height>
                </rect>
               </property>
               <layout class="QGridLayout" name="gridLayout_11">
@@ -2139,8 +2211,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>761</width>
-                <height>1502</height>
+                <width>773</width>
+                <height>1370</height>
                </rect>
               </property>
               <layout class="QGridLayout" name="gridLayout_10">
@@ -6030,7 +6102,7 @@
                  <item row="34" column="4" colspan="2">
                   <layout class="QHBoxLayout" name="horizontalLayout_3">
                    <item>
-                    <widget class="QPushButton" name="pushButton">
+                    <widget class="QPushButton" name="b_done">
                      <property name="text">
                       <string>collect report</string>
                      </property>

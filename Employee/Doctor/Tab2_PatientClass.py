@@ -55,7 +55,7 @@ class Tab2Patient(QWidget):
     """ ยัง ไม่ เสร็จ โว้ยยยยยย"""
     def viewHistoryReport(self, AN):
         #POP up Dialog_HistoryReport
-        dialog = Dialog_3ReportPatientClass.ReportPatient()
+        dialog = Dialog_3ReportPatientClass.ReportPatient(AN)
         dialog.show()
         dialog.exec_()
 

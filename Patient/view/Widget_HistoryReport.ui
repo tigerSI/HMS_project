@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>901</width>
+    <width>1016</width>
     <height>804</height>
    </rect>
   </property>
@@ -33,9 +33,9 @@
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>0</y>
-            <width>840</width>
-            <height>1730</height>
+            <y>-694</y>
+            <width>989</width>
+            <height>2101</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_3">
@@ -43,15 +43,35 @@
             <layout class="QGridLayout" name="Pre">
              <item row="9" column="1">
               <widget class="QLabel" name="label_74">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>3.Medicine name</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
               </widget>
              </item>
              <item row="8" column="1">
               <widget class="QLabel" name="label_72">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>2.Medicine name</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
               </widget>
              </item>
@@ -59,8 +79,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout_58">
                <item>
                 <widget class="QLabel" name="label_33">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>BMI</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -77,8 +107,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout_56">
                <item>
                 <widget class="QLabel" name="label_58">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>Service</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -95,8 +135,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout_57">
                <item>
                 <widget class="QLabel" name="label_60">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>ASA</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -113,8 +163,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout_55">
                <item>
                 <widget class="QLabel" name="label_59">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>Bed NO.</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -131,8 +191,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout_10">
                <item>
                 <widget class="QLabel" name="label_62">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>HT(cm)</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -149,8 +219,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout_59">
                <item>
                 <widget class="QLabel" name="label_34">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>BP(mmhg)</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -167,8 +247,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout_60">
                <item>
                 <widget class="QLabel" name="label_61">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>BW(kg)</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -185,8 +275,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout_54">
                <item>
                 <widget class="QLabel" name="label_57">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>Planned ICU</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -209,8 +309,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout_62">
                <item>
                 <widget class="QLabel" name="label_63">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>P(times/min)</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -225,15 +335,35 @@
              </item>
              <item row="8" column="3">
               <widget class="QLabel" name="label_73">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Symptom</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
               </widget>
              </item>
              <item row="9" column="3">
               <widget class="QLabel" name="label_75">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Symptom</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
               </widget>
              </item>
@@ -274,8 +404,18 @@
              </item>
              <item row="7" column="3">
               <widget class="QLabel" name="label_71">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Symptom</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
               </widget>
              </item>
@@ -283,8 +423,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout">
                <item>
                 <widget class="QLabel" name="label_67">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>Smoking</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -308,8 +458,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout_13">
                <item>
                 <widget class="QLabel" name="label_76">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>PLT</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -326,8 +486,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout_67">
                <item>
                 <widget class="QLabel" name="label_400">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>Allergy to</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -344,8 +514,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout_14">
                <item>
                 <widget class="QLabel" name="label_77">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>PC</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -362,8 +542,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout_66">
                <item>
                 <widget class="QLabel" name="label_68">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>Alcoholic</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -380,8 +570,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout_7">
                <item>
                 <widget class="QLabel" name="label_79">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>PRC</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -398,8 +598,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout_12">
                <item>
                 <widget class="QLabel" name="label_78">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>FFP</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -578,8 +788,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout_63">
                <item>
                 <widget class="QLabel" name="label_65">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>T(C)</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -596,8 +816,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout_64">
                <item>
                 <widget class="QLabel" name="label_64">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>RR(times/min)</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -614,8 +844,18 @@
               <layout class="QHBoxLayout" name="horizontalLayout_65">
                <item>
                 <widget class="QLabel" name="label_66">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>GSC</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -651,8 +891,18 @@
              </item>
              <item row="7" column="1">
               <widget class="QLabel" name="label_70">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>1.Medicine name</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
               </widget>
              </item>
@@ -666,230 +916,23 @@
              <property name="spacing">
               <number>10</number>
              </property>
-             <item row="3" column="1" colspan="3">
-              <widget class="QLabel" name="post_label_5">
+             <item row="4" column="0" colspan="4">
+              <widget class="QLabel" name="label_367">
                <property name="text">
                 <string/>
                </property>
               </widget>
              </item>
-             <item row="22" column="5">
-              <widget class="QLabel" name="post_label_34">
+             <item row="5" column="0" colspan="4">
+              <widget class="QLabel" name="label_368">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <underline>true</underline>
+                </font>
+               </property>
                <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="18" column="5">
-              <widget class="QLabel" name="post_label_28">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="23" column="5">
-              <widget class="QLabel" name="post_label_35">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1" colspan="3">
-              <widget class="QLabel" name="post_label_4">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="14" column="0">
-              <widget class="QLabel" name="label_338">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="15" column="0" colspan="4" alignment="Qt::AlignBottom">
-              <widget class="QLabel" name="label_339">
-               <property name="text">
-                <string>Anesthesia Incident in 24 hour</string>
-               </property>
-              </widget>
-             </item>
-             <item row="13" column="0" alignment="Qt::AlignRight">
-              <widget class="QLabel" name="label_333">
-               <property name="text">
-                <string>       Name:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="17" column="4" alignment="Qt::AlignRight">
-              <widget class="QLabel" name="label_335">
-               <property name="text">
-                <string>Result</string>
-               </property>
-              </widget>
-             </item>
-             <item row="12" column="4" alignment="Qt::AlignRight">
-              <widget class="QLabel" name="label_334">
-               <property name="text">
-                <string>Result</string>
-               </property>
-              </widget>
-             </item>
-             <item row="16" column="1" colspan="4">
-              <layout class="QVBoxLayout" name="verticalLayout_9">
-               <item>
-                <widget class="QLabel" name="post_label_22">
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="post_label_23">
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="post_label_24">
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="11" column="1" colspan="4">
-              <layout class="QVBoxLayout" name="verticalLayout_10">
-               <item>
-                <widget class="QLabel" name="post_label_15">
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="post_label_16">
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="post_label_17">
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="13" column="4">
-              <widget class="QLabel" name="label_336">
-               <property name="text">
-                <string>                Date:</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="12" column="0" alignment="Qt::AlignRight">
-              <widget class="QLabel" name="label_337">
-               <property name="text">
-                <string>Note:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="33" column="4">
-              <widget class="QLabel" name="label_360">
-               <property name="text">
-                <string>                Date:</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="33" column="0" alignment="Qt::AlignRight">
-              <widget class="QLabel" name="label_358">
-               <property name="text">
-                <string>Name:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="32" column="4" alignment="Qt::AlignRight">
-              <widget class="QLabel" name="label_359">
-               <property name="text">
-                <string>Result</string>
-               </property>
-              </widget>
-             </item>
-             <item row="7" column="4">
-              <widget class="QLabel" name="label_361">
-               <property name="text">
-                <string>Result</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1" colspan="4">
-              <layout class="QVBoxLayout" name="verticalLayout_14">
-               <item>
-                <widget class="QLabel" name="post_label_1">
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="post_label_2">
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="post_label_3">
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="2" column="4" alignment="Qt::AlignRight">
-              <widget class="QLabel" name="label_362">
-               <property name="text">
-                <string>        Result</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="4">
-              <widget class="QLabel" name="label_363">
-               <property name="text">
-                <string>                Date:</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0" alignment="Qt::AlignRight">
-              <widget class="QLabel" name="label_364">
-               <property name="text">
-                <string>       Name:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0" alignment="Qt::AlignRight">
-              <widget class="QLabel" name="label_366">
-               <property name="text">
-                <string>Note:</string>
+                <string>Anesthesia Incident in Rehabilitation room</string>
                </property>
               </widget>
              </item>
@@ -900,24 +943,16 @@
                </property>
               </widget>
              </item>
-             <item row="4" column="0" colspan="4">
-              <widget class="QLabel" name="label_367">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
              <item row="0" column="0" colspan="4" alignment="Qt::AlignBottom">
               <widget class="QLabel" name="label_365">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <underline>true</underline>
+                </font>
+               </property>
                <property name="text">
                 <string>Anesthesia Incident During surgery</string>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="0" colspan="4">
-              <widget class="QLabel" name="label_368">
-               <property name="text">
-                <string>Anesthesia Incident in Rehabilitation room</string>
                </property>
               </widget>
              </item>
@@ -946,15 +981,15 @@
                </item>
               </layout>
              </item>
-             <item row="7" column="0" alignment="Qt::AlignRight">
-              <widget class="QLabel" name="label_369">
-               <property name="text">
-                <string>Note:</string>
-               </property>
-              </widget>
-             </item>
              <item row="8" column="0" alignment="Qt::AlignRight">
               <widget class="QLabel" name="label_370">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>       Name:</string>
                </property>
@@ -967,25 +1002,35 @@
                </property>
               </widget>
              </item>
+             <item row="7" column="0" alignment="Qt::AlignRight">
+              <widget class="QLabel" name="label_369">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Note:</string>
+               </property>
+              </widget>
+             </item>
              <item row="10" column="0" colspan="4" alignment="Qt::AlignBottom">
               <widget class="QLabel" name="label_373">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <underline>true</underline>
+                </font>
+               </property>
                <property name="text">
                 <string>Anesthesia Incident in 2 hour</string>
                </property>
               </widget>
              </item>
-             <item row="8" column="4">
-              <widget class="QLabel" name="label_371">
-               <property name="text">
-                <string>                Date:</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="28" column="1" colspan="3">
-              <widget class="QLabel" name="post_label_40">
+             <item row="8" column="1" colspan="3">
+              <widget class="QLabel" name="post_label_12">
                <property name="text">
                 <string/>
                </property>
@@ -998,10 +1043,27 @@
                </property>
               </widget>
              </item>
-             <item row="8" column="1" colspan="3">
-              <widget class="QLabel" name="post_label_12">
+             <item row="28" column="1" colspan="3">
+              <widget class="QLabel" name="post_label_40">
                <property name="text">
                 <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="4">
+              <widget class="QLabel" name="label_371">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>                Date:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
               </widget>
              </item>
@@ -1033,15 +1095,15 @@
                </property>
               </widget>
              </item>
-             <item row="33" column="1" colspan="3">
-              <widget class="QLabel" name="post_label_47">
+             <item row="17" column="1" colspan="3">
+              <widget class="QLabel" name="post_label_25">
                <property name="text">
                 <string/>
                </property>
               </widget>
              </item>
-             <item row="17" column="1" colspan="3">
-              <widget class="QLabel" name="post_label_25">
+             <item row="18" column="1" colspan="3">
+              <widget class="QLabel" name="post_label_26">
                <property name="text">
                 <string/>
                </property>
@@ -1054,8 +1116,8 @@
                </property>
               </widget>
              </item>
-             <item row="18" column="1" colspan="3">
-              <widget class="QLabel" name="post_label_26">
+             <item row="33" column="1" colspan="3">
+              <widget class="QLabel" name="post_label_47">
                <property name="text">
                 <string/>
                </property>
@@ -1070,8 +1132,47 @@
              </item>
              <item row="17" column="0" alignment="Qt::AlignRight">
               <widget class="QLabel" name="label_340">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Note:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="25" column="0" colspan="4">
+              <widget class="QLabel" name="label_343">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <underline>true</underline>
+                </font>
+               </property>
+               <property name="text">
+                <string>Anesthesia Incident After 48 hour</string>
+               </property>
+              </widget>
+             </item>
+             <item row="32" column="0" alignment="Qt::AlignRight">
+              <widget class="QLabel" name="label_342">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Note:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="24" column="0">
+              <widget class="QLabel" name="label_341">
+               <property name="text">
+                <string/>
                </property>
               </widget>
              </item>
@@ -1100,45 +1201,42 @@
                </item>
               </layout>
              </item>
-             <item row="25" column="0" colspan="4">
-              <widget class="QLabel" name="label_343">
-               <property name="text">
-                <string>Anesthesia Incident After 48 hour</string>
+             <item row="18" column="0" alignment="Qt::AlignRight">
+              <widget class="QLabel" name="label_347">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
                </property>
-              </widget>
-             </item>
-             <item row="32" column="0" alignment="Qt::AlignRight">
-              <widget class="QLabel" name="label_342">
                <property name="text">
-                <string>Note:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="24" column="0">
-              <widget class="QLabel" name="label_341">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="30" column="0" colspan="3">
-              <widget class="QLabel" name="label_345">
-               <property name="text">
-                <string>Anesthesia Incident After 7 Day</string>
+                <string> Name:</string>
                </property>
               </widget>
              </item>
              <item row="27" column="0" alignment="Qt::AlignRight">
               <widget class="QLabel" name="label_346">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                </font>
+               </property>
                <property name="text">
                 <string>Note:</string>
                </property>
               </widget>
              </item>
-             <item row="18" column="0" alignment="Qt::AlignRight">
-              <widget class="QLabel" name="label_347">
+             <item row="30" column="0" colspan="3">
+              <widget class="QLabel" name="label_345">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <underline>true</underline>
+                </font>
+               </property>
                <property name="text">
-                <string> Name:</string>
+                <string>Anesthesia Incident After 7 Day</string>
                </property>
               </widget>
              </item>
@@ -1149,8 +1247,359 @@
                </property>
               </widget>
              </item>
+             <item row="3" column="1" colspan="3">
+              <widget class="QLabel" name="post_label_5">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="22" column="5">
+              <widget class="QLabel" name="post_label_34">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="23" column="5">
+              <widget class="QLabel" name="post_label_35">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="18" column="5">
+              <widget class="QLabel" name="post_label_28">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="14" column="0">
+              <widget class="QLabel" name="label_338">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1" colspan="3">
+              <widget class="QLabel" name="post_label_4">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="15" column="0" colspan="4" alignment="Qt::AlignBottom">
+              <widget class="QLabel" name="label_339">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <underline>true</underline>
+                </font>
+               </property>
+               <property name="text">
+                <string>Anesthesia Incident in 24 hour</string>
+               </property>
+              </widget>
+             </item>
+             <item row="13" column="0" alignment="Qt::AlignRight">
+              <widget class="QLabel" name="label_333">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>       Name:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="12" column="4" alignment="Qt::AlignRight">
+              <widget class="QLabel" name="label_334">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="17" column="4" alignment="Qt::AlignRight">
+              <widget class="QLabel" name="label_335">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="16" column="1" colspan="4">
+              <layout class="QVBoxLayout" name="verticalLayout_9">
+               <item>
+                <widget class="QLabel" name="post_label_22">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="post_label_23">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="post_label_24">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="12" column="0" alignment="Qt::AlignRight">
+              <widget class="QLabel" name="label_337">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Note:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="13" column="4">
+              <widget class="QLabel" name="label_336">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>                Date:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="11" column="1" colspan="4">
+              <layout class="QVBoxLayout" name="verticalLayout_10">
+               <item>
+                <widget class="QLabel" name="post_label_15">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="post_label_16">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="post_label_17">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="33" column="4">
+              <widget class="QLabel" name="label_360">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>                Date:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="33" column="0" alignment="Qt::AlignRight">
+              <widget class="QLabel" name="label_358">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Name:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="4">
+              <widget class="QLabel" name="label_361">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Result</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="32" column="4" alignment="Qt::AlignRight">
+              <widget class="QLabel" name="label_359">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="4" alignment="Qt::AlignRight">
+              <widget class="QLabel" name="label_362">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>        Result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1" colspan="4">
+              <layout class="QVBoxLayout" name="verticalLayout_14">
+               <item>
+                <widget class="QLabel" name="post_label_1">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="post_label_2">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="post_label_3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="3" column="4">
+              <widget class="QLabel" name="label_363">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>                Date:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0" alignment="Qt::AlignRight">
+              <widget class="QLabel" name="label_364">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>       Name:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0" alignment="Qt::AlignRight">
+              <widget class="QLabel" name="label_366">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Note:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="34" column="5">
+              <widget class="QPushButton" name="b_cancel">
+               <property name="text">
+                <string>close</string>
+               </property>
+              </widget>
+             </item>
+             <item row="33" column="5">
+              <widget class="QLabel" name="post_label_49">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="22" column="4" alignment="Qt::AlignRight">
+              <widget class="QLabel" name="label_353">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Result</string>
+               </property>
+              </widget>
+             </item>
              <item row="18" column="4">
               <widget class="QLabel" name="label_349">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>                Date:</string>
                </property>
@@ -1161,6 +1610,12 @@
              </item>
              <item row="20" column="0" colspan="4">
               <widget class="QLabel" name="label_348">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <underline>true</underline>
+                </font>
+               </property>
                <property name="text">
                 <string>Anesthesia Incident After Procedure EBP,WET</string>
                </property>
@@ -1168,20 +1623,38 @@
              </item>
              <item row="23" column="0" alignment="Qt::AlignRight">
               <widget class="QLabel" name="label_350">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                </font>
+               </property>
                <property name="text">
                 <string>Name:</string>
                </property>
               </widget>
              </item>
-             <item row="22" column="4" alignment="Qt::AlignRight">
-              <widget class="QLabel" name="label_353">
+             <item row="23" column="4">
+              <widget class="QLabel" name="label_354">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                </font>
+               </property>
                <property name="text">
-                <string>Result</string>
+                <string>                Date:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                </property>
               </widget>
              </item>
              <item row="22" column="0" alignment="Qt::AlignRight">
               <widget class="QLabel" name="label_352">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                </font>
+               </property>
                <property name="text">
                 <string>Note:</string>
                </property>
@@ -1189,18 +1662,25 @@
              </item>
              <item row="27" column="4" alignment="Qt::AlignRight">
               <widget class="QLabel" name="label_351">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                </font>
+               </property>
                <property name="text">
                 <string>Result</string>
                </property>
               </widget>
              </item>
-             <item row="23" column="4">
-              <widget class="QLabel" name="label_354">
-               <property name="text">
-                <string>                Date:</string>
+             <item row="28" column="0" alignment="Qt::AlignRight">
+              <widget class="QLabel" name="label_355">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                </font>
                </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               <property name="text">
+                <string>Name:</string>
                </property>
               </widget>
              </item>
@@ -1229,15 +1709,13 @@
                </item>
               </layout>
              </item>
-             <item row="28" column="0" alignment="Qt::AlignRight">
-              <widget class="QLabel" name="label_355">
-               <property name="text">
-                <string>Name:</string>
-               </property>
-              </widget>
-             </item>
              <item row="28" column="4">
               <widget class="QLabel" name="label_357">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                </font>
+               </property>
                <property name="text">
                 <string>                Date:</string>
                </property>
@@ -1278,6 +1756,13 @@
                </item>
               </layout>
              </item>
+             <item row="7" column="5">
+              <widget class="QLabel" name="post_label_13">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
              <item row="2" column="5">
               <widget class="QLabel" name="post_label_6">
                <property name="text">
@@ -1292,8 +1777,8 @@
                </property>
               </widget>
              </item>
-             <item row="7" column="5">
-              <widget class="QLabel" name="post_label_13">
+             <item row="28" column="5">
+              <widget class="QLabel" name="post_label_42">
                <property name="text">
                 <string/>
                </property>
@@ -1306,13 +1791,6 @@
                </property>
               </widget>
              </item>
-             <item row="12" column="5">
-              <widget class="QLabel" name="post_label_20">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
              <item row="13" column="5">
               <widget class="QLabel" name="post_label_21">
                <property name="text">
@@ -1320,8 +1798,8 @@
                </property>
               </widget>
              </item>
-             <item row="28" column="5">
-              <widget class="QLabel" name="post_label_42">
+             <item row="12" column="5">
+              <widget class="QLabel" name="post_label_20">
                <property name="text">
                 <string/>
                </property>
@@ -1341,26 +1819,19 @@
                </property>
               </widget>
              </item>
-             <item row="33" column="5">
-              <widget class="QLabel" name="post_label_49">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="34" column="5">
-              <widget class="QPushButton" name="b_cancel">
-               <property name="text">
-                <string>close</string>
-               </property>
-              </widget>
-             </item>
             </layout>
            </item>
            <item row="3" column="0">
             <layout class="QGridLayout" name="Intra">
              <item row="1" column="0">
               <widget class="QLabel" name="label_4">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>    Room</string>
                </property>
@@ -1413,6 +1884,13 @@
              </item>
              <item row="0" column="0">
               <widget class="QLabel" name="label_138">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>     Number</string>
                </property>
@@ -1423,6 +1901,13 @@
              </item>
              <item row="0" column="2">
               <widget class="QLabel" name="label_2">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>     Date</string>
                </property>
@@ -1433,6 +1918,13 @@
              </item>
              <item row="4" column="3">
               <widget class="QLabel" name="label_6">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>       Operation</string>
                </property>
@@ -1457,6 +1949,13 @@
              </item>
              <item row="0" column="4">
               <widget class="QLabel" name="label_3">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>     Case NO.</string>
                </property>
@@ -1467,6 +1966,13 @@
              </item>
              <item row="5" column="4">
               <widget class="QLabel" name="label_54">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>surgeon</string>
                </property>
@@ -1477,6 +1983,13 @@
              </item>
              <item row="5" column="0">
               <widget class="QLabel" name="label_139">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>    Type of surgery</string>
                </property>
@@ -1487,6 +2000,13 @@
              </item>
              <item row="7" column="0" colspan="2">
               <widget class="QLabel" name="label_19">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Pre-anesthesia evaluation</string>
                </property>
@@ -1497,6 +2017,13 @@
              </item>
              <item row="6" column="0">
               <widget class="QLabel" name="label_386">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Note</string>
                </property>
@@ -1507,6 +2034,13 @@
              </item>
              <item row="5" column="2">
               <widget class="QLabel" name="label_25">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Department</string>
                </property>
@@ -1540,16 +2074,29 @@
               <widget class="QLabel" name="label_5">
                <property name="font">
                 <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
                  <underline>true</underline>
                 </font>
                </property>
                <property name="text">
                 <string>Post Operation</string>
                </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
               </widget>
              </item>
              <item row="8" column="1">
               <widget class="QLabel" name="label_7">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>    Dormicum</string>
                </property>
@@ -1567,6 +2114,13 @@
              </item>
              <item row="9" column="0">
               <widget class="QLabel" name="label_8">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Anesthesia technique</string>
                </property>
@@ -1584,6 +2138,13 @@
              </item>
              <item row="8" column="3">
               <widget class="QLabel" name="label_16">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Ketamine</string>
                </property>
@@ -1594,6 +2155,13 @@
              </item>
              <item row="8" column="5">
               <widget class="QLabel" name="label_15">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Ephedrine</string>
                </property>
@@ -1625,6 +2193,13 @@
              </item>
              <item row="9" column="2">
               <widget class="QLabel" name="label_17">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string> Combined Technique</string>
                </property>
@@ -1635,6 +2210,13 @@
              </item>
              <item row="12" column="0">
               <widget class="QLabel" name="label_14">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Nurse Anesthetists</string>
                </property>
@@ -1645,6 +2227,13 @@
              </item>
              <item row="11" column="0">
               <widget class="QLabel" name="label_11">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Reason</string>
                </property>
@@ -1662,6 +2251,13 @@
              </item>
              <item row="7" column="3">
               <widget class="QLabel" name="label_26">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Service</string>
                </property>
@@ -1672,6 +2268,13 @@
              </item>
              <item row="9" column="4">
               <widget class="QLabel" name="label_9">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Airway management</string>
                </property>
@@ -1684,16 +2287,29 @@
               <widget class="QLabel" name="label_10">
                <property name="font">
                 <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
                  <underline>true</underline>
                 </font>
                </property>
                <property name="text">
                 <string>Anesthesia time</string>
                </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
               </widget>
              </item>
              <item row="7" column="5">
               <widget class="QLabel" name="label_27">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>ASAD</string>
                </property>
@@ -1711,6 +2327,13 @@
              </item>
              <item row="10" column="3">
               <widget class="QLabel" name="label_23">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>     End anes.</string>
                </property>
@@ -1721,6 +2344,13 @@
              </item>
              <item row="10" column="1">
               <widget class="QLabel" name="label_28">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>     Start anes.</string>
                </property>
@@ -1731,6 +2361,13 @@
              </item>
              <item row="10" column="5">
               <widget class="QLabel" name="label_18">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>     Total anes. time(min)</string>
                </property>
@@ -1764,16 +2401,29 @@
               <widget class="QLabel" name="label_20">
                <property name="font">
                 <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
                  <underline>true</underline>
                 </font>
                </property>
                <property name="text">
                 <string>Patient ward</string>
                </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
               </widget>
              </item>
              <item row="3" column="0">
               <widget class="QLabel" name="label_13">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Pre-evaluated by</string>
                </property>
@@ -1784,6 +2434,13 @@
              </item>
              <item row="1" column="2">
               <widget class="QLabel" name="label_12">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Building</string>
                </property>
@@ -1794,6 +2451,13 @@
              </item>
              <item row="2" column="3">
               <widget class="QLabel" name="label_22">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Send back</string>
                </property>
@@ -1806,8 +2470,18 @@
               <layout class="QHBoxLayout" name="intra4">
                <item>
                 <widget class="QLabel" name="label">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>    1.</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -1820,8 +2494,18 @@
                </item>
                <item>
                 <widget class="QLabel" name="label_24">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>    2.</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -1836,6 +2520,13 @@
              </item>
              <item row="2" column="1">
               <widget class="QLabel" name="label_21">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>Come from</string>
                </property>
@@ -1846,6 +2537,13 @@
              </item>
              <item row="4" column="0">
               <widget class="QLabel" name="label_29">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string> Post Diagnose</string>
                </property>

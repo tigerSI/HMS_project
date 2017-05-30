@@ -165,6 +165,7 @@ def demo_admin():
 
     con.updateObject(lst)
 
+
 def demo_nurse():
     con = ControllerDatabase('userObject.pkl')
     lst = con.loadObj()
@@ -203,11 +204,19 @@ def demo_patient():
     pre_pre_report = [["OPD", "0003", "PIC", "Sara MJ", 40, "0271249197", "10003"],
                       ["Pre_OD", "Plan", "Underlying", "Treatment", "Note"]]
     p3 = PatientClass.Patient(pre_pre_report)
+
+    """update status"""
+    p1.updateStatus(s.PatientStatus.waitingPreReport)
+    p2.updateStatus(s.PatientStatus.waitingPreReport)
+    p3.updateStatus(s.PatientStatus.waitingPreReport)
+
     db_patients.updateObject([p1, p2, p3])
     doctor = Doctor('D001', 'doc1', '1234', 'Dr.A', 'Charnchyyy', '00000', 'Sri tanya')
     s1 = AppointmentClass.Appointment('10001', ["Elective case", "28/5/2017", "Morning"], doctor, p1)
     s2 = AppointmentClass.Appointment('10002', ["Emergency case", "28/5/2017", "Afternoon"], doctor, p2)
     s3 = AppointmentClass.Appointment('10003', ["Ergency case", "28/5/2017", "None"], doctor, p3)
+    print(s3.patient.AN)
+    print(p3.AN)
     db_appointment.updateObject([s1, s2, s3])
 
     preReport1 = PreReportPatientClass.PreReportByNurse('atenolol 5 mg tab O at 6.00', '-', '-', '-', '-', 'Yes', '001',
@@ -255,12 +264,15 @@ def demo_patient():
     post_report.setAnesthetic_complications_admitroom_48hrs(post_report2)
     post_report.setAnesthetic_complications_admitroom_7day(post_report2)
 
-    p1.addPreReportNurse(preReport1)
-    p1.addIntraReport(intraReport)
-    p1.addPostReport(post_report)
-    # print(type(preReport1))
-    # print(type(intraReport))
-    # print(type(post_report))
+    """update status"""
+    p2.addPreReportNurse(preReport1)
+    p2.updateStatus(s.PatientStatus.waitingIntraReport)
+    p3.addPreReportNurse(preReport2)
+    p3.updateStatus(s.PatientStatus.waitingIntraReport)
+
+    p3.addPostReport(post_report)
+    p3.updateStatus(s.PatientStatus.waitingPostReport)
+    db_patients.updateObject([p1, p2, p3])
 
 
 def demo_appointment():
@@ -278,15 +290,16 @@ def demo_appointment():
         if j.AN == '0001':
             pat1 = j
 
-    a = AppointmentClass.Appointment('AP00001', ['Elective case', '1/6/2017', 'None'], doc1, pat1)
-    a1 = AppointmentClass.Appointment('AP00002', ['Emergency case', '31/5/2017', 'Morning'], doc1, pat1)
-    a2 = AppointmentClass.Appointment('AP00003', ['Elective case', '31/5/2017', 'Afternoon'], doc1, pat1)
-    a3 = AppointmentClass.Appointment('AP00004', ['Elective case', '20/5/2017', 'None'], doc1, pat1)
-    a4 = AppointmentClass.Appointment('AP00005', ['Elective case', '20/5/2017', 'Afternoon'], doc1, pat1)
+    a = AppointmentClass.Appointment('10001', ['Elective case', '1/6/2017', 'None'], doc1, pat1)
+    a1 = AppointmentClass.Appointment('10002', ['Emergency case', '31/5/2017', 'Morning'], doc1, pat1)
+    a2 = AppointmentClass.Appointment('10003', ['Elective case', '31/5/2017', 'Afternoon'], doc1, pat1)
+    a3 = AppointmentClass.Appointment('10004', ['Elective case', '20/5/2017', 'None'], doc1, pat1)
+    a4 = AppointmentClass.Appointment('10005', ['Elective case', '20/5/2017', 'Afternoon'], doc1, pat1)
 
     appointments = [a, a1, a2, a3, a4]
     con2 = ControllerDatabase('appointmentObject.pkl')
     lst2 = con2.loadObj()
+
     lst2 += appointments
 
     con2.updateObject(lst2)
@@ -299,4 +312,4 @@ def main():
     demo_patient()
     demo_appointment()
 
-#main()
+##main()

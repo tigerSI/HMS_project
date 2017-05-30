@@ -1,3 +1,4 @@
+import Setting as s
 class Patient:
     def __init__(self, prepre_report):
         # "Type", "Date", "Time"
@@ -16,7 +17,20 @@ class Patient:
         self.preReportNurse = object
         self.intraReport = object
         self.postReport = []
+        self.status = s.PatientStatus.waitingPreReport
 
+    def getExtraInfo(self):
+        return self.ExtraNote
+
+    def getPrePreInfo(self):
+        text = []
+        text.append(str(self.AN))
+        text.append(str(self.case_id))
+        text.append(str(self.Name))
+        text.append(str(self.Age))
+        text.append(str(self.OPD))
+        text.append(str(self.Phone))
+        return text
 
     def getPreInfo(self):
         return self.preReportNurse.getData()
@@ -59,3 +73,6 @@ class Patient:
 
     def addPostReport(self, report):
         self.postReport = report
+
+    def updateStatus(self, newStatus):
+        self.status = newStatus

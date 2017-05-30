@@ -140,38 +140,73 @@ class IntraReportPatient():
     def getInfo(self):
         print("in")
         data = []
-        databox = []
+        data = []
         data.append(self.number)
         data.append(self.date)
         data.append(str(self.num_case))
         data.append(str(self.room))
-        databox.append(self.building)
-        databox.append(self.arrivePlace)
-        databox.append(self.departPlace)
+        data.append(self.building)
+        data.append(self.arrivePlace)
+        data.append(self.departPlace)
         data.append(self.Pre_evaluateNurse[0])
         data.append(self.Pre_evaluateNurse[1])
 
         data.append(self.post_diagnose)
         data.append(self.operation)
-        databox.append(self.typeofOperation)
-        databox.append(self.department)
+        data.append(self.typeofOperation)
+        data.append(self.department)
         data.append(self.surgeon)
         data.append(self.note)
 
-        databox.append(self.pre_anesthesia_evaluation)
-        databox.append(self.service)
-        databox.append(self.ASAD)
+        data.append(self.pre_anesthesia_evaluation)
+        data.append(self.service)
+        data.append(self.ASAD)
         for i in self.agent_dose:
             data.append(str(i))
-        databox.append(self.Anesthesia_technique)
-        databox.append(self.Combined_technique)
-        databox.append(self.airwayManagement)
+        data.append(self.Anesthesia_technique)
+        data.append(self.Combined_technique)
+        data.append(self.airwayManagement)
         for i in self.Anesthesia_time:
             data.append(i)
-        databox.append(self.reason)
+        data.append(self.reason)
         for i in self.Anesthetistnurse:
             data.append(str(i))
-        return data,databox
+        return data, data
+    
+    def getHistory(self):
+        print("in")
+        data = []
+        data.append(self.number)
+        data.append(self.date)
+        data.append(str(self.num_case))
+        data.append(str(self.room))
+        data.append(self.building)
+        data.append(self.arrivePlace)
+        data.append(self.departPlace)
+        data.append(self.Pre_evaluateNurse[0])
+        data.append(self.Pre_evaluateNurse[1])
+
+        data.append(self.post_diagnose)
+        data.append(self.operation)
+        data.append(self.typeofOperation)
+        data.append(self.department)
+        data.append(self.surgeon)
+        data.append(self.note)
+
+        data.append(self.pre_anesthesia_evaluation)
+        data.append(self.service)
+        data.append(self.ASAD)
+        for i in self.agent_dose:
+            data.append(str(i))
+        data.append(self.Anesthesia_technique)
+        data.append(self.Combined_technique)
+        data.append(self.airwayManagement)
+        for i in self.Anesthesia_time:
+            data.append(i)
+        data.append(self.reason)
+        for i in self.Anesthetistnurse:
+            data.append(str(i))
+        return data
 
 
 

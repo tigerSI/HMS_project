@@ -66,6 +66,9 @@ class AdminApplication(object):
             print("NOT FOUND TYPE EMPLOYEE")
             raise TypeError
 
+    def updateDatabase(self, all_user):
+        self.ctrlDatabase.updateObject(all_user)
+
     def editEmployee(self, id, data, position):
         users = self.getUserFromDatabase()
         for i in range(len(users)):

@@ -129,14 +129,14 @@ class PreReportByNurse(object):
 
     def getData(self):
         data = []
-        dataBox = []
+        data = []
         data.append(self.premed)
         for i in self.BLprepared:
             data.append(i)
-        dataBox.append(self.plannedICU)
+        data.append(self.plannedICU)
         data.append(self.BedNO)
-        dataBox.append(self.service)
-        dataBox.append(self.ASA)
+        data.append(self.service)
+        data.append(self.ASA)
         data.append(str(self.BW))
         data.append(str(self.HT))
         data.append(str(self.BMI))
@@ -144,14 +144,42 @@ class PreReportByNurse(object):
         data.append(str(self.P))
         data.append(str(self.RR))
         data.append(str(self.T))
-        dataBox.append(str(self.GCS))
-        dataBox.append(self.smoking)
-        dataBox.append(self.alcoholic)
-        dataBox.append(self.allergy)
+        data.append(str(self.GCS))
+        data.append(self.smoking)
+        data.append(self.alcoholic)
+        data.append(self.allergy)
         if self.allergy == "Yes":
             for i in self.allergy_list:
                 data.append(i)
         else:
             for i in range(6):
                 data.append('-')
-        return data, dataBox
+        return data, data
+    
+    def getHistory(self):
+        data = []
+        data.append(self.premed)
+        for i in self.BLprepared:
+            data.append(i)
+        data.append(self.plannedICU)
+        data.append(self.BedNO)
+        data.append(self.service)
+        data.append(self.ASA)
+        data.append(str(self.BW))
+        data.append(str(self.HT))
+        data.append(str(self.BMI))
+        data.append(str(self.BP))
+        data.append(str(self.P))
+        data.append(str(self.RR))
+        data.append(str(self.T))
+        data.append(str(self.GCS))
+        data.append(self.smoking)
+        data.append(self.alcoholic)
+        data.append(self.allergy)
+        if self.allergy == "Yes":
+            for i in self.allergy_list:
+                data.append(i)
+        else:
+            for i in range(6):
+                data.append('-')
+        return data

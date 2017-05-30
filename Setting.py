@@ -4,7 +4,7 @@ from enum import Enum
 # posX posY sizeW sizeH
 GEOMETRY_MAINWIDOW = 50, 50, 800, 600
 GEOMETRY_DIALOG_NEW_PATIENT = 550, 60, 580, 600
-GEOMETRY_DIALOG_3REPORT = 350, 60, 850, 600
+GEOMETRY_DIALOG_3REPORT = 350, 60, 300, 300
 GEOMETRY_DIALOG_NEW_EMPLOYEE = 300, 200, 300, 230
 GEOMETRY_DIALOG_HISTORY_REPORT = 400, 100, 800, 600
 GEOMETRY_MSG = []
@@ -26,14 +26,17 @@ HB_DOCTOR_PATIENT = ["AN", "Name", "Age", "Phone"]
 #Manage Person For RoomManager
 HEAD_BAR_APPOINTMENT = ["Case_id", "Data", "Time", "Doctor", "Patient", "Status"]
 
+#Manage Person For Nurse
+HB_NURSE_PATIENT = ["AN", "Name", "Age", "Phone", "Status"]
+
 # path RSC images
 PATH_IMG_BG_LOGIN = ".RSC/img/bg_login.png"
 
 # path Doctor
 PATH_DOCTOR_DIALOG_NEWPATIENT = 'Employee/Doctor/View/Widget_NewPatientUI.ui'
 
-#Employee/Doctor/View/Widget_3ReportPatientUI.ui
-PATH_DOCTOR_DIALOG_3REPORT = '../Employee/Doctor/View/Widget_3ReportPatientUI.ui'
+#../Employee/Doctor/View/Widget_3ReportPatientUI.ui
+PATH_DOCTOR_DIALOG_3REPORT = 'Employee/Doctor/View/Widget_3ReportPatientUI.ui'
 
 # path database
 DB_USER = "./Database/userObject.pkl"
@@ -43,7 +46,6 @@ DB_APPOINTMENT = "./Database/appointmentObject.pkl"
 # Style Sheet
 SS_Button_EMCASE = "background-color: rgb(255, 0, 0); color: rgb(255, 255, 255)"
 SS_TabWidget = "QTabBar::tab { height: 35px; width: 100px; }"
-
 
 # ROOM CLASS
 """
@@ -66,6 +68,12 @@ class Status(Enum):
     doing = 1
     done = 2
 
+#Paitient
+class PatientStatus(Enum):
+    waitingPreReport = 0
+    waitingIntraReport = 1
+    waitingPostReport = 2
+    done = 3
 
 #User
 class Position(Enum):
@@ -73,6 +81,11 @@ class Position(Enum):
     doctor = 1
     nurse = 2
     roommanager = 3
+
+class UserPosition(Enum):
+    doctor = 0
+    nurse = 1
+    admin = 2
 
 #Calendar
 class Month(Enum):

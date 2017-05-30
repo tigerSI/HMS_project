@@ -3,7 +3,7 @@ import LoginUI
 import Setting as s
 from Employee.Admin import AdminUI as Admin
 from Employee.Doctor import DoctorUI as Doctor
-from Employee.Nurse import Nurse as Nurse
+from Employee.Nurse import NurseUI as Nurse
 from Employee.Roommanager import RoomManagerUI as RoomManager
 
 

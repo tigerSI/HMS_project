@@ -23,14 +23,22 @@ class WidgetManagePerson(QWidget):
         self.proxyView = form.findChild(QTreeView, 'treeView')
         self.layoutSearch = form.findChild(QHBoxLayout, 'layout_search')
         self.b_edit = form.findChild(QPushButton, 'b_edit')
-        self.b_newPerson = QPushButton("new " + self.Person)
+        self.b_newPerson = QPushButton("New " + self.Person)
         self.filterColumnComboBox = comboBoxClass.ComboBoxWithTypingSearch()
         self.filterPatternLineEdit = QLineEdit()
+        self.b_delete = form.findChild(QPushButton, 'b_delete')
+        self.b_delete.setVisible(False)
 
     def initLayout(self):
         self.layoutSearch.addWidget(self.filterColumnComboBox)
         self.layoutSearch.addWidget(self.filterPatternLineEdit)
         self.layoutSearch.addWidget(self.b_newPerson)
+
+    def insertDeleteButton(self):
+        self.b_delete.setVisible(True)
+        self.b_delete.setText("Delete " + str(self.Person))
+        self.b_delete.clicked.connect(self.deletePerson)
+
 
     def initConnect(self):
         self.filterPatternLineEdit.textChanged.connect(self.filterRegExpChanged)
@@ -42,6 +50,24 @@ class WidgetManagePerson(QWidget):
         if selection is not None:
             first_key = selection[0].data()
             self.parent.editButtonPressed(first_key)
+        else:
+            error = QErrorMessage()
+            error.showMessage("Plese select person")
+            error.setWindowTitle("Error!!!")
+            error.exec_()
+
+    def deletePerson(self):
+        selection = self.proxyView.selectionModel().selectedRows()
+        if selection is not None:
+            first_key = selection[0].data()
+            self.parent.deleteButtonPressed(first_key)
+        else:
+            error = QErrorMessage()
+            error.showMessage("Plese select person")
+            error.setWindowTitle("Error!!!")
+            error.exec_()
+
+
 
     "init Table"
     def setProxyView(self):
