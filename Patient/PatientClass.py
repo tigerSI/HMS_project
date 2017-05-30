@@ -19,6 +19,19 @@ class Patient:
         self.postReport = []
         self.status = s.PatientStatus.waitingPreReport
 
+    def getExtraInfo(self):
+        return self.ExtraNote
+
+    def getPrePreInfo(self):
+        text = []
+        text.append(str(self.AN))
+        text.append(str(self.case_id))
+        text.append(str(self.Name))
+        text.append(str(self.Age))
+        text.append(str(self.OPD))
+        text.append(str(self.Phone))
+        return text
+
     def getPreInfo(self):
         return self.preReportNurse.getData()
 

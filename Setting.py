@@ -26,6 +26,9 @@ HB_DOCTOR_PATIENT = ["AN", "Name", "Age", "Phone"]
 #Manage Person For RoomManager
 HEAD_BAR_APPOINTMENT = ["Case_id", "Data", "Time", "Doctor", "Patient", "Status"]
 
+#Manage Person For Nurse
+HB_NURSE_PATIENT = ["AN", "Name", "Age", "Phone", "Status"]
+
 # path RSC images
 PATH_IMG_BG_LOGIN = ".RSC/img/bg_login.png"
 

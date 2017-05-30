@@ -215,6 +215,8 @@ def demo_patient():
     s1 = AppointmentClass.Appointment('10001', ["Elective case", "28/5/2017", "Morning"], doctor, p1)
     s2 = AppointmentClass.Appointment('10002', ["Emergency case", "28/5/2017", "Afternoon"], doctor, p2)
     s3 = AppointmentClass.Appointment('10003', ["Ergency case", "28/5/2017", "None"], doctor, p3)
+    print(s3.patient.AN)
+    print(p3.AN)
     db_appointment.updateObject([s1, s2, s3])
 
     preReport1 = PreReportPatientClass.PreReportByNurse('atenolol 5 mg tab O at 6.00', '-', '-', '-', '-', 'Yes', '001',
@@ -297,7 +299,7 @@ def demo_appointment():
     appointments = [a, a1, a2, a3, a4]
     con2 = ControllerDatabase('appointmentObject.pkl')
     lst2 = con2.loadObj()
-    lst2 = []
+
     lst2 += appointments
 
     con2.updateObject(lst2)
@@ -310,4 +312,4 @@ def main():
     demo_patient()
     demo_appointment()
 
-#main()
+##main()

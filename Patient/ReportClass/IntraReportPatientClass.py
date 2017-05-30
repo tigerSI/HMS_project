@@ -171,7 +171,7 @@ class IntraReportPatient():
         data.append(self.reason)
         for i in self.Anesthetistnurse:
             data.append(str(i))
-        return data,data
+        return data, data
     
     def getHistory(self):
         print("in")

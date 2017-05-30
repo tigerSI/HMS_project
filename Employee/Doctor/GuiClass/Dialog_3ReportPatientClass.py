@@ -12,22 +12,29 @@ import Setting as s
 
 
 class ReportPatient(QDialog):
-    def __init__(self, case_id, patient):
+    def __init__(self, AN, patient, appointment):
         QDialog.__init__(self, None)
+        self.AN = AN
+        self.patient = patient
+        self.appointment = appointment
+        self.status_patient = patient.status
+        self.initUI()
+        self.initPrelabel()
+        self.initPostButtons(self.ui)
+        self.initIntraButtons(self.ui)
+        self.initPreButtons(self.ui)
+        self.initContainer()
+        self.initButtonDisactive()
+        self.initByPatientStatus()
+
+
+    def initUI(self):
         posX, posY, sizeW, sizeH = s.GEOMETRY_DIALOG_3REPORT
         self.setGeometry(posX, posY, sizeW, sizeH)
         self.loader = QUiLoader()
         self.ui = self.loader.load(s.PATH_DOCTOR_DIALOG_3REPORT, self)
         self.layout = QVBoxLayout(self)
         self.layout.addWidget(self.ui)
-        self.initPostButtons(self.ui)
-        self.initIntraButtons(self.ui)
-        self.initPreButtons(self.ui)
-        self.initContainer()
-        self.initButtonDisactive()
-        self.case_id = case_id
-        self.patient = patient
-        self.initByPatientStatus()
 
     def initButtonDisactive(self):
         self.b_pre_save.setEnabled(False)
@@ -60,18 +67,70 @@ class ReportPatient(QDialog):
         self.ui.b_done.setEnabled(True)
 
     def initByPatientStatus(self):
-        if self.patient.status == s.PatientStatus.waitingPreReport:
+        if self.status_patient == s.PatientStatus.waitingPreReport:
             self.setActivePreButton()
-        elif self.patient.status == s.PatientStatus.waitingIntraReport:
+            basic_info = self.patient.getPrePreInfo()
+            print(basic_info)
+            appointment_info = self.appointment.getDataFor3Report()
+            print(appointment_info)
+            extra_info = self.patient.getExtraInfo()
+            print(extra_info)
+            data_part_prepre = basic_info + appointment_info + extra_info
+            print(data_part_prepre)
+            self.setDataPrePre(data_part_prepre)
+
+        elif self.status_patient == s.PatientStatus.waitingIntraReport:
             self.setActivePreButton(True)
             self.setActiveIntraButton()
-        elif self.patient.status == s.PatientStatus.waitingPostReport:
+            basic_info = self.patient.getPrePreInfo()
+            print(basic_info)
+            appointment_info = self.appointment.getDataFor3Report()
+            print(appointment_info)
+            extra_info = self.patient.getExtraInfo()
+            print(extra_info)
+            data_part_prepre = basic_info + appointment_info + extra_info
+            print(data_part_prepre)
+            self.setDataPrePre(data_part_prepre)
+            data_part_pre = self.patient.getPreInfo()
+            self.setDataPre(data_part_pre[0], data_part_pre[1])
+
+        elif self.status_patient == s.PatientStatus.waitingPostReport:
             self.setActivePreButton(True)
             self.setActiveIntraButton(True)
-        elif self.patient.status == s.PatientStatus.done:
+            basic_info = self.patient.getPrePreInfo()
+            print(basic_info)
+            appointment_info = self.appointment.getDataFor3Report()
+            print(appointment_info)
+            extra_info = self.patient.getExtraInfo()
+            print(extra_info)
+            data_part_prepre = basic_info + appointment_info + extra_info
+            print(data_part_prepre)
+            self.setDataPrePre(data_part_prepre)
+            data_part_pre = self.patient.getPreInfo()
+            self.setDataPre(data_part_pre[0], data_part_pre[1])
+            data_part_intra = self.patient.getIntraInfo()
+            self.setDataIntra(data_part_intra[0], data_part_intra[1])
+
+        elif self.status_patient == s.PatientStatus.done:
             self.setActivePreButton(True)
             self.setActiveIntraButton(True)
             self.setActivePostButton()
+            basic_info = self.patient.getPrePreInfo()
+            print(basic_info)
+            appointment_info = self.appointment.getDataFor3Report()
+            print(appointment_info)
+            extra_info = self.patient.getExtraInfo()
+            print(extra_info)
+            data_part_prepre = basic_info + appointment_info + extra_info
+            print(data_part_prepre)
+            self.setDataPrePre(data_part_prepre)
+            data_part_pre = self.patient.getPreInfo()
+            self.setDataPre(data_part_pre[0], data_part_pre[1])
+            data_part_intra = self.patient.getIntraInfo()
+            self.setDataIntra(data_part_intra[0], data_part_intra[1])
+            data_part_post = self.patient.getPostInfo()
+            self.setDataPost(data_part_post)
+
         else:
             raise TypeError
 
@@ -442,7 +501,36 @@ class ReportPatient(QDialog):
         self.post7List[1].setText(post[0])
         self.post7List[2].setText(post[1])
 
-    def setDataFromDataBaseIntra(self, data, databox):
+    def initPrelabel(self):
+        self.labelPrelist = []
+        for i in range(0, 14, 1):
+            name = "pre_label_" + str(i)
+            label = self.ui.findChild(QLabel, name)
+            self.labelPrelist.append(label)
+
+    def setDataPrePre(self, data):
+        textPrePre = data
+        print(textPrePre)
+        count = 0
+        for i in self.labelPrelist:
+            i.setText(textPrePre[count])
+            i.setStyleSheet("QLabel { background-color : white }")
+            count += 1
+
+    def setDataPre(self, data, databox):
+        count = 0
+        for i in self.lineEditPrelist:
+            s = data[count]
+            i.setText(str(s))
+            count+=1
+
+        count = 0
+        for i in self.comboBoxPrelist:
+            s = i.findText(databox[count])
+            i.setCurrentIndex(s)
+            count += 1
+
+    def setDataIntra(self, data, databox):
         count = 0
         print(len(self.lineEditIntralist))
         for i in self.lineEditIntralist:
@@ -456,20 +544,7 @@ class ReportPatient(QDialog):
             i.setCurrentIndex(s)
             count += 1
 
-    def setDataFromDataBasePre(self, data, databox):
-        count = 0
-        for i in self.lineEditPrelist:
-            s = data[count]
-            i.setText(str(s))
-            count+=1
-
-        count = 0
-        for i in self.comboBoxPrelist:
-            s = i.findText(databox[count])
-            i.setCurrentIndex(s)
-            count += 1
-
-    def setDataFromDataBasePost(self, postlist):
+    def setDataPost(self, postlist):
         post = postlist[0]
         print(len(self.post1List), len(post))
         print(post)

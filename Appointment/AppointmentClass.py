@@ -27,6 +27,13 @@ class Appointment:
         # "Type", "Date", "Time"
         self.setInfo(appointment[0], appointment[1], appointment[2])
 
+    def getDataFor3Report(self):
+        text = []
+        text.append(str(self.type))
+        text.append(str(self.date.getDate()))
+        text.append(str(self.time))
+        return text
+
     # BAR MANAGE PERSON DOCTOR
     def getData(self):
         text = []
