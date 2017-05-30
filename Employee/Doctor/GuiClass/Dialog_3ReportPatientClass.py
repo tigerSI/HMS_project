@@ -12,8 +12,8 @@ import Setting as s
 
 
 class ReportPatient(QDialog):
-    def __init__(self, parent = None):
-        super(ReportPatient, self).__init__(parent)
+    def __init__(self, case_id, patient):
+        QDialog.__init__(self, None)
         posX, posY, sizeW, sizeH = s.GEOMETRY_DIALOG_3REPORT
         self.setGeometry(posX, posY, sizeW, sizeH)
         self.loader = QUiLoader()
@@ -23,8 +23,59 @@ class ReportPatient(QDialog):
         self.initPostButtons(self.ui)
         self.initIntraButtons(self.ui)
         self.initPreButtons(self.ui)
+        self.initContainer()
+        self.initButtonDisactive()
+        self.case_id = case_id
+        self.patient = patient
+        self.initByPatientStatus()
 
+    def initButtonDisactive(self):
+        self.b_pre_save.setEnabled(False)
+        self.b_pre_cancel.setEnabled(False)
+        self.b_intra_save.setEnabled(False)
+        self.b_intra_cancel.setEnabled(False)
+        self.b_post_save.setEnabled(False)
+        self.b_post_cancel.setEnabled(False)
+        self.ui.b_done.setEnabled(False)
 
+    def setActivePreButton(self, setText=False):
+        self.b_pre_save.setEnabled(True)
+        self.b_pre_cancel.setEnabled(True)
+        if setText:
+            self.b_pre_save.setText("update")
+
+    def setActiveIntraButton(self, setText=False):
+        self.b_intra_save.setEnabled(True)
+        self.b_intra_cancel.setEnabled(True)
+        if setText:
+            self.b_intra_save.setText("update")
+
+    def setActivePostButton(self, setText=False):
+        self.b_post_cancel.setEnabled(True)
+        self.b_post_save.setEnabled(True)
+        if setText:
+            self.b_post_save.setText("update")
+
+    def setActiveDoneButton(self):
+        self.ui.b_done.setEnabled(True)
+
+    def initByPatientStatus(self):
+        if self.patient.status == s.PatientStatus.waitingPreReport:
+            self.setActivePreButton()
+        elif self.patient.status == s.PatientStatus.waitingIntraReport:
+            self.setActivePreButton(True)
+            self.setActiveIntraButton()
+        elif self.patient.status == s.PatientStatus.waitingPostReport:
+            self.setActivePreButton(True)
+            self.setActiveIntraButton(True)
+        elif self.patient.status == s.PatientStatus.done:
+            self.setActivePreButton(True)
+            self.setActiveIntraButton(True)
+            self.setActivePostButton()
+        else:
+            raise TypeError
+
+    def initContainer(self):
         self.pre_info_line = []
         self.pre_info_box = []
         self.intra_info_line = []
@@ -391,7 +442,7 @@ class ReportPatient(QDialog):
         self.post7List[1].setText(post[0])
         self.post7List[2].setText(post[1])
 
-    def setDataFromDataBaseIntra(self , data, databox):
+    def setDataFromDataBaseIntra(self, data, databox):
         count = 0
         print(len(self.lineEditIntralist))
         for i in self.lineEditIntralist:
@@ -405,7 +456,7 @@ class ReportPatient(QDialog):
             i.setCurrentIndex(s)
             count += 1
 
-    def setDataFromDataBasePre(self , data, databox):
+    def setDataFromDataBasePre(self, data, databox):
         count = 0
         for i in self.lineEditPrelist:
             s = data[count]

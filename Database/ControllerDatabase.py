@@ -165,6 +165,7 @@ def demo_admin():
 
     con.updateObject(lst)
 
+
 def demo_nurse():
     con = ControllerDatabase('userObject.pkl')
     lst = con.loadObj()
@@ -203,6 +204,12 @@ def demo_patient():
     pre_pre_report = [["OPD", "0003", "PIC", "Sara MJ", 40, "0271249197", "10003"],
                       ["Pre_OD", "Plan", "Underlying", "Treatment", "Note"]]
     p3 = PatientClass.Patient(pre_pre_report)
+
+    """update status"""
+    p1.updateStatus(s.PatientStatus.waitingPreReport)
+    p2.updateStatus(s.PatientStatus.waitingPreReport)
+    p3.updateStatus(s.PatientStatus.waitingPreReport)
+
     db_patients.updateObject([p1, p2, p3])
     doctor = Doctor('D001', 'doc1', '1234', 'Dr.A', 'Charnchyyy', '00000', 'Sri tanya')
     s1 = AppointmentClass.Appointment('10001', ["Elective case", "28/5/2017", "Morning"], doctor, p1)
@@ -255,12 +262,15 @@ def demo_patient():
     post_report.setAnesthetic_complications_admitroom_48hrs(post_report2)
     post_report.setAnesthetic_complications_admitroom_7day(post_report2)
 
-    p1.addPreReportNurse(preReport1)
-    p1.addIntraReport(intraReport)
-    p1.addPostReport(post_report)
-    # print(type(preReport1))
-    # print(type(intraReport))
-    # print(type(post_report))
+    """update status"""
+    p2.addPreReportNurse(preReport1)
+    p2.updateStatus(s.PatientStatus.waitingIntraReport)
+    p3.addPreReportNurse(preReport2)
+    p3.updateStatus(s.PatientStatus.waitingIntraReport)
+
+    p3.addPostReport(post_report)
+    p3.updateStatus(s.PatientStatus.waitingPostReport)
+    db_patients.updateObject([p1, p2, p3])
 
 
 def demo_appointment():

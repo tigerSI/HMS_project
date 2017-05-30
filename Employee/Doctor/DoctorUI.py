@@ -63,6 +63,9 @@ class MainWindowDoctor(QMainWindow):
     def oldPatientValid(self, AN, patient_name):
         return self.crtlDatabase.oldPatientValid(AN, patient_name)
 
+    def getPatientByCaseId(self, case_id):
+        return self.crtlDatabase.getPatientByCaseId(case_id, self.user.id)
+
 
 
 if __name__ == "__main__":

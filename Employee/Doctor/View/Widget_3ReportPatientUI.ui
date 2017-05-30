@@ -37,14 +37,14 @@
         <x>0</x>
         <y>0</y>
         <width>834</width>
-        <height>812</height>
+        <height>816</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="0">
         <widget class="QTabWidget" name="tabWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="Pre">
           <attribute name="title">
@@ -61,8 +61,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>782</width>
-                <height>737</height>
+                <width>790</width>
+                <height>752</height>
                </rect>
               </property>
               <layout class="QGridLayout" name="gridLayout_12">
@@ -693,8 +693,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>782</width>
-                <height>737</height>
+                <width>666</width>
+                <height>623</height>
                </rect>
               </property>
               <layout class="QGridLayout" name="gridLayout_11">
@@ -2138,9 +2138,9 @@
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>0</y>
-                <width>761</width>
-                <height>1502</height>
+                <y>-618</y>
+                <width>773</width>
+                <height>1370</height>
                </rect>
               </property>
               <layout class="QGridLayout" name="gridLayout_10">
@@ -6030,7 +6030,7 @@
                  <item row="34" column="4" colspan="2">
                   <layout class="QHBoxLayout" name="horizontalLayout_3">
                    <item>
-                    <widget class="QPushButton" name="pushButton">
+                    <widget class="QPushButton" name="b_done">
                      <property name="text">
                       <string>collect report</string>
                      </property>

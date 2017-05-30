@@ -76,3 +76,16 @@ class PostReportPatient(object):
         data.append(self.Anesthetic_complications_admitroom_7day)
         return data
 
+    def getHistory(self):
+        data = []
+        data.extend(self.Anesthetic_complications_operationroom)
+        data.extend(self.Anesthetic_complications_admitroom)
+        data.extend(self.Anesthetic_complications_admitroom_2hrs)
+        data.extend(self.Anesthetic_complications_admitroom_24hrs)
+        data.extend(self.Anesthetic_complications_procedure)
+        data.extend(self.Anesthetic_complications_admitroom_48hrs)
+        data.extend(self.Anesthetic_complications_admitroom_7day)
+        return data
+
+
+

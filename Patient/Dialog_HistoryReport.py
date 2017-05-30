@@ -1,6 +1,7 @@
 from PySide.QtGui import *
 from PySide.QtUiTools import QUiLoader
 import Setting as s
+from Base.Dialog_MsgBox import ConfirmMsgClass
 
 class HistoryReport(QDialog):
     def __init__(self, part_pre, part_intra, part_post, parent=None):
@@ -10,8 +11,17 @@ class HistoryReport(QDialog):
         self.part_pre = part_pre
         self.part_intra = part_intra
         self.part_post = part_post
+        ## init
         self.initUI()
         self.initLayout()
+        self.initPrelabel()
+        self.initIntralabel()
+        self.initPostlabel()
+        ## set data
+        self.setPreData()
+        self.setIntraData()
+        self.setPostData()
+
         self.show()
 
     def initUI(self):
@@ -25,25 +35,57 @@ class HistoryReport(QDialog):
         layout.addWidget(self.ui)
         self.setLayout(layout)
 
+    def initPrelabel(self):
+        self.labelPrelist = []
+        for i in range(0, 11, 1):
+            name = "pre_label_" + str(i)
+            label = self.ui.findChild(QLabel, name)
+            self.labelPrelist.append(label)
+
     def setPreData(self):
-        self.part_pre
-        #For loop self.part_pre get
-         #set label
-        pass
+        textPre = self.part_pre.getHistory()
+        count = 0
+        for i in self.labelPrelist:
+            i.setText(textPre[count])
+            i.setStyleSheet("QLabel { background-color : #CCE5FF }")
+            count += 1
+
+    def initIntralabel(self):
+        self.labelIntralist = []
+        for i in range(1, 34, 1):
+            name = "intra_label_" + str(i)
+            label = self.ui.findChild(QLabel, name)
+            self.labelIntralist.append(label)
 
     def setIntraData(self):
-        self.part_intra
-        # For loop self.part_intra get
-        # set label
-        pass
+        textIntra = self.part_intra.getHistory()
+        count = 0
+        for i in self.labelIntralist:
+            i.setText(textIntra[count])
+            i.setStyleSheet("QLabel { background-color : #FFFFCC }")
+            count += 1
+
+    def initPostlabel(self):
+        self.labelPostlist = []
+        for i in range(1, 34, 1):
+            name = "post_label_" + str(i)
+            label = self.ui.findChild(QLabel, name)
+            self.labelPostlist.append(label)
 
     def setPostData(self):
-        self.part_post
-        # For loop self.part_post get
-        # set label
-        pass
+        textPost = self.part_post.getHistory()
+        count = 0
+        for i in self.labelPostlist:
+            i.setText(textPost[count])
+            i.setStyleSheet("QLabel { background-color : #FFCCCC }")
+            count += 1
 
 
     def cancel(self):
-        pass
+        dialog = ConfirmMsgClass.ConfirmYesNo()
+        if dialog.ans == True:
+            print("Discard")
+            self.close()
+        else:
+            print("Cancel")
 

@@ -44,7 +44,6 @@ DB_APPOINTMENT = "./Database/appointmentObject.pkl"
 SS_Button_EMCASE = "background-color: rgb(255, 0, 0); color: rgb(255, 255, 255)"
 SS_TabWidget = "QTabBar::tab { height: 35px; width: 100px; }"
 
-
 # ROOM CLASS
 """
 STATUS[0] = Free
@@ -66,6 +65,12 @@ class Status(Enum):
     doing = 1
     done = 2
 
+#Paitient
+class PatientStatus(Enum):
+    waitingPreReport = 0
+    waitingIntraReport = 1
+    waitingPostReport = 2
+    done = 3
 
 #User
 class Position(Enum):

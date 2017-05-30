@@ -43,12 +43,6 @@ class Tab3Appointment(QWidget):
         else:
             print("is None")
 
-    def edit3Report(self, case_id):
-        print(case_id)
-        dialog = Dialog_3ReportPatientClass.ReportPatient()
-        dialog.show()
-        dialog.exec_()
-
     def newAppointment(self):
         case_id = self.parent.getCurrentCaseID()
         dialog = Dialog_NewAppointmentClass.NewAppointmentDialog(self.user, case_id, self.parent)
@@ -56,6 +50,19 @@ class Tab3Appointment(QWidget):
         dialog.exec_()
         if dialog.returnVal:
             self.updateTable()
+
+    def edit3Report(self, case_id):
+        #find case by case_id
+        patient = self.parent.getPatientByCaseId(case_id)
+        if patient is not None:
+            dialog = Dialog_3ReportPatientClass.ReportPatient(case_id, patient)
+            dialog.show()
+            dialog.exec_()
+        else:
+            error = QErrorMessage()
+            error.showMessage("not Found patient by this case id")
+            error.setWindowTitle("Error!!!")
+            error.exec_()
 
 
 if __name__ == '__main__':
