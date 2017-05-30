@@ -4,8 +4,8 @@ from PySide.QtGui import *
 class ConfirmYesNo(QDialog):
     def __init__(self, title="Confirm", textInfo="", question="Do you want to discard your information?"):
         super(ConfirmYesNo, self).__init__(None)
+        self.setWindowTitle(title)
         msgBox = QMessageBox()
-        msgBox.setWindowTitle(title)
         msgBox.setText(textInfo)
         msgBox.setInformativeText(question)
         msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)

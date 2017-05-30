@@ -74,6 +74,11 @@ class Position(Enum):
     nurse = 2
     roommanager = 3
 
+class UserPosition(Enum):
+    doctor = 0
+    nurse = 1
+    admin = 2
+
 #Calendar
 class Month(Enum):
     Jan = 1
